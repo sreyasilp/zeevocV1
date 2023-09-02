@@ -120,11 +120,13 @@ class Header extends Component{
                                     </ul>
                                 </li>
                                 <li><Link to="/contact" >Contact</Link></li>
+                                <li><Link to="/login" >Login</Link></li>
+                                <li><Link to="/signup" >Sign Up</Link></li>
                             </ul>
                         </nav>
                         <div className="header-btn">
                             <a className="rn-btn" href="https://themeforest.net/checkout/from_item/25457315?license=regular">
-                                <span>buy now</span>
+                                <span>Sign Up</span>
                             </a>
                         </div>
                         {/* Start Humberger Menu  */}

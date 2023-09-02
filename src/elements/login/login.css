@@ -1,0 +1,5 @@
+.form-center {
+    display: grid;
+    place-items: center;
+    background: #000;
+}

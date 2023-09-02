@@ -33,17 +33,17 @@ class HeaderFour extends Component{
         const { logo, color , headerPosition } = this.props;
         let logoUrl;
         if(logo === 'light'){
-            logoUrl = <img src="/assets/images/logo/logo-light.png" alt="Trydo" />;
+            logoUrl = <img src="/assets/images/logo/logo-light.png" alt="Zeevoc" />;
         }else if(logo === 'dark'){
-            logoUrl = <img src="/assets/images/logo/logo-dark.png" alt="Trydo" />;
+            logoUrl = <img src="/assets/images/logo/logo-dark.png" alt="Zeevoc" />;
         }else if(logo === 'symbol-dark'){
-            logoUrl = <img src="/assets/images/logo/logo-symbol-dark.png" alt="Trydo" />;
+            logoUrl = <img src="/assets/images/logo/logo-symbol-dark.png" alt="Zeevoc" />;
         }else if(logo === 'all-dark'){
-            logoUrl = <img src="/assets/images/logo/logo-all-dark.png" alt="Trydo" />;
+            logoUrl = <img src="/assets/images/logo/logo-all-dark.png" alt="Zeevoc" />;
         } else if(logo === 'symbol-light'){
-            logoUrl = <img src="/assets/images/logo/logo-symbol-light.png" alt="Trydo" />;
+            logoUrl = <img src="/assets/images/logo/logo-symbol-light.png" alt="Zeevoc" />;
         }else{
-            logoUrl = <img src="/assets/images/logo/logo.png" alt="Trydo" />;
+            logoUrl = <img src="/assets/images/logo/logo.png" alt="Zeevoc" />;
         }
         
         return(

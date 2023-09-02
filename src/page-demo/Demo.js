@@ -45,7 +45,7 @@ const featureList = [
     {
         icon: <FiCode/>,
         title: 'Well Documented Codes',
-        subtitle: 'The Trydo code is awesome well documented code. And Its customization is very easily'
+        subtitle: 'The Zeevoc code is awesome well documented code. And Its customization is very easily'
     },
     {
         icon: <FaSass/>,
@@ -55,12 +55,12 @@ const featureList = [
     {
         icon: <FiDownload/>,
         title: 'Fast Loading Speed',
-        subtitle: 'Trydo is faster loading speed.Trydo create your theme so much faster '
+        subtitle: 'Zeevoc is faster loading speed.Zeevoc create your theme so much faster '
     },
     {
         icon: <FiCommand/>,
         title: 'Modern Design',
-        subtitle: 'Trydo is a modern creatuve design for Creative Agency , Personal Portfolio etc....'
+        subtitle: 'Zeevoc is a modern creatuve design for Creative Agency , Personal Portfolio etc....'
     },
     {
         icon: <FiHeadphones/>,
@@ -70,7 +70,7 @@ const featureList = [
     {
         icon: <FiBold/>,
         title: 'Bootstrap Comfortable',
-        subtitle: 'Bootstrap comfortable is available in trydo. So layout changes is so much easily'
+        subtitle: 'Bootstrap comfortable is available in Zeevoc. So layout changes is so much easily'
     }
 ]
 
@@ -567,10 +567,10 @@ class Demo extends Component {
                                     <div className="inner">
                                         <div className="logo text-left">
                                             <a href="/">
-                                                <img src="/assets/images/logo/logo-all-dark.png" alt="Trydo Images"/>
+                                                <img src="/assets/images/logo/logo-all-dark.png" alt="Zeevoc Images"/>
                                             </a>
                                         </div>
-                                        <p className="title">Welcome to TryDO React Creative Agency, React Portfolio and Corporate Multi Purpose Template Built With React JS. NO jQuery!</p>
+                                        <p className="title">Welcome to Zeevoc React Creative Agency, React Portfolio and Corporate Multi Purpose Template Built With React JS. NO jQuery!</p>
                                         <div className="purshase-btn">
                                             <a href="https://themeforest.net/checkout/from_item/25457315?license=regular" target="_blank" className="rn-button-style--2 btn-solid">BUY Now</a>
                                             <a href="#demo" className="rn-button-style--2 btn-border rn-btn-dark border-opacity-half">View Demos</a>
@@ -766,7 +766,7 @@ class Demo extends Component {
                                 <div className="col-lg-12">
                                     <div className="section-title text-center pb--30 pb_sm--0 pb_md--0">
                                         <h2 className="theme-gradient"><span>Awesome Feature</span></h2>
-                                        <p className="text-white">Trydo are designed for everyone. It doesn’t matter if you’re a React <br />Guru
+                                        <p className="text-white">Zeevoc are designed for everyone. It doesn’t matter if you’re a React <br />Guru
                                         or just a complete beginner.</p>
                                     </div>
                                 </div>
@@ -800,8 +800,8 @@ class Demo extends Component {
                                 
                                 <div className="col-lg-6 col-md-12 col-12">
                                     <div className="inner">
-                                        <h2 className="title">Trydo <br />Performance</h2>
-                                        <p>Trydo Page speed is so faster and takes byte times for load each page.
+                                        <h2 className="title">Zeevoc <br />Performance</h2>
+                                        <p>Zeevoc Page speed is so faster and takes byte times for load each page.
                                             It's is very easy to use, loads faster and provides better performance for your
                                             wedsite.</p>
                                     </div>
@@ -847,8 +847,8 @@ class Demo extends Component {
                                 <div className="col-lg-12 col-xl-6 offset-xl-6">
                                     <div className="inner">
                                         <div className="section-title">
-                                            <h2 className="title theme-gradient">Trydo works perfectly on any device.</h2>
-                                            <p>Trydo site works seamlessly on any device without a single compromise, will
+                                            <h2 className="title theme-gradient">Zeevoc works perfectly on any device.</h2>
+                                            <p>Zeevoc site works seamlessly on any device without a single compromise, will
                                                 always looks cool and great on any
                                                 mobile device or browsers. Its easily adapt your content for mobile, tablet
                                                 and so on.</p>
@@ -896,22 +896,22 @@ class Demo extends Component {
                                             <AccordionItem >
                                                 <AccordionItemHeading>
                                                     <AccordionItemButton>
-                                                        1. What is tryDo ? How does it work?
+                                                        1. What is Zeevoc ? How does it work?
                                                     </AccordionItemButton>
                                                 </AccordionItemHeading>
                                                 <AccordionItemPanel>
-                                                    <p>Welcome to TryDO React Creative Agency, React Portfolio and Corporate Multi Purpose Template Built With React JS. NO jQuery!. It works too much faster loading speed and you can works too much comfortability.Trydo create your website so much faster, use to use and Well Documented Codes for your customization.</p>
+                                                    <p>Welcome to Zeevoc React Creative Agency, React Portfolio and Corporate Multi Purpose Template Built With React JS. NO jQuery!. It works too much faster loading speed and you can works too much comfortability.Zeevoc create your website so much faster, use to use and Well Documented Codes for your customization.</p>
                                                 </AccordionItemPanel>
                                             </AccordionItem>
 
                                             <AccordionItem>
                                                 <AccordionItemHeading>
                                                     <AccordionItemButton>
-                                                        2. How can I run trydo react template?
+                                                        2. How can I run Zeevoc react template?
                                                     </AccordionItemButton>
                                                 </AccordionItemHeading>
                                                 <AccordionItemPanel>
-                                                    <p>You can run trydo easily.
+                                                    <p>You can run Zeevoc easily.
                                                     First You'll need to have node and npm on your machine.
                                                     So Please open your command prompt then check your node -v and npm -v Version.
                                                     Goes To Your your command prompt: then
@@ -958,7 +958,7 @@ class Demo extends Component {
                                                 </AccordionItemHeading>
                                                 <AccordionItemPanel>
                                                     <p>
-                                                        Yes, We will get update the Trydo. And you can get it any time. Next time we will comes with more feature.
+                                                        Yes, We will get update the Zeevoc. And you can get it any time. Next time we will comes with more feature.
                                                         You can be get update for unlimited times. Our dedicated team works for update.
                                                     </p>
                                                 </AccordionItemPanel>
@@ -1037,8 +1037,8 @@ class Demo extends Component {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="section-title text-center text-white">
-                                    <h2 className="title theme-gradient">Say Hello To <br />Trydo Elements</h2>
-                                    <p className="text-white">Our Fantastic Trydo Template Elements</p>
+                                    <h2 className="title theme-gradient">Say Hello To <br />Zeevoc Elements</h2>
+                                    <p className="text-white">Our Fantastic Zeevoc Template Elements</p>
                                 </div>
                             </div>
                         </div>
@@ -1329,7 +1329,7 @@ class Demo extends Component {
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="inner text-center">
-                                        <span>Purchase The TryDo and Make Your Site super faster and easy.</span>
+                                        <span>Purchase The Zeevoc and Make Your Site super faster and easy.</span>
                                         <h2>Let's go to Purchase</h2>
                                         <a className="rn-button-style--2" target="_blank" href="https://themeforest.net/checkout/from_item/25457315?license=regular"><span>Purchase Now</span></a>
                                     </div>

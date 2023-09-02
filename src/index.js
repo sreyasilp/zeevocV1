@@ -58,6 +58,8 @@ import Columns from "./blocks/Columns";
 import PricingTable from "./blocks/PricingTable";
 import { BrowserRouter, Switch, Route  } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+import Login from './elements/Login';
+import SignUp from './elements/SignUp';
 
 class Root extends Component{
     render(){
@@ -91,6 +93,8 @@ class Root extends Component{
                         <Route exact path={`${process.env.PUBLIC_URL}/service`} component={Service}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/service-details`} component={ServiceDetails}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact}/>
+                        <Route exact path={`${process.env.PUBLIC_URL}/login`} component={Login}/>
+                        <Route exact path={`${process.env.PUBLIC_URL}/signup`} component={SignUp}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/about`} component={About}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/portfolio-details`} component={PortfolioDetails}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/blog`} component={Blog}/>
