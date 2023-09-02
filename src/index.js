@@ -123,4 +123,4 @@ class Root extends Component{
 }
 
 ReactDOM.render(<Root/>, document.getElementById('root'));
-serviceWorker.register();
+// serviceWorker.register();
