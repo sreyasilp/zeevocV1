@@ -82,14 +82,12 @@
     "webpack": "4.29.6",
     "webpack-dev-server": "3.2.1",
     "webpack-manifest-plugin": "2.0.4",
-    "workbox-webpack-plugin": "4.2.0",
-    "react-scripts": "^5.0.1"
+    "workbox-webpack-plugin": "4.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js"
   },
   "eslintConfig": {
     "extends": "react-app"
