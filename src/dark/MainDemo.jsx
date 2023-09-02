@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { Component , Fragment } from "react";
 import ScrollToTop from 'react-scroll-up';
 import { FiChevronUp } from "react-icons/fi";
 import Header from "../component/header/Header";
 import Footer from "../component/footer/Footer";
-
+import Slider from "react-slick";
+import { slideSlick } from "../page-demo/script";
 import SliderOne from "../component/slider/SliderOne";
 import ServiceTwo from "../elements/service/ServiceTwo";
 import CounterOne from "../elements/counters/CounterOne";
@@ -13,26 +14,148 @@ import Portfolio from "../component/HomeLayout/homeOne/Portfolio";
 import BlogContent from "../elements/blog/BlogContent";
 import BrandTwo from "../elements/BrandTwo";
 import Helmet from "../component/common/Helmet";
+import ModalVideo from 'react-modal-video';
+import { FiCheck } from "react-icons/fi";
+import PortfolioList from "../elements/portfolio/PortfolioList";
+import Team from "../elements/Team";
+
+const SlideList = [
+    {
+        textPosition: 'text-left',
+        bgImage: 'bg_image--17',
+        category: '',
+        title: 'Grow business.',
+        description: 'There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration.',
+        buttonText: 'Contact Us',
+        buttonLink: '/contact'
+    },
+    {
+        textPosition: 'text-left',
+        bgImage: 'bg_image--18',
+        category: '',
+        title: 'Development.',
+        description: 'There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration.',
+        buttonText: 'Contact Us',
+        buttonLink: '/contact'
+    },
+    {
+        textPosition: 'text-left',
+        bgImage: 'bg_image--19',
+        category: '',
+        title: 'Marketing.',
+        description: 'There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration.',
+        buttonText: 'Contact Us',
+        buttonLink: '/contact'
+    }
+]
 
 class MainDemo extends Component{
+    constructor (props) {
+        super(props)
+        this.state = {
+            isOpen: false
+        }
+        this.openModal = this.openModal.bind(this);
+    }
+    openModal () {
+        this.setState({isOpen: true})
+    }
     render(){
+        var namesItemOne = [
+            'The Philosophy Of business analytics',
+            'Fast-Track Your business',
+            'Lies And Damn Lies About business',
+            'The Ultimate Deal On business',
+        ];
+        var namesItemTwo = [
+            'Proof That business Really Works',
+            'Here Is What You Should Do For Your business',
+            'The Hidden Mystery Behind business',
+        ];
         const PostList = BlogContent.slice(0 , 3);
         return(
-            <div className="active-dark"> 
+            <Fragment> 
                 <Helmet pageTitle="Main Demo Dark" />
                 <Header headertransparent="header--transparent" colorblack="color--black" logoname="logo.png" />
 
+                   {/* Start Slider Area   */}
+                   <div className="slider-wrapper">
+                    <div className="slider-activation">
+                        <Slider className="rn-slick-dot dot-light" {...slideSlick}>
+                            {SlideList.map((value , index) => (
+                                <div className={`slide slide-style-2 d-flex align-items-center justify-content-center bg_image ${value.bgImage}`} key={index} data-black-overlay="8">
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col-lg-12">
+                                                <div className={`inner ${value.textPosition}`}>
+                                                    {value.category ? <span>{value.category}</span> : ''}
+                                                    {value.title ? <h1 className="title">{value.title}</h1> : ''}
+                                                    {value.description ? <p className="description">{value.description}</p> : ''}
+                                                    {value.buttonText ? <div className="slide-btn"><a className="rn-button-style--2 btn-solid" href={`${value.buttonLink}`}>{value.buttonText}</a></div> : ''}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </Slider>
+                    </div>
+                </div>
+                {/* End Slider Area   */}
+
                 {/* Start Slider Area   */}
+            <div className="active-dark"> 
+                
                 <div className="slider-wrapper">
                     <SliderOne />
                 </div>
                 {/* End Slider Area   */}
 
                 {/* Start About Area */}
-                <div className="about-area about-position-top pb--120 bg_color--1">
+                {/* <div className="about-area about-position-top pb--120 bg_color--1">
                     <About />
-                </div>
+                </div> */}
                 {/* End About Area */}
+
+                {/* Start About Area  */}
+                <div className="rn-about-area ptb--120 bg_color--1">
+                    <div className="container">
+                        <div className="row row--35 align-items-center">
+                            <div className="col-lg-6 order-2 order-lg-1">
+                                <div className="about-inner inner">
+                                    <div className="section-title">
+                                        <h2 className="title">About</h2>
+                                        <p className="description">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.</p>
+                                    </div>
+                                    <div className="mt--30">
+                                        <h4>Lorem ipsum dolor sit.</h4>
+                                        <ul className="list-style--1">
+                                            {namesItemOne.map((name, index) => {
+                                                return <li key={ index }><FiCheck /> {name}</li>;
+                                            })}
+                                        </ul>
+                                    </div>
+                                    <div className="mt--30">
+                                        <h4>Lorem ipsum dolor sit.</h4>
+                                        <ul className="list-style--1">
+                                            {namesItemTwo.map((name, index) => {
+                                                return <li key={ index }><FiCheck /> {name}</li>;
+                                            })}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-lg-6 order-1 order-lg-2">
+                                <div className="thumbnail position-relative">
+                                    <img className="w-100" src="/assets/images/about/about-3.png" alt="About Images"/>
+                                    <ModalVideo channel='youtube' isOpen={this.state.isOpen} videoId='ZOoVOfieAF8' onClose={() => this.setState({isOpen: false})} />
+                                    <button className="video-popup position-top-center theme-color" onClick={this.openModal}><span className="play-icon"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* End About Area  */}
 
                 {/* Start Service Area  */}
                 <div className="service-area ptb--80  bg_image bg_image--3">
@@ -49,6 +172,52 @@ class MainDemo extends Component{
                     </div>
                 </div>
                 {/* End Portfolio Area */}
+
+                
+                {/* Start Portfolio Area */}
+                <div className="portfolio-area ptb--120 bg_color--5">
+                    <div className="portfolio-sacousel-inner">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-12">
+                                    <div className="section-title text-center service-style--3 mb--30 mb_sm--0">
+                                        <h2 className="title">Our Project</h2>
+                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <PortfolioList styevariation="text-left mt--40" column="col-lg-4 col-md-6 col-sm-6 col-12" item="6" />
+                            </div>
+                            <div className="row">
+                                <div className="col-lg-12">
+                                    <div className="view-more-btn mt--60 text-center">
+                                        <a className="rn-button-style--2 btn-solid" href="/portfolio"><span>View More Project</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* End Portfolio Area */}
+
+                {/* Start Team Area  */}
+                <div className="rn-team-area ptb--120 bg_color--1">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <div className="section-title service-style--3 text-center mb--25 mb_sm--0">
+                                    <h2 className="title">Skilled Team</h2>
+                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <Team column="col-lg-4 col-md-6 col-sm-6 col-12" />
+                        </div>
+                    </div>
+                </div>
+                {/* End Team Area  */}
 
                 {/* Start CounterUp Area */}
                 <div className="rn-counterup-area pt--25 pb--110 bg_color--1">
@@ -135,6 +304,8 @@ class MainDemo extends Component{
                 <Footer />
                 
             </div>
+            </Fragment> 
+
         )
     }
 }
