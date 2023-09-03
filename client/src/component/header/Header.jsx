@@ -126,14 +126,15 @@ class Header extends Component{
                                 <li><Link to="/contact" >Contact</Link></li>
                                 <li><Link to="/about" >About</Link></li>
                                 <li><Link to="/login" >Login</Link></li>
+                                <li><Link to="/signup" >Sign Up</Link></li>
                                 {/* <li><Link to="/signup" >Sign Up</Link></li> */}
                             </ul>
                         </nav>
-                        <div className="header-btn">
+                        {/* <div className="header-btn">
                             <a className="rn-btn" href="/signup">
                                 <span>Sign Up</span>
                             </a>
-                        </div>
+                        </div> */}
                         {/* Start Humberger Menu  */}
                         <div className="humberger-menu d-block d-lg-none pl--20">
                             <span onClick={this.menuTrigger} className="menutrigger text-white"><FiMenu /></span>
