@@ -11,7 +11,7 @@ const Login = () => {
   return (
     <>
       <div className="active-dark">
-        <PageHelmet pageTitle="Contact Form" />
+        <PageHelmet pageTitle="Login" />
 
         {/* Start Header Area  */}
         <Header
@@ -22,7 +22,7 @@ const Login = () => {
         {/* End Header Area  */}
 
         {/* Start Breadcrump Area */}
-        <BreadcrumbLogin title={"Contact Form"} />
+        <BreadcrumbLogin title={"Login"} />
         {/* End Breadcrump Area */}
 
         {/* Start Page Wrapper  */}

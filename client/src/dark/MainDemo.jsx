@@ -75,7 +75,7 @@ class MainDemo extends Component{
         const PostList = BlogContent.slice(0 , 3);
         return(
             <Fragment> 
-                <Helmet pageTitle="Main Demo Dark" />
+                <Helmet pageTitle="Zeevoc" />
                 <Header headertransparent="header--transparent" colorblack="color--black" logoname="logo.png" />
 
                    {/* Start Slider Area   */}
