@@ -166,16 +166,16 @@ class MainDemo extends Component{
                 {/* End Service Area  */}
 
                 {/* Start Portfolio Area */}
-                <div className="portfolio-area ptb--120 bg_color--1">
+                {/* <div className="portfolio-area ptb--120 bg_color--1">
                     <div className="portfolio-sacousel-inner mb--55">
                         <Portfolio />
                     </div>
-                </div>
+                </div> */}
                 {/* End Portfolio Area */}
 
                 
                 {/* Start Portfolio Area */}
-                <div className="portfolio-area ptb--120 bg_color--5">
+                {/* <div className="portfolio-area ptb--120 bg_color--5">
                     <div className="portfolio-sacousel-inner">
                         <div className="container">
                             <div className="row">
@@ -198,11 +198,11 @@ class MainDemo extends Component{
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 {/* End Portfolio Area */}
 
                 {/* Start Team Area  */}
-                <div className="rn-team-area ptb--120 bg_color--1">
+                {/* <div className="rn-team-area ptb--120 bg_color--1">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
@@ -216,11 +216,11 @@ class MainDemo extends Component{
                             <Team column="col-lg-4 col-md-6 col-sm-6 col-12" />
                         </div>
                     </div>
-                </div>
+                </div> */}
                 {/* End Team Area  */}
 
                 {/* Start CounterUp Area */}
-                <div className="rn-counterup-area pt--25 pb--110 bg_color--1">
+                {/* <div className="rn-counterup-area pt--25 pb--110 bg_color--1">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
@@ -231,15 +231,15 @@ class MainDemo extends Component{
                         </div>
                         <CounterOne />
                     </div>
-                </div>
+                </div> */}
                 {/* End CounterUp Area */}
 
                 {/* Start Testimonial Area */}
-                <div className="rn-testimonial-area bg_color--5 ptb--120">
+                {/* <div className="rn-testimonial-area bg_color--5 ptb--120">
                     <div className="container">
                         <Testimonial />
                     </div>
-                </div>
+                </div> */}
                 {/* End Testimonial Area */}
 
                 {/* Start Blog Area */}
@@ -283,7 +283,7 @@ class MainDemo extends Component{
                 {/* End Blog Area */}
 
                 {/* Start Brand Area */}
-                <div className="rn-brand-area brand-separation pb--120">
+                {/* <div className="rn-brand-area brand-separation pb--120">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
@@ -291,7 +291,7 @@ class MainDemo extends Component{
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 {/* End Brand Area */}
                 {/* Start Back To Top */}
                 <div className="backto-top">
