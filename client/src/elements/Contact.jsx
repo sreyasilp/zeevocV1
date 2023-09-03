@@ -6,6 +6,7 @@ import ContactTwo from "../elements/contact/ContactTwo";
 import BrandTwo from "../elements/BrandTwo";
 import ScrollToTop from 'react-scroll-up';
 import { FiChevronUp } from "react-icons/fi";
+import Breadcrumb from "../elements/common/Breadcrumb";
 import Header from "../component/header/Header";
 import Footer from "../component/footer/Footer";
 
@@ -27,19 +28,23 @@ class Contact extends Component{
 
                 <Header headertransparent="header--transparent" colorblack="color--black" logoname="logo.png" />
 
-                 {/* Start Breadcrump Area */}
-                 <div className="rn-page-title-area pt--120 pb--190 bg_image bg_image--17"  data-black-overlay="6">
+                 {/* Start Breadcrump Area With Bg Image */}
+                 {/* <div className="rn-page-title-area pt--120 pb--190 bg_image bg_image--17"  data-black-overlay="6">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="rn-page-title text-center pt--100">
-                                    <h2 className="title theme-gradient">Cntact With Us</h2>
+                                    <h2 className="title theme-gradient">Contact With Us</h2>
                                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
+                {/* End Breadcrump Area */}
+
+                 {/* Start Breadcrump Area */}
+                 <Breadcrumb title={'Contact Us'}   />
                 {/* End Breadcrump Area */}
 
 
