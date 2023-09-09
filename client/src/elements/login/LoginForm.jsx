@@ -7,7 +7,7 @@ import { ToastContainer } from "react-toastify";
 import { useHistory } from "react-router-dom";
 
 function LoginForm() {
-  const navigate = useHistory();
+  const history = useHistory();
   const timeout = 1200;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,10 +33,14 @@ function LoginForm() {
         email: email,
         password: password,
       });
+        // Store the token in local storage
+      localStorage.setItem('token', response.data.token);
+      setTimeout(function () {
+        showToastMessage("Logged in successfully!", false);
+      }, 3000);
 
-      showToastMessage("Logged in successfully!", false);
       // Navigate to the '/' page
-      navigate("/signup");
+      history.push("/");
     } catch (error) {
       // Handle error
       showToastMessage(error.response.data.message, true);
