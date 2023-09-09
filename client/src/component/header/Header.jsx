@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FiX, FiMenu } from "react-icons/fi";
 
 const Header = (props) => {
     // State to hold the token
     const [token, setToken] = useState(localStorage.getItem('token'));
+    const location = useLocation();
 
     // Effect to update the token in state when it changes in local storage
     useEffect(() => {
@@ -128,8 +129,8 @@ const Header = (props) => {
                             <li><Link to="/portfolio" >Portfolio</Link></li>
                             <li><Link to="/contact" >Contact</Link></li>
                             <li><Link to="/about" >About</Link></li>
-                            {!localStorage.getItem('token') && <li><Link to="/login" >Login</Link></li>}
-                            {!localStorage.getItem('token') && <li><Link to="/signup" >Sign Up</Link></li>}
+                            {(location.pathname !== '/login' && !token) && <li><Link to="/login">Login</Link></li>}
+                            {(location.pathname !== '/signup' && !token) && <li><Link to="/signup">Sign Up</Link></li>}
                             {token && <li onClick={logout} > <Link >Logout</Link></li>}
                             {/* <li><Link to="/signup" >Sign Up</Link></li> */}
                             {/* <li><Link to="/signup" >Sign Up</Link></li> */}
