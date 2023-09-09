@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import productsRoute from "./routes/products.js";
 import usersRoute from "./routes/user.js";
+import blogPost from "./routes/blogPosts.js";
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors());
 
 app.use("/product", productsRoute);
 app.use("/user", usersRoute);
+app.use("/blog", blogPost);
 
 const MONOGO_DB_CONN_URL =
   "mongodb+srv://code416:code416@code416.yzuornt.mongodb.net/?retryWrites=true&w=majority";

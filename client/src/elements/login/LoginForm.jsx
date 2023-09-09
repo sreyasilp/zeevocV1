@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Background } from "react-parallax";
+// import { Background } from "react-parallax";
 import { signIn } from "../../api/index.js"; // Import the signIn function from your API file
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import { useHistory } from "react-router-dom";
+import { useHistory ,Link} from "react-router-dom";
 
 function LoginForm() {
   const history = useHistory();
@@ -88,13 +88,16 @@ function LoginForm() {
                 >
                   Submit
                 </button>
+                <p style={{ color: 'white' }}>
+                Not a Member? <Link to="/signup">Sign Up</Link>
+              </p>
               </form>
             </div>
           </div>
           {/* <div className="col-lg-6 order-1 order-lg-2">
                      <div className="thumbnail mb_md--30 mb_sm--30">
                          <img src={`${this.props.contactImages}`} alt="Zeevoc"/>
-                     </div>
+                    </div>
                  </div> */}
         </div>
       </div>
