@@ -78,8 +78,8 @@ class MainDemo extends Component{
                 <Helmet pageTitle="Zeevoc Enterprise" />
                 <Header headertransparent="header--transparent" colorblack="color--black" logoname="logo.png" />
 
-                   {/* Start Slider Area   */}
-                   <div className="slider-wrapper">
+                   {/* Start Slider Area  un comment for slider  */}
+                   {/* <div className="slider-wrapper">
                     <div className="slider-activation">
                         <Slider className="rn-slick-dot dot-light" {...slideSlick}>
                             {SlideList.map((value , index) => (
@@ -100,7 +100,7 @@ class MainDemo extends Component{
                             ))}
                         </Slider>
                     </div>
-                </div>
+                </div> */}
                 {/* End Slider Area   */}
 
                 {/* Start Slider Area   */}

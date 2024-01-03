@@ -3,7 +3,7 @@ import React, { Component } from "react";
 const ServiceList = [
     {
         icon: '01',
-        title: 'Business Stratagy',
+        title: 'E-Commerce',
         description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered.'
     },
     {
@@ -13,7 +13,7 @@ const ServiceList = [
     },
     {
         icon: '03',
-        title: 'Marketing & Reporting',
+        title: 'Adobe Commerce Extensions',
         description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered.'
     },
 ]
