@@ -79,7 +79,7 @@ class MainDemo extends Component{
                 <Header headertransparent="header--transparent" colorblack="color--black" logoname="logo.png" />
 
                    {/* Start Slider Area  un comment for slider  */}
-                   <div className="slider-wrapper">
+                   {/* <div className="slider-wrapper">
                     <div className="slider-activation">
                         <Slider className="rn-slick-dot dot-light" {...slideSlick}>
                             {SlideList.map((value , index) => (
@@ -99,7 +99,7 @@ class MainDemo extends Component{
                                 </div>
                             ))}
                         </Slider>
-                    </div>
+                    </div> */}
                 </div>
                 {/* End Slider Area   */}
 
