@@ -24,7 +24,7 @@ const SlideList = [
         textPosition: 'text-left',
         bgImage: 'bg_image--17',
         category: '',
-        title: 'Grow business.',
+        title: 'Grow busine.',
         description: 'There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration.',
         buttonText: 'Contact Us',
         buttonLink: '/contact'
@@ -79,7 +79,7 @@ class MainDemo extends Component{
                 <Header headertransparent="header--transparent" colorblack="color--black" logoname="logo.png" />
 
                    {/* Start Slider Area  un comment for slider  */}
-                   {/* <div className="slider-wrapper">
+                   <div className="slider-wrapper">
                     <div className="slider-activation">
                         <Slider className="rn-slick-dot dot-light" {...slideSlick}>
                             {SlideList.map((value , index) => (
@@ -100,7 +100,7 @@ class MainDemo extends Component{
                             ))}
                         </Slider>
                     </div>
-                </div> */}
+                </div>
                 {/* End Slider Area   */}
 
                 {/* Start Slider Area   */}
