@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "https//:zeevoc.com/static/css/main.5115d8fb.chunk.css",
+    "main.js": "https//:zeevoc.com/static/js/main.6ce384e8.chunk.js",
+    "main.js.map": "https//:zeevoc.com/static/js/main.6ce384e8.chunk.js.map",
+    "runtime~main.js": "https//:zeevoc.com/static/js/runtime~main.7630a4e8.js",
+    "runtime~main.js.map": "https//:zeevoc.com/static/js/runtime~main.7630a4e8.js.map",
+    "static/css/2.32d5bab5.chunk.css": "https//:zeevoc.com/static/css/2.32d5bab5.chunk.css",
+    "static/js/2.a2c80220.chunk.js": "https//:zeevoc.com/static/js/2.a2c80220.chunk.js",
+    "static/js/2.a2c80220.chunk.js.map": "https//:zeevoc.com/static/js/2.a2c80220.chunk.js.map",
+    "static/js/3.dca874c7.chunk.js": "https//:zeevoc.com/static/js/3.dca874c7.chunk.js",
+    "static/js/3.dca874c7.chunk.js.map": "https//:zeevoc.com/static/js/3.dca874c7.chunk.js.map",
+    "index.html": "https//:zeevoc.com/index.html",
+    "precache-manifest.b8b0c9145557d6fa55090e836de27a62.js": "https//:zeevoc.com/precache-manifest.b8b0c9145557d6fa55090e836de27a62.js",
+    "service-worker.js": "https//:zeevoc.com/service-worker.js",
+    "static/css/2.32d5bab5.chunk.css.map": "https//:zeevoc.com/static/css/2.32d5bab5.chunk.css.map",
+    "static/css/main.5115d8fb.chunk.css.map": "https//:zeevoc.com/static/css/main.5115d8fb.chunk.css.map",
+    "static/media/index.scss": "https//:zeevoc.com/static/media/slick.f97e3bbf.svg"
+  }
+}
