@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "474a1a23c43a6502925dd909cce5d4c0",
+    "revision": "f250d46b71d8b2ca687f8f63e4698498",
     "url": "https//:zeevoc.com/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https//:zeevoc.com/static/css/2.32d5bab5.chunk.css"
   },
   {
-    "revision": "fac4ea98e4b42b6d856a",
+    "revision": "824b26f16fb4c81ea480",
     "url": "https//:zeevoc.com/static/css/main.5115d8fb.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https//:zeevoc.com/static/js/3.dca874c7.chunk.js"
   },
   {
-    "revision": "fac4ea98e4b42b6d856a",
-    "url": "https//:zeevoc.com/static/js/main.4e049c8e.chunk.js"
+    "revision": "824b26f16fb4c81ea480",
+    "url": "https//:zeevoc.com/static/js/main.c1412734.chunk.js"
   },
   {
     "revision": "6a5dc89ac519960bf4cc",
