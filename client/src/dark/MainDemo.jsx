@@ -99,8 +99,8 @@ class MainDemo extends Component{
                                 </div>
                             ))}
                         </Slider>
-                    </div> */}
-                </div>
+                    </div>
+                </div> */}
                 {/* End Slider Area   */}
 
                 {/* Start Slider Area   */}
