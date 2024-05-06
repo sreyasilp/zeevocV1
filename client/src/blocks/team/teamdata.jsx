@@ -23,7 +23,7 @@ let data = [
     },
     {
         images: '02',
-        title: 'Jibymol Joseph',
+        title: 'Elizabeth',
         designation: 'Sr. Frontend Developer',
         socialNetwork: [
             {
@@ -61,8 +61,8 @@ let data = [
     },
     {
         images: '04',
-        title: 'Srihari',
-        designation: 'Electrical Project Manager',
+        title: 'Rahul C R',
+        designation: 'Civil CAD Designer',
         socialNetwork: [
             {
                 icon: <FaFacebookF />,
