@@ -5,6 +5,7 @@ import cors from "cors";
 import productsRoute from "./routes/products.js";
 import usersRoute from "./routes/user.js";
 import blogPost from "./routes/blogPosts.js";
+import services from "./routes/services.js";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(cors());
 app.use("/product", productsRoute);
 app.use("/user", usersRoute);
 app.use("/blog", blogPost);
+app.use("/service", services);
 
 const MONOGO_DB_CONN_URL =
   "mongodb+srv://code416:code416@code416.yzuornt.mongodb.net/?retryWrites=true&w=majority";

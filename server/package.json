@@ -11,16 +11,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "express-graphql": "^0.12.0",
-    "graphql": "^16.6.0",
-    "graphql-http": "^1.18.0",
-    "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.0.4",
-    "nodemon": "^2.0.22",
-    "react-scripts": "5.0.1"
+    "bcryptjs": "latest",
+    "body-parser": "latest",
+    "cors": "latest",
+    "express": "latest",
+    "express-graphql": "latest",
+    "graphql": "latest",
+    "jsonwebtoken": "latest",
+    "mongoose": "latest",
+    "nodemon": "latest",
+    "react-scripts": "latest"
   }
 }

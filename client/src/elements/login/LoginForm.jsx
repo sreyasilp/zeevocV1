@@ -4,11 +4,10 @@ import { signIn } from "../../api/index.js"; // Import the signIn function from 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import { useHistory ,Link} from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 function LoginForm() {
   const history = useHistory();
-  const timeout = 1200;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -33,7 +32,7 @@ function LoginForm() {
         email: email,
         password: password,
       });
-        // Store the token in local storage
+      // Store the token in local storage
       localStorage.setItem('token', response.data.token);
       setTimeout(function () {
         showToastMessage("Logged in successfully!", false);
@@ -55,7 +54,7 @@ function LoginForm() {
           <div className="col-lg-6 order-2 order-lg-1">
             <div className="section-title text-left mb--50">
               <h2 className="title">Login</h2>
-              <p className="description">Login to explore more </p>
+              <p className="description">Login to explore more!! </p>
             </div>
             <div className="form-wrapper">
               <form onSubmit={handleSubmit}>
@@ -79,6 +78,9 @@ function LoginForm() {
                     placeholder="Password"
                   />
                 </label>
+                <p style={{ color: 'black', marginTop: '0px' }}>
+                  Not a Member ? <Link to="/signup" style={{ color: "#f9004d", fontWeight: 'bold' }}>Sign Up</Link>
+                </p>
                 <button
                   className="rn-button-style--2 btn-solid"
                   type="submit"
@@ -88,9 +90,8 @@ function LoginForm() {
                 >
                   Submit
                 </button>
-                <p style={{ color: 'white' }}>
-                Not a Member? <Link to="/signup">Sign Up</Link>
-              </p>
+                
+
               </form>
             </div>
           </div>

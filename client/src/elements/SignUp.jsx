@@ -10,7 +10,7 @@ import SignUpForm from "./signup/SignUpForm";
 const SignUp = () => {
   return (
     <>
-      <div className="active-dark">
+      <div className="active-white">
         <PageHelmet pageTitle="Sign Up" />
 
         {/* Start Header Area  */}

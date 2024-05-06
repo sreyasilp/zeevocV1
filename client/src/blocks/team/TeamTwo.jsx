@@ -1,5 +1,5 @@
 import React from 'react'
-import data from "./data";
+import data from "./teamdata";
 const TeamTwo = (props) => {
     const itemSlice = data.slice(0 , props.item)
     return (

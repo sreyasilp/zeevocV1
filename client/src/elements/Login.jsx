@@ -10,7 +10,7 @@ import LoginForm from "./login/LoginForm";
 const Login = () => {
   return (
     <>
-      <div className="active-dark">
+      <div className="active-white">
         <PageHelmet pageTitle="Login" />
 
         {/* Start Header Area  */}

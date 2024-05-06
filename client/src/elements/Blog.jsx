@@ -12,7 +12,7 @@ class Blog extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="active-dark">
+        <div className="active-white">
           <PageHelmet pageTitle="Blog" />
 
           <Header
@@ -28,13 +28,11 @@ class Blog extends Component {
           <div className="rn-blog-area ptb--120 bg_color--1">
             <div className="container">
               <BlogList />
-              <div className="row mt--20">
+              {/* <div className="row mt--20">
                 <div className="col-lg-12">
-                  {/* Start Pagination Area */}
                   <Pagination />
-                  {/* End Pagination Area */}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           {/* End Blog Area */}

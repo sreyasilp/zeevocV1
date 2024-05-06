@@ -46,7 +46,7 @@ class Portfolio extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="active-dark">
+        <div className="active-white">
           <PageHelmet pageTitle="Portfolio" />
           <Header
             headertransparent="header--transparent"

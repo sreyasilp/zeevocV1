@@ -196,7 +196,7 @@ class TabStyleThree extends Component {
         return (
             <div>
                 <Tabs>
-                    <div className="row text-center">
+                    {/* <div className="row text-center">
                         <div className="col-lg-12">
                             <div className="tablist-inner">
                                 <TabList className="pv-tab-button text-center mt--0">
@@ -207,7 +207,7 @@ class TabStyleThree extends Component {
                                 </TabList>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     <TabPanel className="row row--35">
                         {TabOne.map((value , index) => (

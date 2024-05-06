@@ -7,7 +7,7 @@ class PageHelmet extends Component{
             <React.Fragment>
                 <Helmet>
                     <title>{this.props.pageTitle} </title>
-                    <meta name="description" content="Zeevoc.com." />
+                    <meta name="description" content="zeevoc.com." />
                 </Helmet>
             </React.Fragment>
         )

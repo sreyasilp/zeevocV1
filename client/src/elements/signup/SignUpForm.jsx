@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Background } from "react-parallax";
 import { signUp } from "../../api/index.js"; // Import the signUp function from your API file
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
