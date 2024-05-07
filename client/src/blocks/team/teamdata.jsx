@@ -23,7 +23,7 @@ let data = [
     },
     {
         images: '02',
-        title: 'Elizabeth',
+        title: 'Elizabeth. J',
         designation: 'Sr. Frontend Developer',
         socialNetwork: [
             {
