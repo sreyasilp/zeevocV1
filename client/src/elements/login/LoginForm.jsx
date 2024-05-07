@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-// import { Background } from "react-parallax";
 import { signIn } from "../../api/index.js"; // Import the signIn function from your API file
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { useHistory, Link } from "react-router-dom";
+import { GoogleLogin } from 'react-google-login';
 
 function LoginForm() {
   const history = useHistory();
@@ -46,6 +46,44 @@ function LoginForm() {
     }
   };
 
+  const googleSuccess = async (res) => {
+    const profileObj = res?.profileObj;
+    const tokenId = res?.tokenId;
+
+    try {
+      // Perform actions for successful Google login
+      // For example, you can send tokenId to your backend for authentication
+      // Store the token in local storage
+      localStorage.setItem('token', tokenId);
+      setTimeout(function () {
+        showToastMessage("Logged in successfully!", false);
+      }, 3000);
+      // Navigate to the '/' page
+      history.push("/");
+    } catch (error) {
+      // Handle error
+      console.log(error);
+    }
+  };
+
+  const googleError = () => {
+    console.log('Google Sign In was unsuccessful. Try again later');
+  };
+
+  const showToastMessage = (message, error) => {
+    if (error) {
+      toast.error(message, {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 5000, // Will close after 5 seconds
+      });
+    } else {
+      toast.success(message, {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 5000, // Will close after 5 seconds
+      });
+    }
+  };
+
   return (
     <div className="contact-form--1">
       <ToastContainer />
@@ -79,7 +117,7 @@ function LoginForm() {
                   />
                 </label>
                 <p style={{ color: 'black', marginTop: '0px' }}>
-                  Not a Member ? <Link to="/signup" style={{ color: "#f9004d", fontWeight: 'bold' }}>Sign Up</Link>
+                  Does't have an Account ? <Link to="/signup" style={{ color: "#f9004d", fontWeight: 'bold' }}>Sign Up</Link>
                 </p>
                 <button
                   className="rn-button-style--2 btn-solid"
@@ -90,8 +128,13 @@ function LoginForm() {
                 >
                   Submit
                 </button>
-                
-
+                <GoogleLogin
+                  clientId="168821784143-d0q7nugflesop4nh6rbdp3f95sr6o9c8.apps.googleusercontent.com"
+                  buttonText="Login with Google"
+                  onSuccess={googleSuccess}
+                  onFailure={googleError}
+                  cookiePolicy={'single_host_origin'}
+                />
               </form>
             </div>
           </div>
