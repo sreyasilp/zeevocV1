@@ -38,8 +38,10 @@ function LoginForm() {
         showToastMessage("Logged in successfully!", false);
       }, 3000);
 
-      // Navigate to the '/' page
+      // Redirect to the '/' page after successful login
       history.push("/");
+      // Log success to console
+      console.log("Logged in successfully!");
     } catch (error) {
       // Handle error
       showToastMessage(error.response.data.message, true);
@@ -58,8 +60,10 @@ function LoginForm() {
       setTimeout(function () {
         showToastMessage("Logged in successfully!", false);
       }, 3000);
-      // Navigate to the '/' page
+      // Redirect to the '/' page after successful login
       history.push("/");
+      // Log success to console
+      console.log("Logged in successfully!");
     } catch (error) {
       // Handle error
       console.log(error);
