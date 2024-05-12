@@ -8,7 +8,7 @@ import Footer from "../component/footer/Footer";
 import Slider from "react-slick";
 import PortfolioList from "../elements/portfolio/PortfolioList";
 import { slickDot, portfolioSlick2 } from "../page-demo/script";
-import TabThree from "../elements/tab/TabThree"
+import Extensions from "../elements/tab/Extensions"
 
 const list = [
   {
@@ -138,13 +138,16 @@ const Products = () => {
             </div>
           </div> */}
           {/* End Portfolio Area */}
- {/* Start Designer Portfolio  */}
- <div className="designer-portfolio-area ptb--120 bg_color--1">
-                <div className="wrapper plr--70 plr_sm--30 plr_md--30">
-                    <TabThree column="col-lg-4 col-md-6 col-sm-6 col-12" />
-                </div>
+
+
+
+          {/* Start Designer Portfolio  */}
+          {/* <div className="designer-portfolio-area ptb--120 bg_color--1">
+            <div className="wrapper plr--70 plr_sm--30 plr_md--30">
+              <Extensions column="col-lg-4 col-md-6 col-sm-6 col-12" />
             </div>
-            {/* End Designer Portfolio  */}
+          </div> */}
+          {/* End Designer Portfolio  */}
 
           {/* Start Portfolio Area */}
           <div className="portfolio-area ptb--120 bg_color--5">
@@ -162,10 +165,10 @@ const Products = () => {
                   </div>
                 </div>
                 {/* Start Designer Portfolio  */}
-           
-                    <TabThree column="col-lg-4 col-md-6 col-sm-6 col-12" />
-           
-            {/* End Designer Portfolio  */}
+
+                <Extensions column="col-lg-4 col-md-6 col-sm-6 col-12" />
+
+                {/* End Designer Portfolio  */}
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="view-more-btn mt--60 text-center">

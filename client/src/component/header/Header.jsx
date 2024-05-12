@@ -127,7 +127,7 @@ const Header = (props) => {
                             <li><Link to="/service" >Service</Link></li>
                             <li><Link to="/blog" >Blog</Link></li>
                             {/* <li><Link to="/portfolio" >Portfolio</Link></li> */}
-                            <li><Link to="/products" >Products</Link></li>
+                            {/* <li><Link to="/products" >Products</Link></li> */}
                             <li><Link to="/extensions" >Extensions</Link></li>
                             <li><Link to="/contact" >Contact</Link></li>
                             <li><Link to="/about" >About</Link></li>

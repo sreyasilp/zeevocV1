@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
-import productsRoute from "./routes/products.js";
+import extensionsRoute from "./routes/extensions.js";
 import usersRoute from "./routes/user.js";
 import blogPost from "./routes/blogPosts.js";
 import services from "./routes/services.js";
@@ -13,7 +13,7 @@ app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-app.use("/product", productsRoute);
+app.use("/extension", extensionsRoute);
 app.use("/user", usersRoute);
 app.use("/blog", blogPost);
 app.use("/service", services);
