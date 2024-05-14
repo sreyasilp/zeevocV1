@@ -30,7 +30,7 @@ const Extension = () => {
 
         {/* Start Page Wrapper  */}
         <main className="page-wrapper">
-          {/* Start Portfolio Area */}
+          {/* Start Extension Area */}
           <div className="portfolio-area ptb--120 bg_color--5">
             <div className="portfolio-sacousel-inner">
               <div className="container">
@@ -45,11 +45,11 @@ const Extension = () => {
                     </div>
                   </div>
                 </div>
-                {/* Start Designer Portfolio  */}
+                {/* Start Designer Extension  */}
 
                 <Extensions column="col-lg-4 col-md-6 col-sm-6 col-12" />
 
-                {/* End Designer Portfolio  */}
+                {/* End Designer Extension  */}
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="view-more-btn mt--60 text-center">
@@ -57,7 +57,7 @@ const Extension = () => {
                         className="rn-button-style--2 btn-solid"
                         href="/extensions"
                       >
-                        <span>View More Products</span>
+                        <span>View More Extensions</span>
                       </a>
                     </div>
                   </div>
@@ -65,7 +65,7 @@ const Extension = () => {
               </div>
             </div>
           </div>
-          {/* End Portfolio Area */}
+          {/* End Extension Area */}
         </main>
         {/* End Page Wrapper  */}
 

@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import PageHelmet from "../component/common/Helmet";
 import ScrollToTop from 'react-scroll-up';
@@ -126,7 +126,7 @@ const ExtensionDetails = () => {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="rn-page-title text-center pt--100">
-                            <h2 className="title theme-gradient">{extensionData.title}</h2>
+                                <h2 className="title theme-gradient">{extensionData.title}</h2>
                                 <p>{extensionData.category}</p>
                             </div>
                         </div>
@@ -135,44 +135,83 @@ const ExtensionDetails = () => {
             </div>
             {/* End Breadcrump Area */}
 
-            {/* Start Portfolio Details */}
+            {/* Start Extension Details */}
             <div className="rn-portfolio-details ptb--120 bg_color--1">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="portfolio-details">
                                 <div className="inner">
-                                    <h2>Zeevoc</h2>
+                                    {/* <h2>{extensionData.name}</h2> */}
+                                    <h2>Import Export Extension</h2>
                                     <p className="subtitle">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commod viverra maecenas accumsan lacus vel facilisis. ut labore et dolore magna aliqua. </p>
 
-                                    <div className="portfolio-view-list d-flex flex-wrap">
-                                        <div className="port-view">
-                                            <span>Branch</span>
-                                            <h4>Ability</h4>
-                                        </div>
+                                    <p className="subtitle">{extensionData.subtitle}</p>
+                                    <p>{extensionData.description}</p>
 
-                                        <div className="port-view">
-                                            <span>Project Types</span>
-                                            <h4>Website</h4>
-                                        </div>
-
-                                        <div className="port-view">
-                                            <span>Program</span>
-                                            <h4>View Project</h4>
-                                        </div>
+                                    {/* Features */}
+                                    <div className="extension-features">
+                                        <h3>Key Features:</h3>
+                                        <ul>
+                                            {/* {extensionData.features.map((feature, index) => (
+                                                <li key={index}>{feature}</li>
+                                            ))} */}
+                                        </ul>
                                     </div>
 
-                                    <button className="App-link" onClick={displayRazorpay}>
-                                        Pay ₹500
-                                    </button>
+                                    {/* Benefits */}
+                                    <div className="extension-benefits">
+                                        <h3>Benefits:</h3>
+                                        {/* <ul>
+                                            {extensionData.benefits.map((benefit, index) => (
+                                                <li key={index}>{benefit}</li>
+                                            ))}
+                                        </ul> */}
+                                    </div>
+
+                                    {/* Pricing */}
+                                    <div className="extension-pricing">
+                                        <h3>Pricing:</h3>
+                                        <p>{extensionData.pricing}</p>
+                                    </div>
+
+                                    {/* Compatibility */}
+                                    <div className="extension-compatibility">
+                                        <h3>Compatibility:</h3>
+                                        <p>{extensionData.compatibility}</p>
+                                    </div>
+
+                                    {/* Customer Reviews */}
+                                    <div className="extension-reviews">
+                                        <h3>Customer Reviews:</h3>
+                                        {/* <ul>
+                                            {extensionData.reviews.map((review, index) => (
+                                                <li key={index}>
+                                                    <strong>{review.user}</strong>: {review.comment}
+                                                </li>
+                                            ))}
+                                        </ul> */}
+                                    </div>
+
+                                    {/* Button for Purchase */}
+                                    <div className="view-more-btn mt--60">
+                                        <a
+                                            className="rn-button-style--2 btn-solid"
+                                            onClick={displayRazorpay}
+                                        >
+                                            <span>Purchase Now</span>
+                                        </a>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* End Portfolio Details */}
+            {/* End Extension Details */}
+
 
 
             {/* Start Back To Top */}
