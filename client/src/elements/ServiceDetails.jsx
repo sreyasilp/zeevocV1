@@ -1,18 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom"; // Import useParams hook
 import PageHelmet from "../component/common/Helmet";
 import ModalVideo from 'react-modal-video';
 import ScrollToTop from 'react-scroll-up';
 import { FiChevronUp } from "react-icons/fi";
 import Header from "../component/header/Header";
 import Footer from "../component/footer/Footer";
+import { getServiceById } from "../api"; // Import the API function
 
 const ServiceDetails = () => {
     const [isOpen, setIsOpen] = useState(false);
-
+    const [breadcrumbData, setBreadcrumbData] = useState({});
+    const { serviceId } = useParams(); // Get the service ID from URL params
     const openModal = () => {
         setIsOpen(true);
     };
 
+    useEffect(() => {
+        const fetchData = async (id) => { // Modify fetchData to accept ID as a parameter
+            try {
+                const response = await getServiceById(id); // Pass the service ID
+                setBreadcrumbData(response.data); // Assuming the response contains breadcrumb data
+            } catch (error) {
+                console.error("Error fetching breadcrumb data:", error);
+            }
+        };
+
+        fetchData(serviceId); // Call fetchData with the service ID
+    }, [serviceId]); // Include serviceId in the dependency array
     return (
         <React.Fragment>
             {/* Start Pagehelmet  */}
@@ -27,8 +42,8 @@ const ServiceDetails = () => {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="rn-page-title text-center pt--100">
-                                <h2 className="title theme-gradient">WEBSITE DEVELOPMENT</h2>
-                                <p>Fresh From The Press Discription</p>
+                                <h2 className="title theme-gradient">{breadcrumbData.title}</h2>
+                                <p>{breadcrumbData.description}</p>
                             </div>
                         </div>
                     </div>

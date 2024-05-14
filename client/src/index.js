@@ -27,7 +27,7 @@ import error404 from "./elements/error404";
 import Team from "./blocks/Team";
 import Admin from "./blocks/Admin";
 import Products from "./blocks/Products";
-import ProductsNew from "./blocks/Extensions";
+import Extension from "./blocks/Extensions";
 import { BrowserRouter, Switch, Route  } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import Login from './elements/Login';
@@ -40,22 +40,24 @@ class Root extends Component{
                 <PageScrollTop>
                     <Switch>
                         <Route exact path={`${process.env.PUBLIC_URL}/`} component={DarkMainDemo}/>
-                        {/* Element Layot */}
-                        <Route exact path={`${process.env.PUBLIC_URL}/services`} component={Service}/>
-                        <Route exact path={`${process.env.PUBLIC_URL}/service-details/:serviceId`} component={ServiceDetails}/>
-                        <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact}/>
+                        {/* Element Layout */}
                         <Route exact path={`${process.env.PUBLIC_URL}/login`} component={Login}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/signup`} component={SignUp}/>
+
                         <Route exact path={`${process.env.PUBLIC_URL}/about`} component={About}/>
+                        <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact}/>
+
                         <Route exact path={`${process.env.PUBLIC_URL}/portfolio-details`} component={PortfolioDetails}/>
-                        <Route exact path={`${process.env.PUBLIC_URL}/extension-details`} component={ExtensionDetails}/>
+                        <Route exact path={`${process.env.PUBLIC_URL}/services`} component={Service}/>
+                        <Route exact path={`${process.env.PUBLIC_URL}/service-details/:serviceId`} component={ServiceDetails}/>
+                        <Route exact path={`${process.env.PUBLIC_URL}/extensions`} component={Extension}/>                    
+                        <Route exact path={`${process.env.PUBLIC_URL}/extension-details/:extensionId`} component={ExtensionDetails}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/blog`} component={Blog}/>
-                        <Route exact path={`${process.env.PUBLIC_URL}/blog-details`} component={BlogDetails}/>
+                        <Route exact path={`${process.env.PUBLIC_URL}/blog-details/:blogId`} component={BlogDetails}/>
 
                         {/* Blocks Elements  */}
                         <Route exact path={`${process.env.PUBLIC_URL}/team`} component={Team}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/admin`} component={Admin}/>
-                        <Route exact path={`${process.env.PUBLIC_URL}/extensions`} component={ProductsNew}/>                    
                         <Route path={`${process.env.PUBLIC_URL}/404`} component={error404}/>
                         <Route component={error404}/>
 

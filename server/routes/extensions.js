@@ -12,10 +12,10 @@ import {
 const router = express.Router();
 
 router.get("/all", getAllExtensions);
-router.get("/:id", getExtensionById);
+router.get("/getbyid/:id", getExtensionById);
 
 router.post("/create", createExtension);
-router.patch("/:id",  updateExtension);
+router.patch("updatebyid/:id",  updateExtension);
 router.delete("/deletebyid/:id", deleteExtension);
 
 export default router;

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import { useParams } from 'react-router-dom';
 import PageHelmet from "../component/common/Helmet";
 import ScrollToTop from 'react-scroll-up';
 import { FiChevronUp } from "react-icons/fi";
@@ -8,14 +9,32 @@ import axios from "axios";
 import dotenv from 'dotenv'; //to fix this latrr
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { getExtensionById } from "../api";
 dotenv.config();
 
 const ExtensionDetails = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [extensionData, setExtensionData] = useState({});
+    const { extensionId } = useParams();
 
     const openModal = () => {
         setIsOpen(true);
     }
+
+    useEffect(() => {
+        const fetchExtensionData = async () => {
+            try {
+                const response = await getExtensionById(extensionId);
+                setExtensionData(response.data);
+            } catch (error) {
+                console.error("Error fetching extension data:", error);
+                toast.error("Error fetching extension data. Please try again later.");
+            }
+        };
+
+        fetchExtensionData();
+    }, [extensionId]);
+
 
     const displayRazorpay = async () => {
         try {
@@ -97,7 +116,7 @@ const ExtensionDetails = () => {
 
     return (
         <React.Fragment>
-            <PageHelmet pageTitle='Portfolio Details' />
+            <PageHelmet pageTitle={extensionData.title} />
 
             <Header headertransparent="header--transparent" colorblack="color--black" logoname="logo.png" />
 
@@ -107,8 +126,8 @@ const ExtensionDetails = () => {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="rn-page-title text-center pt--100">
-                                <h2 className="title theme-gradient">Getting tickets to the big show</h2>
-                                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. </p>
+                            <h2 className="title theme-gradient">{extensionData.title}</h2>
+                                <p>{extensionData.category}</p>
                             </div>
                         </div>
                     </div>

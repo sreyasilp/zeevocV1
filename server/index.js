@@ -26,10 +26,7 @@ const MONOGO_DB_CONN_URL =
 const PORT = 4444;
 
 mongoose
-  .connect(MONOGO_DB_CONN_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(MONOGO_DB_CONN_URL)
   .then(() =>
     app.listen(PORT, () =>
       console.log(`Server running on port: http://localhost:${PORT}`)
