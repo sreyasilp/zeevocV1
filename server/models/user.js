@@ -5,12 +5,13 @@ const userSchema = new mongoose.Schema({
   lastName: { type: String, required: false },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  userType: {
-    type: String,
-    enum: ["seller", "buyer", "admin"],
-    required: true,
-    default: "buyer",
-  },
+  phoneNumber: { type: String },
+  sex: { type: String },
+  address_line_one: { type: String },
+  address_line_two: { type: String },
+  city: { type: String },
+  country: { type: String }, 
+  pincode: { type: String }, 
 });
 
 export default mongoose.model("User", userSchema);
