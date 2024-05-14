@@ -29,7 +29,7 @@ const Service = () => {
   return (
     <React.Fragment>
       <div className="active-white">
-        <PageHelmet pageTitle="Service" />
+        <PageHelmet pageTitle="Services" />
         <Header
           headertransparent="header--transparent"
           colorblack="color--black"
@@ -37,7 +37,7 @@ const Service = () => {
         />
 
         {/* Start Breadcrump Area */}
-        <Breadcrumb title={"Service"} />
+        <Breadcrumb title={"Services"} />
         {/* End Breadcrump Area */}
 
         {/* Start Service Area */}
@@ -62,7 +62,7 @@ const Service = () => {
                     className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12"
                     key={i}
                   >
-                    <a className="text-center" href="/service-details">
+                    <a className="text-center" href={`/service-details/${val._id}`}>
                       <div className="service service__style--2">
                         <div className="icon">
                           {i === 0 && <FiSettings />}

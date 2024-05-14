@@ -14,12 +14,15 @@
     "bcryptjs": "latest",
     "body-parser": "latest",
     "cors": "latest",
-    "express": "latest",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "express-graphql": "latest",
     "graphql": "latest",
     "jsonwebtoken": "latest",
-    "mongoose": "latest",
+    "mongoose": "^8.3.4",
     "nodemon": "latest",
+    "razorpay": "^2.9.3",
     "react-scripts": "latest"
   }
 }

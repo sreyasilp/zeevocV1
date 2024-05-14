@@ -16,6 +16,7 @@ import ServiceDetails from "./elements/ServiceDetails";
 import About from "./elements/About";
 import Contact from "./elements/Contact";
 import PortfolioDetails from "./elements/PortfolioDetails";
+import ExtensionDetails from './elements/ExtensionDetails';
 import Blog from "./elements/Blog";
 import BlogDetails from "./elements/BlogDetails";
 import error404 from "./elements/error404";
@@ -40,13 +41,14 @@ class Root extends Component{
                     <Switch>
                         <Route exact path={`${process.env.PUBLIC_URL}/`} component={DarkMainDemo}/>
                         {/* Element Layot */}
-                        <Route exact path={`${process.env.PUBLIC_URL}/service`} component={Service}/>
-                        <Route exact path={`${process.env.PUBLIC_URL}/service-details`} component={ServiceDetails}/>
+                        <Route exact path={`${process.env.PUBLIC_URL}/services`} component={Service}/>
+                        <Route exact path={`${process.env.PUBLIC_URL}/service-details/:serviceId`} component={ServiceDetails}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/login`} component={Login}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/signup`} component={SignUp}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/about`} component={About}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/portfolio-details`} component={PortfolioDetails}/>
+                        <Route exact path={`${process.env.PUBLIC_URL}/extension-details`} component={ExtensionDetails}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/blog`} component={Blog}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/blog-details`} component={BlogDetails}/>
 

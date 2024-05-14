@@ -45,7 +45,7 @@ const TabStyleThree = ({ column }) => {
                                     <div className="portfolio-static">
                                         <div className="thumbnail-inner">
                                             <div className="thumbnail">
-                                                <a href="#portfolio-details">
+                                                <a href="/extension-details">
                                                     <img src={`/assets/images/portfolio/dp-portfolio-${value.image}.jpg`} alt="Portfolio Images"/>
                                                 </a>
                                             </div>
@@ -53,7 +53,7 @@ const TabStyleThree = ({ column }) => {
                                         <div className="content">
                                             <div className="inner">
                                                 <p>{value.category}</p>
-                                                <h4><a href="#portfolio-details">{value.title}</a></h4>
+                                                <h4><a href="/extension-details">{value.title}</a></h4>
                                             </div>
                                         </div>
                                     </div>

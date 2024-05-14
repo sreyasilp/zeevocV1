@@ -1730,6 +1730,13 @@
   dependencies:
     "@babel/types" "^7.20.7"
 
+"@types/dotenv@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.npmjs.org/@types/dotenv/-/dotenv-8.2.0.tgz"
+  integrity sha512-ylSC9GhfRH7m1EUXBXofhgx4lUWmFeQDINW5oLuS+gxWdfUeW4zJdeVTYVkexEW+e2VUvlZR2kGnGGipAWR7kw==
+  dependencies:
+    dotenv "*"
+
 "@types/invariant@^2.2.33":
   version "2.2.35"
   resolved "https://registry.npmjs.org/@types/invariant/-/invariant-2.2.35.tgz"
@@ -4029,7 +4036,7 @@ dotenv-expand@4.2.0:
   resolved "https://registry.npmjs.org/dotenv-expand/-/dotenv-expand-4.2.0.tgz"
   integrity sha512-pHWVt6L/YkqbBCMb1hG6e7oO0WdMhlapDIibl+BZ9PncVE3i+G77uvNr8GUxW2ItSituOK8QOYC9oOJjwWD94A==
 
-dotenv@6.2.0:
+dotenv@*, dotenv@^6.2.0:
   version "6.2.0"
   resolved "https://registry.npmjs.org/dotenv/-/dotenv-6.2.0.tgz"
   integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
