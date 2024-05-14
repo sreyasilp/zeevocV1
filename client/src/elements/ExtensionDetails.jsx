@@ -137,7 +137,7 @@ const ExtensionDetails = () => {
 
             {/* Start Extension Details */}
             <div className="rn-portfolio-details ptb--120 bg_color--1">
-                <div className="container">
+                <div className="">
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="portfolio-details">
