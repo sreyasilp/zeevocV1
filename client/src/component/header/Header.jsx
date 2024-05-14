@@ -68,7 +68,7 @@ const Header = (props) => {
                         <ul className="mainmenu">
                             <li><Link to="/" >Home</Link></li>
                             <li><Link to="/services" >Services</Link></li>
-                            <li><Link to="/blog" >Blog</Link></li>
+                            <li><Link to="/blogs" >Blogs</Link></li>
                             <li><Link to="/extensions" >Extensions</Link></li>
                             <li><Link to="/contact" >Contact</Link></li>
                             <li><Link to="/about" >About</Link></li>

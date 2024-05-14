@@ -28,14 +28,14 @@ const MainDemo = () => {
     const [postList, setPostList] = useState([]);
 
     useEffect(() => {
-        // Fetch blog list data
+        // Fetch Blogs data
         const fetchData = async () => {
             try {
                 const data = await getBlogList();
                 console.log(data);
                 setPostList(data.data.slice(0, 3));
             } catch (error) {
-                console.error("Error fetching blog list:", error);
+                console.error("Error fetching Blogs:", error);
             }
         };
 

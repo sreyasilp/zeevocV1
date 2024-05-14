@@ -52,7 +52,7 @@ class Root extends Component{
                         <Route exact path={`${process.env.PUBLIC_URL}/service-details/:serviceId`} component={ServiceDetails}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/extensions`} component={Extension}/>                    
                         <Route exact path={`${process.env.PUBLIC_URL}/extension-details/:extensionId`} component={ExtensionDetails}/>
-                        <Route exact path={`${process.env.PUBLIC_URL}/blog`} component={Blog}/>
+                        <Route exact path={`${process.env.PUBLIC_URL}/blogs`} component={Blog}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/blog-details/:blogId`} component={BlogDetails}/>
 
                         {/* Blocks Elements  */}

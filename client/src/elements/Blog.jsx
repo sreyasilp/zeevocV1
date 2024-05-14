@@ -21,7 +21,7 @@ class Blog extends Component {
             logoname="logo.png"
           />
           {/* Start Breadcrump Area */}
-          <Breadcrumb title={"Blog List"} />
+          <Breadcrumb title={"Blogs"} />
           {/* End Breadcrump Area */}
 
           {/* Start Blog Area */}

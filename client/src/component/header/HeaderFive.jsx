@@ -95,7 +95,7 @@ class HeaderFive extends Component{
 
                                             <li className="has-droupdown"><Link to="#pages" >Pages</Link>
                                                 <ul className="submenu">
-                                                    <li><Link to="/blog">Blog List</Link></li>
+                                                    <li><Link to="/blog">Blogs</Link></li>
                                                     <li><Link to="/blog-details">Blog Details</Link></li>
                                                     <li><Link to="/service">Service</Link></li>
                                                     <li><Link to="/service-details">Service Details</Link></li>
@@ -113,7 +113,7 @@ class HeaderFive extends Component{
                                                     <li><Link to="/progressbar">Progressbar</Link></li>
                                                     <li><Link to="/gallery">Gallery</Link></li>
                                                     <li><Link to="/counters">Counters</Link></li>
-                                                    <li><Link to="/blog">Blog List</Link></li>
+                                                    <li><Link to="/blog">Blogs</Link></li>
                                                     <li><Link to="/clint-logo">Clint Logo</Link></li>
                                                     <li><Link to="/contact-form">Contact Form</Link></li>
                                                     <li><Link to="/google-map">Google Map</Link></li>
