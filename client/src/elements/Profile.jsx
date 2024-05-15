@@ -11,6 +11,7 @@ const UserProfile = () => {
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
     const [isEditing, setIsEditing] = useState(false); // State to track editing mode
+    const [validationErrors, setValidationErrors] = useState({});
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -38,18 +39,64 @@ const UserProfile = () => {
         }));
     };
 
+    const validateForm = () => {
+        const errors = {};
+        if (!profile.firstName) {
+            errors.firstName = "First name is required";
+        }
+        if (!profile.lastName) {
+            errors.lastName = "Last name is required";
+        }
+        if (!profile.email) {
+            errors.email = "Email is required";
+        } else if (!/\S+@\S+\.\S+/.test(profile.email)) {
+            errors.email = "Email address is invalid";
+        }
+        if (!profile.phoneNumber) {
+            errors.phoneNumber = "Phone number is required";
+        } else if (!/^\d{10}$/.test(profile.phoneNumber)) {
+            errors.phoneNumber = "Phone number must be 10 digits";
+        }
+        if (!profile.sex) {
+            errors.sex = "Sex is required";
+        }
+        if (!profile.address_line_one) {
+            errors.address = "Address line 1 is required";
+        }
+        if (!profile.city) {
+            errors.address = "City is required";
+        }
+        if (!profile.country) {
+            errors.address = "Country is required";
+        }
+        if (!profile.pincode) {
+            errors.address = "Pincode is required";
+        } else if (!/^\d{6}$/.test(profile.pincode)) {
+            errors.address = "Pincode must be 6 digits";
+        }
+        // Add validation checks for other fields as needed
+        return errors;
+    };
+    
+
     const handleSubmit = async () => {
-        // Submit updated profile data
-        try {
-            const response = await updateProfile(profile.email, profile);
-            console.log(response.data); // Log the response
-            setIsEditing(false); // Exit editing mode after successful update
-            // Optionally, handle success or show a success message
-        } catch (error) {
-            console.error("Error updating profile:", error);
-            // Optionally, handle error or show an error message
+        const errors = validateForm();
+        if (Object.keys(errors).length === 0) {
+            try {
+                const response = await updateProfile(profile.email, profile);
+                console.log(response.data);
+                setIsEditing(false);
+                setValidationErrors({});
+                // Optionally, handle success or show a success message
+            } catch (error) {
+                console.error("Error updating profile:", error);
+                // Optionally, handle error or show an error message
+            }
+        } else {
+            setValidationErrors(errors);
         }
     };
+
 
     return (
         <React.Fragment>
@@ -64,7 +111,7 @@ const UserProfile = () => {
                 {/* Start Breadcrump Area */}
                 <Breadcrumb title={"Profile"} />
                 {/* End Breadcrump Area */}
-                
+
                 {/* Start Profile Details */}
                 <div className="profile-details pt--90 pb--120 bg_color--1">
                     <div className="container">
@@ -87,24 +134,27 @@ const UserProfile = () => {
                                                     <td className="profile-label">Name:</td>
                                                     <td className="profile-value">
                                                         {isEditing ? (
-                                                            <input
-                                                                type="text"
-                                                                name="firstName"
-                                                                value={profile.firstName}
-                                                                onChange={handleInputChange}
-                                                            />
+                                                            <React.Fragment>
+                                                                <input
+                                                                    type="text"
+                                                                    name="firstName"
+                                                                    value={profile.firstName}
+                                                                    onChange={handleInputChange}
+                                                                />
+                                                                <br />
+                                                                <span className="error-message">{validationErrors.firstName}</span>
+                                                                <input
+                                                                    type="text"
+                                                                    name="lastName"
+                                                                    value={profile.lastName}
+                                                                    onChange={handleInputChange}
+                                                                />
+                                                            </React.Fragment>
                                                         ) : (
-                                                            profile.firstName
-                                                        )}{" "}
-                                                        {isEditing ? (
-                                                            <input
-                                                                type="text"
-                                                                name="lastName"
-                                                                value={profile.lastName}
-                                                                onChange={handleInputChange}
-                                                            />
-                                                        ) : (
-                                                            profile.lastName
+                                                            <React.Fragment>
+                                                                {profile.firstName}
+                                                                {profile.lastName}
+                                                            </React.Fragment>
                                                         )}
                                                     </td>
                                                 </tr>
@@ -128,12 +178,16 @@ const UserProfile = () => {
                                                     <td className="profile-label">Phone Number:</td>
                                                     <td className="profile-value">
                                                         {isEditing ? (
-                                                            <input
-                                                                type="text"
-                                                                name="phoneNumber"
-                                                                value={profile.phoneNumber}
-                                                                onChange={handleInputChange}
-                                                            />
+                                                            <React.Fragment>
+                                                                <input
+                                                                    type="text"
+                                                                    name="phoneNumber"
+                                                                    value={profile.phoneNumber}
+                                                                    onChange={handleInputChange}
+                                                                />
+                                                                <br />
+                                                                <span className="error-message">{validationErrors.phoneNumber}</span>
+                                                            </React.Fragment>
                                                         ) : (
                                                             profile.phoneNumber
                                                         )}
@@ -143,12 +197,16 @@ const UserProfile = () => {
                                                     <td className="profile-label">Sex:</td>
                                                     <td className="profile-value">
                                                         {isEditing ? (
-                                                            <input
-                                                                type="text"
-                                                                name="sex"
-                                                                value={profile.sex}
-                                                                onChange={handleInputChange}
-                                                            />
+                                                            <React.Fragment>
+                                                                <input
+                                                                    type="text"
+                                                                    name="sex"
+                                                                    value={profile.sex}
+                                                                    onChange={handleInputChange}
+                                                                />
+                                                                <br />
+                                                                <span className="error-message">{validationErrors.sex}</span>
+                                                            </React.Fragment>
                                                         ) : (
                                                             profile.sex
                                                         )}
@@ -193,11 +251,12 @@ const UserProfile = () => {
                                                                     value={profile.pincode}
                                                                     onChange={handleInputChange}
                                                                 />
+                                                                <br />
+                                                                <span className="error-message">{validationErrors.address}</span>
                                                             </React.Fragment>
                                                         ) : (
                                                             <React.Fragment>
-                                                                {profile.address_line_one}, {profile.address_line_two},{" "}
-                                                                {profile.city}, {profile.country}, {profile.pincode}
+                                                                {profile.address_line_one}, {profile.address_line_two}, {profile.city}, {profile.country}, {profile.pincode}
                                                             </React.Fragment>
                                                         )}
                                                     </td>
@@ -205,6 +264,7 @@ const UserProfile = () => {
                                                 {/* Add more profile details as needed */}
                                             </tbody>
                                         </table>
+
                                         {/* Button to toggle editing mode and submit changes */}
                                         <div className="profile-actions text-center">
                                             {isEditing ? (
