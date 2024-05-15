@@ -1,11 +1,10 @@
 import express from "express";
 const router = express.Router();
-import { signUp, signIn } from "../controllers/user.js";
-import {  updateByEmail, getByEmail } from "../controllers/profile.js";
+import { signUp, signIn, getUser, updateUser } from "../controllers/user.js";
 
 router.post("/signin", signIn);
 router.post("/signup", signUp);
-router.put("/updateprofile/:email",updateByEmail)
-router.get("/getbyemail/:email", getByEmail);
+router.get("/:email", getUser);  // Add this route to get user by email
+router.put("/:email", updateUser);  // Add this route to update user by email
 
-export default router; 
+export default router;

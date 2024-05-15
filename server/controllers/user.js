@@ -54,8 +54,39 @@ export const signIn = async (req, res) => {
       expiresIn: "1h",
     });
 
-    res.status(200).json({ message: "Sign in Successfull", token });
+    res.status(200).json({ message: "Sign in Successful", token });
   } catch (err) {
     res.status(500).json({ message: "Something went wrong" });
+  }
+};
+
+export const getUser = async (req, res) => {
+  const { email } = req.params;
+  
+  try {
+    const user = await userModel.findOne({ email }).select("-password");
+    
+    if (!user) return res.status(404).json({ message: "User not found" });
+    
+    res.status(200).json({ user });
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+    console.log(error);
+  }
+};
+
+export const updateUser = async (req, res) => {
+  const { email } = req.params;
+  const updateData = req.body;
+  
+  try {
+    const updatedUser = await userModel.findOneAndUpdate({ email }, updateData, { new: true }).select("-password");
+    
+    if (!updatedUser) return res.status(404).json({ message: "User not found" });
+    
+    res.status(200).json({ updatedUser });
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+    console.log(error);
   }
 };

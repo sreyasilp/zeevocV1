@@ -47,13 +47,13 @@ const SliderOne = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % SlideList.length);
-    }, 4000);
+    }, 400);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="slider-activation">
-      <Slider className="rn-slick-dot dot-light" {...slideSlick} autoplay={true} autoplaySpeed={4000} initialSlide={currentSlide}>
+      <Slider className="rn-slick-dot dot-light" {...slideSlick} autoplay={true} autoplaySpeed={400} initialSlide={currentSlide}>
         {SlideList.map((value, index) => (
           <div className={`slide slide-style-2 fullscreen d-flex align-items-center justify-content-center bg_image ${value.bgImage}`} key={index} data-black-overlay="8">
             <div className="container">
