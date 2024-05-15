@@ -7,6 +7,7 @@ import usersRoute from "./routes/user.js";
 import blogPost from "./routes/blogPosts.js";
 import services from "./routes/services.js";
 import payments from "./routes/payment.js";
+import orderRoutes from './routes/order.js';
 
 
 const app = express();
@@ -20,6 +21,7 @@ app.use("/user", usersRoute);
 app.use("/blog", blogPost);
 app.use("/service", services);
 app.use("/payment", payments);
+app.use('/orders', orderRoutes);
 
 const MONOGO_DB_CONN_URL =
   "mongodb+srv://code416:code416@code416.yzuornt.mongodb.net/?retryWrites=true&w=majority";

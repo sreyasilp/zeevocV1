@@ -49,7 +49,7 @@ const ExtensionDetails = () => {
                 currency: "INR",
                 receipt: "101",
             };
-            const result = await axios.post("http://localhost:4444/payment/orders", payOptions);
+            const result = await axios.post("http://localhost:4444/payment/createrporder", payOptions);
 
             if (!result) {
                 toast.error("Server error. Are you online?");
