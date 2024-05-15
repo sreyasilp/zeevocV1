@@ -3,11 +3,11 @@ import { FiClock, FiUser, FiMessageCircle, FiHeart } from "react-icons/fi";
 import { Link, useParams } from 'react-router-dom';
 import ScrollToTop from 'react-scroll-up';
 import { FiChevronUp } from "react-icons/fi";
-import Header from "../component/header/Header";
-import Footer from "../component/footer/Footer";
+import Header from "../../component/header/Header";
+import Footer from "../../component/footer/Footer";
 import ModalVideo from 'react-modal-video';
-import PageHelmet from "../component/common/Helmet";
-import { getBlogById } from "../api";
+import PageHelmet from "../../component/common/Helmet";
+import { getBlogById } from "../../api";
 
 const BlogDetails = () => {
     const [isOpen, setIsOpen] = useState(false);

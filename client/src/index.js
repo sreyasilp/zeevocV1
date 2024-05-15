@@ -11,14 +11,14 @@ import PageScrollTop from './component/PageScrollTop';
 import DarkMainDemo from './home/Home';
 
 // Element Layout
-import Service from "./elements/Service";
-import ServiceDetails from "./elements/ServiceDetails";
-import About from "./elements/About";
-import Contact from "./elements/Contact";
-import PortfolioDetails from "./elements/PortfolioDetails";
-import ExtensionDetails from './elements/ExtensionDetails';
-import Blog from "./elements/Blog";
-import BlogDetails from "./elements/BlogDetails";
+import Service from "./elements/service/Service";
+import ServiceDetails from "./elements/service/ServiceDetails";
+import About from "./elements/about/About";
+import Contact from "./elements/contact/Contact";
+import PortfolioDetails from "./elements/portfolio/PortfolioDetails";
+import ExtensionDetails from './elements/extension/ExtensionDetails';
+import Blog from "./elements/blog/Blog";
+import BlogDetails from "./elements/blog/BlogDetails";
 import error404 from "./elements/error404";
 
 
@@ -27,13 +27,13 @@ import error404 from "./elements/error404";
 import Team from "./blocks/Team";
 import Admin from "./blocks/Admin";
 import Products from "./blocks/Products";
-import Orders from './elements/Orders';
-import UserProfile from './elements/Profile';
+import Orders from './elements/order/Orders';
+import UserProfile from './elements/profile/Profile';
 import Extension from "./blocks/Extensions";
 import { BrowserRouter, Switch, Route  } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-import Login from './elements/Login';
-import SignUp from './elements/SignUp';
+import Login from './elements/login/Login';
+import SignUp from './elements/signup/SignUp';
 
 class Root extends Component{
     render(){

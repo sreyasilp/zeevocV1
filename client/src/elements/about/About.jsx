@@ -1,11 +1,11 @@
 import React from "react";
-import PageHelmet from "../component/common/Helmet";
-import Breadcrumb from "../elements/common/Breadcrumb";
+import PageHelmet from "../../component/common/Helmet";
+import Breadcrumb from "../common/Breadcrumb";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
-import Header from "../component/header/Header";
-import Footer from "../component/footer/Footer";
-import TeamTwo from "../blocks/team/TeamTwo";
+import Header from "../../component/header/Header";
+import Footer from "../../component/footer/Footer";
+import TeamTwo from "../../blocks/team/TeamTwo";
 
 const About = () => {
   return (

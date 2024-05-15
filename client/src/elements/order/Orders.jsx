@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import PageHelmet from "../component/common/Helmet";
-import Breadcrumb from "../elements/common/Breadcrumb";
+import PageHelmet from "../../component/common/Helmet";
+import Breadcrumb from "../common/Breadcrumb";
 import { FiChevronUp } from "react-icons/fi";
 import ScrollToTop from "react-scroll-up";
-import Header from "../component/header/Header";
-import Footer from "../component/footer/Footer";
-import { getAllOrders } from "../api";
+import Header from "../../component/header/Header";
+import Footer from "../../component/footer/Footer";
+import { getAllOrders } from "../../api";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);

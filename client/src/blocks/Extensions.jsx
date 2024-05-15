@@ -8,7 +8,7 @@ import Footer from "../component/footer/Footer";
 import Slider from "react-slick";
 import PortfolioList from "../elements/portfolio/PortfolioList";
 import { slickDot, portfolioSlick2 } from "../page-demo/script";
-import Extensions from "../elements/tab/Extensions"
+import Extensions from "../elements/extension/Extensions"
 
 const Extension = () => {
   return (

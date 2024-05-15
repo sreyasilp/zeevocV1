@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"; // Import useParams hook
-import PageHelmet from "../component/common/Helmet";
+import PageHelmet from "../../component/common/Helmet";
 import ModalVideo from 'react-modal-video';
 import ScrollToTop from 'react-scroll-up';
 import { FiChevronUp } from "react-icons/fi";
-import Header from "../component/header/Header";
-import Footer from "../component/footer/Footer";
-import { getServiceById } from "../api"; // Import the API function
+import Header from "../../component/header/Header";
+import Footer from "../../component/footer/Footer";
+import { getServiceById } from "../../api"; // Import the API function
 
 const ServiceDetails = () => {
     const [isOpen, setIsOpen] = useState(false);

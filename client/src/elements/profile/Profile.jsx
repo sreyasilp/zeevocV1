@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import PageHelmet from "../component/common/Helmet";
-import Breadcrumb from "../elements/common/Breadcrumb";
+import PageHelmet from "../../component/common/Helmet";
+import Breadcrumb from "../common/Breadcrumb";
 import { FiChevronUp, FiEdit2, FiSave } from "react-icons/fi"; // Import FiEdit2 and FiSave icons for edit and save actions
 import ScrollToTop from "react-scroll-up";
-import Header from "../component/header/Header";
-import Footer from "../component/footer/Footer";
-import { getProfile, updateProfile } from "../api"; // Import updateProfile API function
+import Header from "../../component/header/Header";
+import Footer from "../../component/footer/Footer";
+import { getProfile, updateProfile } from "../../api"; // Import updateProfile API function
 
 const UserProfile = () => {
     const [profile, setProfile] = useState({});
@@ -77,7 +77,7 @@ const UserProfile = () => {
         // Add validation checks for other fields as needed
         return errors;
     };
-    
+
 
     const handleSubmit = async () => {
         const errors = validateForm();
@@ -261,6 +261,7 @@ const UserProfile = () => {
                                                         )}
                                                     </td>
                                                 </tr>
+                                               
                                                 {/* Add more profile details as needed */}
                                             </tbody>
                                         </table>

@@ -6,7 +6,7 @@ import Footer from "../component/footer/Footer";
 import SliderTwo from "../component/slider/SliderTwo"
 import ServiceTwo from "../elements/service/ServiceTwo";
 import BlogContent from "../elements/blog/BlogContent";
-import BrandTwo from "../elements/BrandTwo";
+import BrandTwo from "../elements/brand/BrandTwo";
 import Helmet from "../component/common/Helmet";
 import ModalVideo from 'react-modal-video';
 import { FiCheck } from "react-icons/fi";

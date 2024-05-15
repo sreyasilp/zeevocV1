@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-import PageHelmet from "../component/common/Helmet";
+import PageHelmet from "../../component/common/Helmet";
 import ScrollToTop from 'react-scroll-up';
 import { FiChevronUp } from "react-icons/fi";
-import Header from "../component/header/Header";
-import Footer from "../component/footer/Footer";
+import Header from "../../component/header/Header";
+import Footer from "../../component/footer/Footer";
 import axios from "axios";
 import dotenv from 'dotenv'; //to fix this latrr
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { getExtensionById } from "../api";
+import { getExtensionById } from "../../api";
 dotenv.config();
 
 const ExtensionDetails = () => {
