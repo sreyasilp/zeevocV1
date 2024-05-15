@@ -27,6 +27,8 @@ import error404 from "./elements/error404";
 import Team from "./blocks/Team";
 import Admin from "./blocks/Admin";
 import Products from "./blocks/Products";
+import Orders from './elements/Orders';
+import UserProfile from './elements/Profile';
 import Extension from "./blocks/Extensions";
 import { BrowserRouter, Switch, Route  } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
@@ -43,6 +45,8 @@ class Root extends Component{
                         {/* Element Layout */}
                         <Route exact path={`${process.env.PUBLIC_URL}/login`} component={Login}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/signup`} component={SignUp}/>
+                        <Route exact path={`${process.env.PUBLIC_URL}/orders`} component={Orders}/>
+                        <Route exact path={`${process.env.PUBLIC_URL}/profile`} component={UserProfile}/>
 
                         <Route exact path={`${process.env.PUBLIC_URL}/about`} component={About}/>
                         <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact}/>

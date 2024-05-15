@@ -18,7 +18,6 @@ const orderSchema = new mongoose.Schema({
             }
         }
     ],
-
     paymentMethod: {
         type: String,
         required: true
@@ -26,8 +25,11 @@ const orderSchema = new mongoose.Schema({
     paymentResult: {
         id: { type: String },
         status: { type: String },
-        updateTime: { type: String },
-        emailAddress: { type: String }
+        updateTime: { type: Date },
+        emailAddress: { type: String },
+        razorpayPaymentId: { type: String },
+        razorpayOrderId: { type: String },
+        razorpaySignature: { type: String }
     },
     itemsPrice: {
         type: Number,

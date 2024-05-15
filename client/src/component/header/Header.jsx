@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FiX, FiMenu } from "react-icons/fi";
+import { FiX, FiMenu, FiUser } from "react-icons/fi"; // Import FiUser icon
 
 const Header = (props) => {
     // State to hold the token
@@ -72,8 +72,18 @@ const Header = (props) => {
                             <li><Link to="/extensions" >Extensions</Link></li>
                             <li><Link to="/contact" >Contact</Link></li>
                             <li><Link to="/about" >About</Link></li>
-                            {(location.pathname !== '/login' && !token) && <li><Link to="/login">Login</Link></li>}
-                            {token && <li onClick={logout} > <Link >Logout</Link></li>}
+
+                            <li className="has-droupdown">
+                                <Link><FiUser/></Link>
+                                <ul className="submenu">
+                                    <li><Link to="/orders" >Orders</Link></li>
+                                    <li><Link to="/profile" >Profile</Link></li>
+
+                                    {(location.pathname !== '/login' && !token) && <li><Link to="/login">Login</Link></li>}
+                                    {token && <li onClick={logout} > <Link >Logout</Link></li>}
+                                </ul>
+                            </li>
+
                         </ul>
                     </nav>
 
