@@ -6,11 +6,13 @@ import { FiChevronUp } from "react-icons/fi";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import TeamTwo from "../../blocks/team/TeamTwo";
+import { useTheme } from "../../context/ThemeContext";
 
 const About = () => {
+  const { isDarkTheme } = useTheme();
   return (
     <React.Fragment>
-      <div className="active-white">
+      <div className={isDarkTheme ? "active-dark" : "active-white"}>
         <PageHelmet pageTitle="About" />
 
         <Header

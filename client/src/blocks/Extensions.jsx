@@ -9,11 +9,13 @@ import Slider from "react-slick";
 import PortfolioList from "../elements/portfolio/PortfolioList";
 import { slickDot, portfolioSlick2 } from "../page-demo/script";
 import Extensions from "../elements/extension/Extensions"
+import { useTheme } from "../context/ThemeContext";
 
 const Extension = () => {
+  const { isDarkTheme } = useTheme();
   return (
     <>
-      <div className="active-white">
+      <div className={isDarkTheme ? "active-dark" : "active-white"}>
         <PageHelmet pageTitle="Extensions" />
 
         {/* Start Header Area  */}

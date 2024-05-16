@@ -8,6 +8,7 @@ import Footer from "../component/footer/Footer";
 import Slider from "react-slick";
 import PortfolioList from "../elements/portfolio/PortfolioList";
 import { slickDot, portfolioSlick2 } from "../page-demo/script";
+import { useTheme } from "../context/ThemeContext";
 
 const list = [
   {
@@ -76,9 +77,10 @@ const PortfolioList2 = [
 ];
 
 const Products = () => {
+  const { isDarkTheme } = useTheme();
   return (
     <>
-      <div className="active-white">
+      <div className={isDarkTheme ? "active-dark" : "active-white"}>
         <PageHelmet pageTitle="Products" />
 
         {/* Start Header Area  */}

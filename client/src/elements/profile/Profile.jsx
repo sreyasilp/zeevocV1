@@ -6,12 +6,14 @@ import ScrollToTop from "react-scroll-up";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import { getProfile, updateProfile } from "../../api"; // Import updateProfile API function
+import { useTheme } from "../../context/ThemeContext";
 
 const UserProfile = () => {
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
     const [isEditing, setIsEditing] = useState(false); // State to track editing mode
     const [validationErrors, setValidationErrors] = useState({});
+    const { isDarkTheme } = useTheme();
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -100,7 +102,7 @@ const UserProfile = () => {
 
     return (
         <React.Fragment>
-            <div className="active-white">
+            <div className={isDarkTheme ? "active-dark" : "active-white"}>
                 <PageHelmet pageTitle="Profile" />
                 <Header
                     headertransparent="header--transparent"

@@ -6,11 +6,13 @@ import { FiChevronUp } from "react-icons/fi";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import SignUpForm from "./SignUpForm";
+import { useTheme } from "../../context/ThemeContext";
 
 const SignUp = () => {
+  const { isDarkTheme } = useTheme();
   return (
     <>
-      <div className="active-white">
+      <div className={isDarkTheme ? "active-dark" : "active-white"}>
         <PageHelmet pageTitle="Sign Up" />
 
         {/* Start Header Area  */}
