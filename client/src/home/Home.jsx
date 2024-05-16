@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import ScrollToTop from 'react-scroll-up';
-import { FiChevronUp } from "react-icons/fi";
+import { FiChevronUp, FiSun, FiMoon, FiCheck } from "react-icons/fi";
 import Header from "../component/header/Header";
 import Footer from "../component/footer/Footer";
 import SliderTwo from "../component/slider/SliderTwo"
@@ -9,10 +9,11 @@ import BlogContent from "../elements/blog/BlogContent";
 import BrandTwo from "../elements/brand/BrandTwo";
 import Helmet from "../component/common/Helmet";
 import ModalVideo from 'react-modal-video';
-import { FiCheck } from "react-icons/fi";
 import { getBlogList } from "../api";
+import { useTheme } from "../context/ThemeContext";
 
 const MainDemo = () => {
+    const { isDarkTheme, toggleTheme } = useTheme();
     const [isOpen, setIsOpen] = useState(false);
     const [namesItemOne, setNamesItemOne] = useState([
         'Expertise in Business Analytics',
@@ -51,11 +52,11 @@ const MainDemo = () => {
             <Helmet pageTitle="Zeevoc Digital" />
             <Header headertransparent="header--transparent" colorblack="color--black" logoname="logo.png" />
 
-            <div className="active-white">
+            <div className={isDarkTheme ? "active-dark" : "active-white"}>
                 <div className="slider-wrapper">
                     <SliderTwo />
                 </div>
-
+        
                 <div className="rn-about-area ptb--120 bg_color--1">
                     <div className="container">
                         <div className="row row--35 align-items-center">

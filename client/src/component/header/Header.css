@@ -1,0 +1,13 @@
+/* src/component/header/Header.css */
+.theme-toggle-icon {
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    margin-right: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle-icon:hover {
+    /* color: #ffd700;  */
+}

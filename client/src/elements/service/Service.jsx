@@ -6,10 +6,12 @@ import ScrollToTop from "react-scroll-up";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import { getAllServices } from "../../api";
+import { useTheme } from "../../context/ThemeContext";
 
 const Service = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { isDarkTheme } = useTheme();
 
   useEffect(() => {
     const fetchServices = async () => {
@@ -28,7 +30,7 @@ const Service = () => {
 
   return (
     <React.Fragment>
-      <div className="active-white">
+       <div className={isDarkTheme ? "active-dark" : "active-white"}>
         <PageHelmet pageTitle="Services" />
         <Header
           headertransparent="header--transparent"

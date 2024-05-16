@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FiX, FiMenu, FiUser } from "react-icons/fi"; // Import FiUser icon
+import { FiX, FiMenu, FiUser, FiSun, FiMoon } from "react-icons/fi"; // Import FiUser icon
+import { useTheme } from "../../context/ThemeContext";
+import "./Header.css"
 
 const Header = (props) => {
     // State to hold the token
     const [token, setToken] = useState(localStorage.getItem('token'));
     const location = useLocation();
+    const { isDarkTheme, toggleTheme } = useTheme();
 
     // Effect to update the token in state when it changes in local storage
     useEffect(() => {
@@ -66,19 +69,22 @@ const Header = (props) => {
                 <div className="header-right">
                     <nav className="mainmenunav d-lg-block">
                         <ul className="mainmenu">
+                            
                             <li><Link to="/" >Home</Link></li>
                             <li><Link to="/services" >Services</Link></li>
                             <li><Link to="/blogs" >Blogs</Link></li>
                             <li><Link to="/extensions" >Extensions</Link></li>
                             <li><Link to="/contact" >Contact</Link></li>
                             <li><Link to="/about" >About</Link></li>
-
+                            {/* Theme Toggle Icon */}
+                            <span onClick={toggleTheme} className="theme-toggle-icon">
+                                {isDarkTheme ? <FiSun /> : <FiMoon />}
+                            </span>
                             <li className="has-droupdown">
-                                <Link><FiUser/></Link>
+                                <Link><FiUser className="theme-toggle-icon" /></Link>
                                 <ul className="submenu">
                                     <li><Link to="/orders" >Orders</Link></li>
                                     <li><Link to="/profile" >Profile</Link></li>
-
                                     {(location.pathname !== '/login' && !token) && <li><Link to="/login">Login</Link></li>}
                                     {token && <li onClick={logout} > <Link >Logout</Link></li>}
                                 </ul>
