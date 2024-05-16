@@ -69,7 +69,6 @@ const Header = (props) => {
                 <div className="header-right">
                     <nav className="mainmenunav d-lg-block">
                         <ul className="mainmenu">
-                            
                             <li><Link to="/" >Home</Link></li>
                             <li><Link to="/services" >Services</Link></li>
                             <li><Link to="/blogs" >Blogs</Link></li>
@@ -77,18 +76,25 @@ const Header = (props) => {
                             <li><Link to="/contact" >Contact</Link></li>
                             <li><Link to="/about" >About</Link></li>
                             {/* Theme Toggle Icon */}
-                            <span onClick={toggleTheme} className="theme-toggle-icon">
-                                {isDarkTheme ? <FiSun /> : <FiMoon />}
-                            </span>
+                            <li>
+                                <Link to="#" onClick={toggleTheme} className="theme-toggle-icon">
+                                    {isDarkTheme ? " Light Mode " : " Dark Mode "}
+                                    {/* {isDarkTheme ? <FiSun /> : <FiMoon />} */}
+                                </Link>
+                            </li>
+
                             <li className="has-droupdown">
-                                <Link><FiUser className="theme-toggle-icon" /></Link>
+                                <Link to="#">
+                                    Account
+                                </Link>
                                 <ul className="submenu">
                                     <li><Link to="/orders" >Orders</Link></li>
                                     <li><Link to="/profile" >Profile</Link></li>
                                     {(location.pathname !== '/login' && !token) && <li><Link to="/login">Login</Link></li>}
-                                    {token && <li onClick={logout} > <Link >Logout</Link></li>}
+                                    {token && <li onClick={logout}><Link to="#">Logout</Link></li>}
                                 </ul>
                             </li>
+
 
                         </ul>
                     </nav>
