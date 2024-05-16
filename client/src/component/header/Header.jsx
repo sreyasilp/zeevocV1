@@ -78,14 +78,14 @@ const Header = (props) => {
                             {/* Theme Toggle Icon */}
                             <li>
                                 <Link to="#" onClick={toggleTheme} className="theme-toggle-icon">
-                                    {isDarkTheme ? " Light Mode " : " Dark Mode "}
+                                    {isDarkTheme ? " Light Theme " : " Dark Theme "}
                                     {/* {isDarkTheme ? <FiSun /> : <FiMoon />} */}
                                 </Link>
                             </li>
 
                             <li className="has-droupdown">
                                 <Link to="#">
-                                    Account
+                                Account <FiUser /> 
                                 </Link>
                                 <ul className="submenu">
                                     <li><Link to="/orders" >Orders</Link></li>
