@@ -5,7 +5,7 @@ import { slideSlick } from "../../page-demo/script";
 const SlideList = [
     {
         textPosition: 'text-center',
-        bgImage: 'bg_image--15',
+        bgImage: 'bg_image--24',
         category: '',
         title: 'Website Development',
         description: 'We specialize in website development, including Node.js and React, at an affordable price.',
@@ -14,7 +14,7 @@ const SlideList = [
     },
     {
         textPosition: 'text-center',
-        bgImage: 'bg_image--12',
+        bgImage: 'bg_image--22',
         category: '',
         title: 'Ecommerce Development',
         description: 'Looking to set up an ecommerce site? Let us help you with Magento 2 or Adobe Commerce solutions.',
@@ -23,7 +23,7 @@ const SlideList = [
     },
     {
         textPosition: 'text-center',
-        bgImage: 'bg_image--14',
+        bgImage: 'bg_image--21',
         category: '',
         title: 'Extension Development',
         description: 'Need custom features for your Magento 2 store? We provide expert Magento 2 extension development services.',
@@ -32,7 +32,7 @@ const SlideList = [
     },
     {
         textPosition: 'text-center',
-        bgImage: 'bg_image--13',
+        bgImage: 'bg_image--11',
         category: '',
         title: 'College Projects',
         description: 'We assist students in completing electrical/electronics college projects.',

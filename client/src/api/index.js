@@ -18,4 +18,4 @@ export const getExtensionById = (extensionId) => API.get(`extension/getbyid/${ex
 // New API endpoint for creating payment orders
 export const createPaymentOrder = (orderData) => API.post(`payment/orders`, orderData);
 
-export const updateProfile = (userEmail) => API.put(`user/${userEmail}`);
+export const updateProfile = (userEmail, profileData) => API.put(`user/${userEmail}`, profileData);

@@ -16,21 +16,21 @@ const UserProfile = () => {
     const { isDarkTheme } = useTheme();
 
     useEffect(() => {
-        const fetchProfile = async () => {
-            try {
-                // Hardcoded email for now
-                const email = "sreyastp444@gmail.com"; // Replace with actual email
-                const response = await getProfile(email);
-                setProfile(response.data.user);
-                setLoading(false);
-            } catch (error) {
-                console.error("Error fetching profile:", error);
-                setLoading(false);
-            }
-        };
-
         fetchProfile();
     }, []);
+
+    const fetchProfile = async () => {
+        try {
+            // Hardcoded email for now
+            const email = "sreyastp444@gmail.com"; // Replace with actual email
+            const response = await getProfile(email);
+            setProfile(response.data.user);
+            setLoading(false);
+        } catch (error) {
+            console.error("Error fetching profile:", error);
+            setLoading(false);
+        }
+    };
 
     const handleInputChange = (e) => {
         // Update the profile state when input fields change
@@ -80,7 +80,6 @@ const UserProfile = () => {
         return errors;
     };
 
-
     const handleSubmit = async () => {
         const errors = validateForm();
         if (Object.keys(errors).length === 0) {
@@ -89,6 +88,8 @@ const UserProfile = () => {
                 console.log(response.data);
                 setIsEditing(false);
                 setValidationErrors({});
+                // Refetch profile to get the latest data
+                fetchProfile();
                 // Optionally, handle success or show a success message
             } catch (error) {
                 console.error("Error updating profile:", error);
@@ -98,7 +99,6 @@ const UserProfile = () => {
             setValidationErrors(errors);
         }
     };
-
 
     return (
         <React.Fragment>
@@ -110,9 +110,9 @@ const UserProfile = () => {
                     logoname="logo.png"
                 />
 
-                {/* Start Breadcrump Area */}
+                {/* Start Breadcrumb Area */}
                 <Breadcrumb title={"Profile"} />
-                {/* End Breadcrump Area */}
+                {/* End Breadcrumb Area */}
 
                 {/* Start Profile Details */}
                 <div className="profile-details pt--90 pb--120 bg_color--1">
