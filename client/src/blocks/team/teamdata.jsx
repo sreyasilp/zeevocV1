@@ -23,7 +23,7 @@ let data = [
     },
     {
         images: '02',
-        title: 'Jibymol Josheph',
+        title: 'Sreyas T P',
         designation: 'Sr. Frontend Developer',
         socialNetwork: [
             {
@@ -42,7 +42,7 @@ let data = [
     },
     {
         images: '03',
-        title: 'Navaneeth',
+        title: 'Sreyas TP',
         designation: 'Sr. Magento Developer',
         socialNetwork: [
             {
