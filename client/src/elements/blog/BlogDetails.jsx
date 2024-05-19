@@ -8,15 +8,26 @@ import Footer from "../../component/footer/Footer";
 import ModalVideo from 'react-modal-video';
 import PageHelmet from "../../component/common/Helmet";
 import { getBlogById } from "../../api";
-// import './BlogDetails.css';  // Assuming you have a CSS file for custom styles
+import 'prismjs/themes/prism.css';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-bash.min.js';
+import 'prismjs/components/prism-sql.min.js';
 
 const BlogDetails = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [blogData, setBlogData] = useState({});
     const { blogId } = useParams();
+    const [copyButtonText, setCopyButtonText] = useState("Copy");
 
     const openModal = () => {
         setIsOpen(true);
+    };
+
+    const copyToClipboard = (text) => {
+        navigator.clipboard.writeText(text).then(() => {
+            setCopyButtonText("Copied!");
+            setTimeout(() => setCopyButtonText("Copy"), 5000);
+        });
     };
 
     useEffect(() => {
@@ -24,6 +35,7 @@ const BlogDetails = () => {
             try {
                 const response = await getBlogById(blogId);
                 setBlogData(response.data);
+                Prism.highlightAll();
             } catch (error) {
                 console.error("Error fetching blog data:", error);
             }
@@ -31,12 +43,6 @@ const BlogDetails = () => {
 
         fetchData();
     }, [blogId]);
-
-    const copyToClipboard = (text) => {
-        navigator.clipboard.writeText(text).then(() => {
-            alert('Code copied to clipboard!');
-        });
-    };
 
     return (
         <React.Fragment>
@@ -52,7 +58,7 @@ const BlogDetails = () => {
                                 <h2 className="title theme-gradient">{blogData.title}</h2>
                                 <ul className="blog-meta d-flex justify-content-center align-items-center">
                                     <li><FiClock />May 18, 2024</li>
-                                    <li><FiUser />Zeevoc Digital</li>
+                                    <li><FiUser />Zeevoc Team</li>
                                     <li><FiMessageCircle />1 Comments</li>
                                     <li><FiHeart />Like</li>
                                 </ul>
@@ -70,8 +76,7 @@ const BlogDetails = () => {
                         <div className="col-lg-12">
                             <div className="inner-wrapper">
                                 <div className="inner">
-                                <h3 className="title">Steps to Install Magento on ubuntu</h3>
-
+                                    <h3 className="title">Steps to Install Magento on Ubuntu</h3>
                                     <p>Magento is a powerful and flexible open-source e-commerce platform that provides a wide range of features and customization options. Installing Magento correctly ensures a stable and secure online store. Follow the steps below to install Magento on your server.</p>
                                     <div className="thumbnail">
                                         <img src="/assets/images/blog/bl-big-01.jpg" alt="Blog Images" />
@@ -92,11 +97,11 @@ const BlogDetails = () => {
                                                 <h4 className="step-title">Step 2: Download Magento</h4>
                                                 <p>Download the Magento software from the official website or via Composer. Use the following command to download Magento via Composer:</p>
                                                 <div className="code-snippet">
-                                                    <pre style={{ background: 'black', color: 'white', padding: '40px 1px 20px 10px', borderRadius: '5px' }}>
+                                                    <pre>
                                                         <code>composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.4.3</code>
                                                     </pre>
                                                     <button className="copy-button" onClick={() => copyToClipboard('composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.4.3')}>
-                                                        <FiCopy /> Copy
+                                                        <FiCopy /> {copyButtonText}
                                                     </button>
                                                 </div>
                                             </li>
@@ -104,11 +109,11 @@ const BlogDetails = () => {
                                                 <h4 className="step-title">Step 3: Set Up Database</h4>
                                                 <p>Create a new database for Magento to use. You can do this via your hosting control panel or by using the command line:</p>
                                                 <div className="code-snippet">
-                                                    <pre style={{ background: 'black', color: 'white', padding: '40px 1px 20px 10px', borderRadius: '5px' }}>
+                                                    <pre>
                                                         <code>CREATE DATABASE magento;</code>
                                                     </pre>
                                                     <button className="copy-button" onClick={() => copyToClipboard('CREATE DATABASE magento;')}>
-                                                        <FiCopy /> Copy
+                                                        <FiCopy /> {copyButtonText}
                                                     </button>
                                                 </div>
                                             </li>
@@ -116,11 +121,11 @@ const BlogDetails = () => {
                                                 <h4 className="step-title">Step 4: Configure Magento</h4>
                                                 <p>Run the Magento setup wizard or use the command line to configure Magento. Ensure you provide the necessary database and admin user information. Example command:</p>
                                                 <div className="code-snippet">
-                                                    <pre style={{ background: 'black', color: 'white', padding: '40px 1px 20px 10px', borderRadius: '5px' }}>
+                                                    <pre>
                                                         <code>bin/magento setup:install --base-url=http://your-domain.com/ --db-host=localhost --db-name=magento --db-user=root --db-password=yourpassword --admin-firstname=Admin --admin-lastname=User --admin-email=admin@your-domain.com --admin-user=admin --admin-password=admin123</code>
                                                     </pre>
                                                     <button className="copy-button" onClick={() => copyToClipboard('bin/magento setup:install --base-url=http://your-domain.com/ --db-host=localhost --db-name=magento --db-user=root --db-password=yourpassword --admin-firstname=Admin --admin-lastname=User --admin-email=admin@your-domain.com --admin-user=admin --admin-password=admin123')}>
-                                                        <FiCopy /> Copy
+                                                        <FiCopy /> {copyButtonText}
                                                     </button>
                                                 </div>
                                             </li>
@@ -128,7 +133,7 @@ const BlogDetails = () => {
                                                 <h4 className="step-title">Step 5: Finalize Installation</h4>
                                                 <p>Set the correct file permissions and deploy static content. Example commands:</p>
                                                 <div className="code-snippet">
-                                                    <pre style={{ background: 'black', color: 'white', padding: '40px 1px 20px 10px', borderRadius: '5px' }}>
+                                                    <pre>
                                                         <code>
                                                             {`find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} + && \\
 find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} + && \\
@@ -136,14 +141,11 @@ chown -R :www-data . && chmod u+x bin/magento\nbin/magento setup:static-content:
                                                         </code>
                                                     </pre>
                                                     <button className="copy-button" onClick={() => copyToClipboard(`find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} + && \nfind var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} + && \nchown -R :www-data . && chmod u+x bin/magento\nbin/magento setup:static-content:deploy -f`)}>
-                                                        <FiCopy /> Copy
+                                                        <FiCopy /> {copyButtonText}
                                                     </button>
                                                 </div>
                                             </li>
                                         </ol>
-                                        {/* <div className="thumbnail">
-                                            <img src="/assets/images/blog/bl-big-01.jpg" alt="Magento Installation" />
-                                        </div> */}
                                     </div>
 
                                     <p className="mt--25 mt_sm--5">Once the installation is complete, you can access the Magento admin panel by navigating to your store's base URL followed by /admin. From there, you can begin setting up your store, adding products, and configuring settings to meet your business needs.</p>
@@ -162,81 +164,6 @@ chown -R :www-data . && chmod u+x bin/magento\nbin/magento setup:static-content:
             </div>
             {/* End Blog Details */}
 
-            {/* Start Comments Section */}
-            <div className="blog-comments pb--70 bg_color--1">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <h3 className="title mb--40 fontWeight500">Comments</h3>
-                            <div className="comment">
-                                <div className="comment-author">
-                                    <FiUser /> John Doe
-                                </div>
-                                <div className="comment-content">
-                                    <p>This is a great tutorial! It helped me set up my Magento store without any issues. Thanks for sharing!</p>
-                                </div>
-                            </div>
-                            <div className="comment">
-                                <div className="comment-author">
-                                    <FiUser /> Jane Smith
-                                </div>
-                                <div className="comment-content">
-                                    <p>Very detailed and easy to follow. I appreciate the step-by-step instructions.</p>
-                                </div>
-                            </div>
-                            <div className="comment">
-                                <div className="comment-author">
-                                    <FiUser /> Mark Wilson
-                                </div>
-                                <div className="comment-content">
-                                    <p>Thanks for the guide! The code snippets and explanations were very helpful.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* End Comments Section */}
-
-            {/* Start Blog Comment Form  */}
-            <div className="blog-comment-form pb--120 bg_color--1">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="inner">
-                                <h3 className="title mb--40 fontWeight500">Leave a Reply</h3>
-                                <form action="#">
-                                    <div className="row">
-                                        <div className="col-lg-6 col-md-12 col-12">
-                                            <div className="rnform-group">
-                                                <input type="text" placeholder="Name" />
-                                            </div>
-                                            <div className="rnform-group">
-                                                <input type="email" placeholder="Email" />
-                                            </div>
-                                            <div className="rnform-group">
-                                                <input type="text" placeholder="Website" />
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-6 col-md-12 col-12">
-                                            <div className="rnform-group">
-                                                <textarea type="text" placeholder="Comment"></textarea>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-12">
-                                            <div className="blog-btn">
-                                                <Link className="rn-button-style--2 btn-solid" to=""><span>SEND MESSAGE</span></Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* End Blog Comment Form  */}
-
             {/* Start Back To Top */}
             <div className="backto-top">
                 <ScrollToTop showUnder={160}>
@@ -247,7 +174,7 @@ chown -R :www-data . && chmod u+x bin/magento\nbin/magento setup:static-content:
 
             <Footer />
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default BlogDetails;

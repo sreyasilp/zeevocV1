@@ -1,15 +1,20 @@
-/*----------------------
-Blog Details Styles 
-------------------------*/
 .code-snippet {
     position: relative;
-}
-
-.copy-button {
+    margin: 20px 0;
+    pre {
+      background: black !important;
+      color: white !important;
+      padding: 20px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  }
+  
+  .copy-button {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #f0f0f0;
+    background: #d1d1d1;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
@@ -17,7 +22,17 @@ Blog Details Styles
     display: flex;
     align-items: center;
     gap: 5px;
-}
+    z-index: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .copy-button {
+      top: 5px;
+      right: 5px;
+      padding: 3px 7px;
+    }
+  }
+  
 .comment {
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
@@ -34,40 +49,26 @@ Blog Details Styles
     margin-top: 5px;
 }
 
-.code-snippet {
-    position: relative;
-    margin: 20px 0;
-}
-
-.copy-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #f0f0f0;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
 .row {
-    .col-lg-12{
+    .col-lg-12 {
         padding: 1px;
     }
 }
+
 .blog-single-page-title {
     position: relative;
+
     h2 {
         font-weight: 700;
         line-height: 90px;
         font-size: 72px;
+
         @media #{$sm-layout} {
             line-height: 62px;
             font-size: 40px;
         }
     }
+
     ul {
         &.blog-meta {
             @extend %liststyle;
@@ -76,14 +77,17 @@ Blog Details Styles
             position: absolute;
             width: 100%;
             bottom: -135px;
+
             li {
                 font-size: 16px;
                 color: #c6c9d8;
                 margin: 0 15px;
                 margin-bottom: 13px;
+
                 @media #{$sm-layout} {
                     font-size: 14px;
                 }
+
                 svg {
                     margin-right: 13px;
                     font-size: 22px;
@@ -92,34 +96,47 @@ Blog Details Styles
         }
     }
 }
+
 .rn-blog-details {
+    padding-top: 110px;
+    padding-bottom: 70px;
+    background-color: #f9f9f9;
+
     .inner-wrapper {
         .inner {
             padding: 0 0px;
+
             @media #{$lg-layout} {
                 padding: 0 0px;
             }
+
             @media #{$md-layout} {
                 padding: 0 0px;
             }
+
             @media #{$sm-layout} {
                 padding: 0 0px;
             }
+
             p {
                 font-size: 18px;
                 line-height: 30px;
                 color: rgb(0, 0, 0);
                 margin-bottom: 40px;
+
                 @media #{$sm-layout} {
                     margin-bottom: 20px;
                 }
             }
+
             .thumbnail {
                 margin: 20px 0;
+
                 img {
                     width: 100%;
                 }
             }
+
             .rn-blog-quote {
                 font-size: 24px;
                 line-height: 40px;
@@ -137,6 +154,7 @@ Blog Details Styles
                     margin-top: 40px;
                     margin-bottom: 40px;
                 }
+
                 @media #{$md-layout} {
                     padding: 0 0;
                     margin-top: 40px;
@@ -150,6 +168,7 @@ Blog Details Styles
                     font-size: 20px;
                     line-height: 33px;
                 }
+
                 @media #{$large-mobile} {
                     padding: 0;
                     margin-top: 20px;
@@ -173,14 +192,18 @@ Blog Details Styles
                 }
             }
         }
+
         .blog-single-list-wrapper {
             margin-right: 0;
+
             .thumbnail {
                 width: 100%;
                 padding-right: 0;
+
                 img {
                     width: 100%;
                 }
+
                 span {
                     color: rgba(0, 0, 0, 1);
                     font-size: 14px;
@@ -190,45 +213,51 @@ Blog Details Styles
                     margin-bottom: 23px;
                 }
             }
+
             h4 {
                 &.title {
                     font-size: 24px;
                     font-weight: 500;
                     margin-bottom: 30px;
+
                     @media #{$sm-layout} {
                         margin-bottom: 16px;
                     }
                 }
             }
+
             .content {
                 width: 100%;
+
                 ul {
-                   &.list-style {
-                       margin-bottom: 50px;
+                    &.list-style {
+                        margin-bottom: 50px;
+
                         @media #{$sm-layout} {
                             margin-bottom: 25px;
                         }
-                   } 
+                    }
                 }
             }
         }
     }
 }
 
-
 /*------------------------
-    BLog Contact Form  
+    Blog Contact Form  
 --------------------------*/
 .blog-comment-form {
     .inner {
         .rnform-group {
             margin-bottom: 20px;
+
             input {
                 border: 2px solid #e9e9e9;
                 border-radius: 4px;
                 height: 50px;
                 font-size: 16px;
             }
+
             textarea {
                 min-height: 193px;
                 border: 2px solid #e9e9e9;
