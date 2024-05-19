@@ -52,7 +52,11 @@ Blog Details Styles
     align-items: center;
     gap: 5px;
 }
-
+.row {
+    .col-lg-12{
+        padding: 1px;
+    }
+}
 .blog-single-page-title {
     position: relative;
     h2 {
@@ -93,13 +97,13 @@ Blog Details Styles
         .inner {
             padding: 0 0px;
             @media #{$lg-layout} {
-                padding: 0 40px;
+                padding: 0 0px;
             }
             @media #{$md-layout} {
-                padding: 0 40px;
+                padding: 0 0px;
             }
             @media #{$sm-layout} {
-                padding: 0 10px;
+                padding: 0 0px;
             }
             p {
                 font-size: 18px;
@@ -129,18 +133,18 @@ Blog Details Styles
                 z-index: 2;
 
                 @media #{$lg-layout} {
-                    padding: 0 4%;
+                    padding: 0 0;
                     margin-top: 40px;
                     margin-bottom: 40px;
                 }
                 @media #{$md-layout} {
-                    padding: 0 4%;
+                    padding: 0 0;
                     margin-top: 40px;
                     margin-bottom: 40px;
                 }
 
                 @media #{$sm-layout} {
-                    padding: 0 4%;
+                    padding: 0 0;
                     margin-top: 40px;
                     margin-bottom: 40px;
                     font-size: 20px;

@@ -92,7 +92,7 @@ const BlogDetails = () => {
                                                 <h4 className="step-title">Step 2: Download Magento</h4>
                                                 <p>Download the Magento software from the official website or via Composer. Use the following command to download Magento via Composer:</p>
                                                 <div className="code-snippet">
-                                                    <pre style={{ background: 'black', color: 'white', padding: '10px', borderRadius: '5px' }}>
+                                                    <pre style={{ background: 'black', color: 'white', padding: '40px 1px 20px 10px', borderRadius: '5px' }}>
                                                         <code>composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.4.3</code>
                                                     </pre>
                                                     <button className="copy-button" onClick={() => copyToClipboard('composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.4.3')}>
@@ -104,7 +104,7 @@ const BlogDetails = () => {
                                                 <h4 className="step-title">Step 3: Set Up Database</h4>
                                                 <p>Create a new database for Magento to use. You can do this via your hosting control panel or by using the command line:</p>
                                                 <div className="code-snippet">
-                                                    <pre style={{ background: 'black', color: 'white', padding: '10px', borderRadius: '5px' }}>
+                                                    <pre style={{ background: 'black', color: 'white', padding: '40px 1px 20px 10px', borderRadius: '5px' }}>
                                                         <code>CREATE DATABASE magento;</code>
                                                     </pre>
                                                     <button className="copy-button" onClick={() => copyToClipboard('CREATE DATABASE magento;')}>
@@ -116,7 +116,7 @@ const BlogDetails = () => {
                                                 <h4 className="step-title">Step 4: Configure Magento</h4>
                                                 <p>Run the Magento setup wizard or use the command line to configure Magento. Ensure you provide the necessary database and admin user information. Example command:</p>
                                                 <div className="code-snippet">
-                                                    <pre style={{ background: 'black', color: 'white', padding: '10px', borderRadius: '5px' }}>
+                                                    <pre style={{ background: 'black', color: 'white', padding: '40px 1px 20px 10px', borderRadius: '5px' }}>
                                                         <code>bin/magento setup:install --base-url=http://your-domain.com/ --db-host=localhost --db-name=magento --db-user=root --db-password=yourpassword --admin-firstname=Admin --admin-lastname=User --admin-email=admin@your-domain.com --admin-user=admin --admin-password=admin123</code>
                                                     </pre>
                                                     <button className="copy-button" onClick={() => copyToClipboard('bin/magento setup:install --base-url=http://your-domain.com/ --db-host=localhost --db-name=magento --db-user=root --db-password=yourpassword --admin-firstname=Admin --admin-lastname=User --admin-email=admin@your-domain.com --admin-user=admin --admin-password=admin123')}>
@@ -128,7 +128,7 @@ const BlogDetails = () => {
                                                 <h4 className="step-title">Step 5: Finalize Installation</h4>
                                                 <p>Set the correct file permissions and deploy static content. Example commands:</p>
                                                 <div className="code-snippet">
-                                                    <pre style={{ background: 'black', color: 'white', padding: '10px', borderRadius: '5px' }}>
+                                                    <pre style={{ background: 'black', color: 'white', padding: '40px 1px 20px 10px', borderRadius: '5px' }}>
                                                         <code>
                                                             {`find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} + && \\
 find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} + && \\

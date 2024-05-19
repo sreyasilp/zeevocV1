@@ -7,6 +7,7 @@ import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import { getAllOrders } from "../../api";
 import { useTheme } from "../../context/ThemeContext";
+// import "./order.css"; // Import custom CSS for styling
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -57,34 +58,36 @@ const Orders = () => {
                 {loading ? (
                   <p>Loading...</p>
                 ) : (
-                  <table className="table">
-                    <thead>
-                      <tr>
-                        <th>Order ID</th>
-                        <th>Customer</th>
-                        <th>Items</th>
-                        <th>Total</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {orders.map((order) => (
-                        <tr key={order._id}>
-                          <td>{order._id}</td>
-                          <td>{order.user.email}</td>
-                          <td>
-                            {order.orderItems.map((item) => (
-                              <div key={item.product._id}>
-                                {item.quantity} x {item.title}
-                              </div>
-                            ))}
-                          </td>
-                          <td>${order.totalPrice}</td>
-                          <td>{order.status}</td>
+                  <div className="table-responsive">
+                    <table className="table">
+                      <thead>
+                        <tr>
+                          <th>Order ID</th>
+                          <th>Customer</th>
+                          <th>Items</th>
+                          <th>Total</th>
+                          <th>Status</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody>
+                        {orders.map((order) => (
+                          <tr key={order._id}>
+                            <td>{order._id}</td>
+                            <td>{order.user.email}</td>
+                            <td>
+                              {order.orderItems.map((item) => (
+                                <div key={item.product._id}>
+                                  {item.quantity} x {item.title}
+                                </div>
+                              ))}
+                            </td>
+                            <td>${order.totalPrice}</td>
+                            <td>{order.status}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 )}
               </div>
             </div>
