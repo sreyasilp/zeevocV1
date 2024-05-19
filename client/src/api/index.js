@@ -15,6 +15,7 @@ export const getServiceById = (serviceId) => API.get(`service/getbyid/${serviceI
 export const getBlogById = (blogId) => API.get(`blog/getbyid/${blogId}`);
 export const getExtensionById = (extensionId) => API.get(`extension/getbyid/${extensionId}`);
 
+
 // New API endpoint for creating payment orders
 export const createPaymentOrder = (orderData) => API.post(`payment/orders`, orderData);
 

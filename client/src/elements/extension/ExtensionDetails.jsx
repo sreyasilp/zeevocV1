@@ -9,7 +9,7 @@ import axios from "axios";
 import dotenv from 'dotenv'; //to fix this latrr
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { getExtensionById } from "../../api";
+import { getExtensionById, createPaymentOrder } from "../../api";
 dotenv.config();
 
 const ExtensionDetails = () => {
@@ -49,8 +49,7 @@ const ExtensionDetails = () => {
                 currency: "INR",
                 receipt: "101",
             };
-            const result = await axios.post("http://localhost:4444/payment/orders", payOptions);
-
+            const result = await createPaymentOrder(payOptions);
             if (!result) {
                 toast.error("Server error. Are you online?");
                 return;
