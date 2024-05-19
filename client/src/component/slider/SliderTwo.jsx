@@ -8,7 +8,7 @@ const SlideList = [
         bgImage: 'bg_image--24',
         category: '',
         title: 'Website Development',
-        description: 'We specialize in website development, including Node.js and React, at an affordable price.',
+        description: 'Elevate your online presence with our cutting-edge web solutions',
         buttonText: 'Contact Us',
         buttonLink: '/blog'
     },

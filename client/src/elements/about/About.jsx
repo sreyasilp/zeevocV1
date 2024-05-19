@@ -67,7 +67,8 @@ const About = () => {
         {/* End About Area  */}
 
         {/* Start Team Area  */}
-        <div className="rn-team-wrapper ptb--120 bg_color--5">
+        {/* temp disabled */}
+        {/* <div className="rn-team-wrapper ptb--120 bg_color--5">
           <div className="rn-team-area">
             <div className="container">
               <div className="row">
@@ -81,7 +82,7 @@ const About = () => {
               <TeamTwo column="col-lg-3" teamStyle="" item="4" />
             </div>
           </div>
-        </div>
+        </div> */}
         {/* End Team Area  */}
 
         {/* Start Back To Top */}

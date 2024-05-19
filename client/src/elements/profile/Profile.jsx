@@ -22,7 +22,7 @@ const UserProfile = () => {
     const fetchProfile = async () => {
         try {
             // Hardcoded email for now
-            const email = "sreyastp444@gmail.com"; // Replace with actual email
+            const email = "zeevocenterprise@gmail.com"; // Replace with actual email
             const response = await getProfile(email);
             setProfile(response.data.user);
             setLoading(false);

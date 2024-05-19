@@ -16,9 +16,9 @@ function ContactForm() {
         e.preventDefault();
 
         // Send the email using emailjs
-        emailjs.sendForm('service_hax8fyk', 'template_k6mon96', e.target, 'F2tvl3vAECwURSr_-')
+        emailjs.sendForm('zeevoc', 'template_k6mon96', e.target, '59RTopnOo-s5UtUft')
            .then((result) => {
-                window.location.reload(); // Reload the page after successful form submission
+                // window.location.reload(); // Reload the page after successful form submission
                 toast.success('Message Sent Successfully');
                 setResult(true);
             }, (error) => {
