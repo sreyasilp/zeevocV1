@@ -75,20 +75,21 @@ const Header = (props) => {
                             <li><Link to="/extensions" >Extensions</Link></li>
                             <li><Link to="/contact" >Contact</Link></li>
                             <li><Link to="/about" >About</Link></li>
-                            {/* Theme Toggle Icon */}
-                            <li>
-                                <Link to="#" onClick={toggleTheme} className="theme-toggle-icon">
-                                    {isDarkTheme ? "Theme " : "Theme "}
-                                    {/* {isDarkTheme ? <FiSun /> : <FiMoon />} */}
-                                </Link>
-                            </li>
 
                             <li className="has-droupdown">
                                 <Link to="#">
-                                Account
-                                 {/* <FiUser />  */}
+                                    Account
+                                    {/* <FiUser />  */}
                                 </Link>
                                 <ul className="submenu">
+                                    {/* Theme Toggle Icon */}
+                                    <li>
+                                        <Link to="#" onClick={toggleTheme} className="theme-toggle-icon">
+                                            {isDarkTheme ? "Theme " : "Theme "}
+                                            {/* {isDarkTheme ? <FiSun /> : <FiMoon />} */}
+                                        </Link>
+                                    </li>
+
                                     <li><Link to="/orders" >Orders</Link></li>
                                     <li><Link to="/profile" >Profile</Link></li>
                                     {(location.pathname !== '/login' && !token) && <li><Link to="/login">Login</Link></li>}
