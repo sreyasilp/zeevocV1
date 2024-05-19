@@ -66,7 +66,10 @@ const ServiceDetails = () => {
                                             </div>
                                         </div>
                                         <div className="col-lg-6 col-12">
+
                                             <div className="details mt_md--30 mt_sm--30">
+                                            <h2 className="title">Extension Development</h2>
+
                                                 <p>but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum. You need to be sure there isn't anything embarrassing</p>
                                                 <p>hidden in the middle of text. All the Lorem Ipsum generators tend toitrrepeat predefined chunks. Necessary, making this the first true generator on the Internet.</p>
                                                 <h4 className="title">Proceess of metel</h4>
@@ -82,8 +85,8 @@ const ServiceDetails = () => {
                                     </div>
                                     {/* End Single Area */}
 
-                                    {/* Start Single Area */}
-                                    <div className="row sercice-details-content align-items-center">
+                                    {/* Start Single Area temperoarily removed */}
+                                    {/* <div className="row sercice-details-content align-items-center">
                                         <div className="col-lg-6 col-12 order-2 order-lg-1">
                                             <div className="details mt_md--30 mt_sm--30">
                                                 <p>but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum. You need to be sure there isn't anything embarrassing</p>
@@ -108,7 +111,7 @@ const ServiceDetails = () => {
                                                 <button className="video-popup" onClick={openModal}><span className="play-icon"></span></button>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     {/* End Single Area */}
 
                                 </div>

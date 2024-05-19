@@ -8,6 +8,7 @@ import Footer from "../../component/footer/Footer";
 import ModalVideo from 'react-modal-video';
 import PageHelmet from "../../component/common/Helmet";
 import { getBlogById } from "../../api";
+// import './BlogDetails.css';  // Assuming you have a CSS file for custom styles
 
 const BlogDetails = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +34,7 @@ const BlogDetails = () => {
 
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text).then(() => {
-            // alert('Code copied to clipboard!');
+            alert('Code copied to clipboard!');
         });
     };
 
@@ -50,9 +51,9 @@ const BlogDetails = () => {
                             <div className="blog-single-page-title text-center pt--100">
                                 <h2 className="title theme-gradient">{blogData.title}</h2>
                                 <ul className="blog-meta d-flex justify-content-center align-items-center">
-                                    <li><FiClock />May 18, 2020</li>
-                                    <li><FiUser />NipaBali</li>
-                                    <li><FiMessageCircle />15 Comments</li>
+                                    <li><FiClock />May 18, 2024</li>
+                                    <li><FiUser />Zeevoc Digital</li>
+                                    <li><FiMessageCircle />1 Comments</li>
                                     <li><FiHeart />Like</li>
                                 </ul>
                             </div>
@@ -161,6 +162,42 @@ chown -R :www-data . && chmod u+x bin/magento\nbin/magento setup:static-content:
             </div>
             {/* End Blog Details */}
 
+            {/* Start Comments Section */}
+            <div className="blog-comments pb--70 bg_color--1">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <h3 className="title mb--40 fontWeight500">Comments</h3>
+                            <div className="comment">
+                                <div className="comment-author">
+                                    <FiUser /> John Doe
+                                </div>
+                                <div className="comment-content">
+                                    <p>This is a great tutorial! It helped me set up my Magento store without any issues. Thanks for sharing!</p>
+                                </div>
+                            </div>
+                            <div className="comment">
+                                <div className="comment-author">
+                                    <FiUser /> Jane Smith
+                                </div>
+                                <div className="comment-content">
+                                    <p>Very detailed and easy to follow. I appreciate the step-by-step instructions.</p>
+                                </div>
+                            </div>
+                            <div className="comment">
+                                <div className="comment-author">
+                                    <FiUser /> Mark Wilson
+                                </div>
+                                <div className="comment-content">
+                                    <p>Thanks for the guide! The code snippets and explanations were very helpful.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* End Comments Section */}
+
             {/* Start Blog Comment Form  */}
             <div className="blog-comment-form pb--120 bg_color--1">
                 <div className="container">
@@ -188,7 +225,7 @@ chown -R :www-data . && chmod u+x bin/magento\nbin/magento setup:static-content:
                                         </div>
                                         <div className="col-lg-12">
                                             <div className="blog-btn">
-                                                <Link className="rn-button-style--2 btn-solid" to="/blog-details"><span>SEND MESSAGE</span></Link>
+                                                <Link className="rn-button-style--2 btn-solid" to=""><span>SEND MESSAGE</span></Link>
                                             </div>
                                         </div>
                                     </div>
