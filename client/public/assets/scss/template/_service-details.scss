@@ -15,7 +15,7 @@
         p {
             font-size: 24px;
             line-height: 30px;
-            color: rgba(29, 29, 36, 0.75);
+            color: rgba(0, 0, 0, 1);
             margin-bottom: 0;
         }
     }
@@ -31,7 +31,7 @@
         }
         .details {
             p {
-                color: rgba(29, 29, 36, 0.75);
+                color: rgba(0, 0, 0, 1);
                 font-size: 18px;
                 line-height: 30px;
                 margin-bottom: 0;
@@ -59,7 +59,7 @@
                     li {
                         font-size: 18px;
                         line-height: 30px;
-                        color: rgba(29, 29, 36, 0.75);
+                        color: rgba(0, 0, 0, 1);
                         position: relative;
                         padding-left: 30px;
                         &::before {
@@ -68,7 +68,7 @@
                             width: 6px;
                             height: 6px;
                             border-radius: 100%;
-                            background: rgba(29, 29, 36, 0.75);
+                            background: rgba(0, 0, 0, 1);
                             left: 0;
                             top: 10px;
                         }

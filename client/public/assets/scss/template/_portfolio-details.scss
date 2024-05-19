@@ -64,7 +64,7 @@
         p {
             font-size: 18px;
             line-height: 30px;
-            color: rgba(29, 29, 36, 0.75);
+            color: rgba(0, 0, 0, 1);
             margin-bottom: 30px;
             
             @media #{$lg-layout} {
@@ -107,7 +107,7 @@
                 margin: 0 40px;
                 span {
                     font-size: 16px;
-                    color: rgba(29, 29, 36, 0.75);
+                    color: rgba(0, 0, 0, 1);
                     display: block;
                     margin-bottom: 10px;
                     font-weight: 500;
@@ -150,7 +150,7 @@
         }
         span {
             &.category {
-                color: rgba(29, 29, 36, 0.75);
+                color: rgba(0, 0, 0, 1);
                 font-size: 16px;
                 font-weight: 500;
             }

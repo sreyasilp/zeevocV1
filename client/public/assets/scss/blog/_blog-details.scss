@@ -53,7 +53,7 @@ BLog Details Styles
             p {
                 font-size: 18px;
                 line-height: 30px;
-                color: rgba(29, 29, 36, 0.75);
+                color: rgb(0, 0, 0);
                 margin-bottom: 40px;
                 @media #{$sm-layout} {
                     margin-bottom: 20px;
@@ -150,7 +150,7 @@ BLog Details Styles
                     width: 100%;
                 }
                 span {
-                    color: rgba(29, 29, 36, 0.75);
+                    color: rgba(0, 0, 0, 1);
                     font-size: 14px;
                     display: block;
                     text-align: left;

@@ -74,7 +74,7 @@ const BlogDetails = () => {
                                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum. You need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend toitrrepeat predefined chunks. Necessary, making this the first true generator on the Internet. It re are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injectedeed eedhumour, or randomised words which don't look even slightly believable.</p>
                                     <div className="blog-single-list-wrapper d-flex flex-wrap">
                                         <div className="thumbnail">
-                                            <img className="w-100" src="/assets/images/blog/blog-single-01.png" alt="BLog Images" />
+                                            <img className="w-" src="/assets/images/blog/blog-single-01.png" alt="BLog Images" />
                                             <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</span>
                                         </div>
                                         <div className="content">
@@ -102,7 +102,6 @@ const BlogDetails = () => {
                                         <div className="thumbnail">
                                             <img src="/assets/images/blog/bl-big-01.jpg" alt="Blog Images" />
                                         </div>
-                                        <ModalVideo channel='youtube' isOpen={isOpen} videoId='ZOoVOfieAF8' onClose={() => setIsOpen(false)} />
                                         <button className="video-popup position-top-center" onClick={openModal}><span className="play-icon"></span></button>
                                     </div>
                                     <p className="mb--0">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum. You need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend toitrrepeat predefined chunks. Necessary, making this the first true generator on the Internet. It re are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injectedeed eedhumour, or randomised words which don't look even slightly believable.</p>

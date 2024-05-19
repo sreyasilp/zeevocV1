@@ -30,7 +30,7 @@ ul {
         li {
             position: relative;
             padding-left: 16px;
-            color: rgba(29, 29, 36, 0.75);
+            color: rgba(0, 0, 0, 1);
             font-size: 18px;
             line-height: 25px;
             @media #{$sm-layout} {
@@ -41,7 +41,7 @@ ul {
                 position: absolute;
                 width: 6px;
                 height: 6px;
-                background: rgba(29, 29, 36, 0.75);
+                background: rgba(0, 0, 0, 1);
                 left: 0;
                 top: 50%;
                 transform: translateY(-50%);

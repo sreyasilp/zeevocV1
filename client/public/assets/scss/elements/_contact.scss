@@ -68,7 +68,7 @@
         p {
             font-size: 18px;
             margin-bottom: 0;
-            color: rgba(29, 29, 36, 0.75);
+            color: rgba(0, 0, 0, 1);
             @media #{$lg-layout} {
                 font-size: 16px;
             }
@@ -93,7 +93,7 @@
                 }
             }
             a {
-                color: rgba(29, 29, 36, 0.75);
+                color: rgba(0, 0, 0, 1);
                 @extend %transition;
                 &:hover {
                     color: $theme-color;

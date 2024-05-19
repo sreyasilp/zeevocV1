@@ -21,7 +21,7 @@
     p {
         font-size: 18px;
         line-height: 30px;
-        color: rgba(29, 29, 36, 0.75);
+        color: rgba(0, 0, 0, 1);
         a {
             color: rgba(29, 29, 36, 1);
             font-weight: 500;
@@ -77,7 +77,7 @@
         p {
             padding: 0 21%;
             font-weight: 300;
-            color: #717173;
+            color: #000000;;
             @media #{$md-layout} {
                 padding: 0 7%;
             }
