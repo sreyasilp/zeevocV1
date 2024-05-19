@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PageHelmet from "../../component/common/Helmet";
 import Breadcrumb from "../common/Breadcrumb";
-import { FiChevronUp, FiPackage, FiLayers, FiClipboard, FiBarChart2, FiSettings, FiMonitor } from "react-icons/fi";
+import { FiChevronUp, FiShoppingBag, FiShoppingCart, FiBookOpen, FiSettings, FiMonitor, FiCode } from "react-icons/fi";
 import ScrollToTop from "react-scroll-up";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
@@ -30,7 +30,7 @@ const Service = () => {
 
   return (
     <React.Fragment>
-       <div className={isDarkTheme ? "active-dark" : "active-white"}>
+      <div className={isDarkTheme ? "active-dark" : "active-white"}>
         <PageHelmet pageTitle="Services" />
         <Header
           headertransparent="header--transparent"
@@ -67,10 +67,14 @@ const Service = () => {
                     <a className="text-center" href={`/service-details/${val._id}`}>
                       <div className="service service__style--2">
                         <div className="icon">
-                          {i === 0 && <FiSettings />}
-                          {i === 1 && <FiPackage />}
-                          {i === 2 && <FiLayers />}
-                          {i === 3 && <FiClipboard />}
+
+                          {i === 0 && <FiShoppingBag />} {/* Magento Development */}
+                          {i === 1 && <FiCode />} {/* Extension Development */}
+                          {i === 2 && <FiShoppingCart />} {/* E-commerce Solutions */}
+                          {i === 3 && <FiBookOpen />} {/* Academic Project Assistance */}
+                          {i === 4 && <FiSettings />} {/* Website Maintenance */}
+                          {i === 5 && <FiMonitor />} {/* Website Development */}
+
                         </div>
                         <div className="content">
                           <h3 className="title">{val.title}</h3>

@@ -88,8 +88,8 @@ const MainDemo = () => {
                             <div className="col-lg-6 order-1 order-lg-2">
                                 <div className="thumbnail position-relative">
                                     <img className="w-100" src="/assets/images/about/about-3.png" alt="About Images" />
-                                    <ModalVideo channel='youtube' isOpen={isOpen} videoId='ZOoVOfieAF8' onClose={() => setIsOpen(false)} />
-                                    <button className="video-popup position-top-center theme-color" onClick={openModal}><span className="play-icon"></span></button>
+                                    {/* <ModalVideo channel='youtube' isOpen={isOpen} videoId='ZOoVOfieAF8' onClose={() => setIsOpen(false)} /> */}
+                                    {/* <button className="video-popup position-top-center theme-color" onClick={openModal}><span className="play-icon"></span></button> */}
                                 </div>
                             </div>
                         </div>
@@ -113,7 +113,7 @@ const MainDemo = () => {
                             </div>
                             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
                                 <div className="blog-btn text-left text-lg-right mt_sm--10 mt_md--10">
-                                    <a className="btn-transparent rn-btn-dark" href="/blog"><span className="text">View All Blogs</span></a>
+                                    <a className="btn-transparent rn-btn-dark" href="/blogs"><span className="text">View All Blogs</span></a>
                                 </div>
                             </div>
                         </div>

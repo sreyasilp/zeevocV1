@@ -1,36 +1,34 @@
-import React , {useState} from 'react';
-import emailjs from 'emailjs-com';
+import React, { useState } from 'react';
+import { toast } from 'react-toastify'; // Assuming you have react-toastify installed for notifications
+import 'react-toastify/dist/ReactToastify.css'; // CSS for react-toastify
+import emailjs from 'emailjs-com'; // Import emailjs
 
 const Result = () => {
     return (
-        <p className="success-message">Your Message has been successfully sent. I will contact you soon.</p>
+        <p className="success-message">Your Message has been successfully sent. We will contact you soon.</p>
     )
 }
-function ContactForm({props}) {
-    const [ result,showresult ] = useState(false);
+
+function ContactForm() {
+    const [result, setResult] = useState(false);
 
     const sendEmail = (e) => {
         e.preventDefault();
-        emailjs
-        .sendForm(
-            'service_p4x3hv8', 
-            'template_jgfr42f', 
-            e.target, 
-            'user_jrfTH2e0Ely35ZCVFdT9S'
-        )
-        .then((result) => {
-            console.log(result.text);
-            }, 
-            (error) => {
+
+        // Send the email using emailjs
+        emailjs.sendForm('service_hax8fyk', 'template_k6mon96', e.target, 'F2tvl3vAECwURSr_-')
+           .then((result) => {
+                window.location.reload(); // Reload the page after successful form submission
+                toast.success('Message Sent Successfully');
+                setResult(true);
+            }, (error) => {
                 console.log(error.text);
-            }
-        );
-        e.target.reset();
-        showresult(true);
+                toast.error('Failed to Send Message');
+            });
     };
 
     setTimeout(() => {
-        showresult(false);
+        setResult(false);
     }, 5000);
 
     return (
@@ -38,7 +36,7 @@ function ContactForm({props}) {
             <div className="rn-form-group">
                 <input 
                 type="text"
-                name="fullname"
+                name="from_name"
                 placeholder="Your Name"
                 required
                 />
@@ -47,7 +45,7 @@ function ContactForm({props}) {
             <div className="rn-form-group">
                 <input 
                 type="email"
-                name="email"
+                name="from_email"
                 placeholder="Your Email"
                 required
                 />
@@ -56,7 +54,7 @@ function ContactForm({props}) {
             <div className="rn-form-group">
                 <input 
                 type="text"
-                name="phone"
+                name="from_phone"
                 placeholder="Phone Number"
                 required
                 />
@@ -65,7 +63,7 @@ function ContactForm({props}) {
             <div className="rn-form-group">
                 <input 
                 type="text"
-                name="subject"
+                name="from_subject"
                 placeholder="Subject"
                 required
                 />
@@ -85,9 +83,10 @@ function ContactForm({props}) {
             </div> 
 
             <div className="rn-form-group">
-                {result ? <Result /> : null}
+                {result? <Result /> : null}
             </div> 
         </form>
     )
 }
+
 export default ContactForm;

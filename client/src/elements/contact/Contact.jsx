@@ -1,24 +1,13 @@
 import React from "react";
 import PageHelmet from "../../component/common/Helmet";
 import { FiHeadphones, FiMail, FiMapPin, FiChevronUp } from "react-icons/fi";
-import GoogleMapReact from 'google-map-react';
 import ContactTwo from "./ContactTwo";
 import Breadcrumb from "../common/Breadcrumb";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import ScrollToTop from 'react-scroll-up';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
 const Contact = () => {
-    const defaultProps = {
-        center: {
-            lat: 59.95,
-            lng: 30.33
-        },
-        zoom: 11
-    };
-
     return (
         <React.Fragment>
             <PageHelmet pageTitle='Contact' />
@@ -86,20 +75,14 @@ const Contact = () => {
             {/* End Contact Page Area  */}
 
             {/* Start Contact Map  */}
-            <div className="rn-contact-map-area position-relative">
-                <div style={{ height: '650px', width: '100%' }}>
-                    <GoogleMapReact
-                        defaultCenter={defaultProps.center}
-                        defaultZoom={defaultProps.zoom}
-                        bootstrapURLKeys={{ key: "" }} // Add your API key here
-                    >
-                        <AnyReactComponent
-                            lat={10.052131027349821}
-                            lng={76.32506296413644}
-                            text="Location"
-                        />
-                    </GoogleMapReact>
-                </div>
+            <div className="rn-contact-map-area position-relative text-center">
+                <iframe
+                    title='Google Maps'
+                    src='https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1528.4551660067987!2d76.32428091867902!3d10.052047630970423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDAzJzA3LjYiTiA3NsKwMTknMzAuMiJF!5e0!3m2!1sen!2sin!4v1716004333170!5m2!1sen!2sin'
+                    frameBorder=''
+                    style={{ border: 0, width: '98%', height: '500px' }}
+                    allowFullScreen
+                ></iframe>
             </div>
             {/* End Contact Map  */}
 

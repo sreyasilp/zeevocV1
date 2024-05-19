@@ -24,6 +24,7 @@ import * as serviceWorker from './serviceWorker';
 import Login from './elements/login/Login';
 import SignUp from './elements/signup/SignUp';
 import { ThemeProvider } from './context/ThemeContext';
+import { ToastContainer } from 'react-toastify';
 
 class Root extends Component {
   render() {
@@ -31,6 +32,7 @@ class Root extends Component {
       <ThemeProvider>
         <BrowserRouter basename={'/'}>
           <PageScrollTop>
+          <ToastContainer />
             <Switch>
               <Route exact path={`${process.env.PUBLIC_URL}/`} component={DarkMainDemo} />
               <Route exact path={`${process.env.PUBLIC_URL}/login`} component={Login} />
