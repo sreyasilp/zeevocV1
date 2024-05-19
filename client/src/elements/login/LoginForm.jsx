@@ -6,6 +6,7 @@ import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { signIn } from "../../api/index.js";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./LoginForm.css"; // Make sure to create and import your custom CSS file
 
 function LoginForm() {
   const history = useHistory();
@@ -81,6 +82,7 @@ function LoginForm() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Email"
+                      required
                     />
                   </label>
                   <label htmlFor="item04">
@@ -91,26 +93,38 @@ function LoginForm() {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Password"
+                      required
                     />
                   </label>
                   <p style={{ color: 'black', marginTop: '0px' }}>
                     Doesn't have an Account? <Link to="/signup" style={{ color: "#f9004d", fontWeight: 'bold' }}>Sign Up</Link>
                   </p>
-                  <button
-                    className="rn-button-style--2 btn-solid"
-                    type="submit"
-                    value="submit"
-                    name="submit"
-                    id="mc-embedded-subscribe"
-                  >
-                    Submit
-                  </button>
-
-                  <GoogleLogin
-                    onSuccess={googleSuccess}
-                    onFailure={googleError}
-                    cookiePolicy={'single_host_origin'}
-                  />
+                  <div className="button-group">
+                    <button
+                      className="rn-button-style--2 btn-solid"
+                      type="submit"
+                      value="submit"
+                      name="submit"
+                      id="mc-embedded-subscribe"
+                    >
+                      Submit
+                    </button>
+                    <GoogleLogin
+                      onSuccess={googleSuccess}
+                      onFailure={googleError}
+                      cookiePolicy={'single_host_origin'}
+                      render={(renderProps) => (
+                        <button
+                          onClick={renderProps.onClick}
+                          disabled={renderProps.disabled}
+                          className="google-button"
+                        >
+                          <FcGoogle size="1.5em" style={{ marginRight: "8px" }} />
+                          Sign in with Google
+                        </button>
+                      )}
+                    />
+                  </div>
                 </form>
               </div>
             </div>

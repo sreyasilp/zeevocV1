@@ -1,0 +1,26 @@
+.button-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust spacing between buttons as needed */
+    margin-top: 20px;
+  }
+  
+  .google-button {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .google-button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .google-button:disabled {
+    cursor: not-allowed;
+  }
+  

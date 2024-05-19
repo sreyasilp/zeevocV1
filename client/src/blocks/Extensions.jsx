@@ -41,8 +41,7 @@ const Extension = () => {
                     <div className="section-title text-center service-style--3 mb--30">
                       <h2 className="title">All Extensions</h2>
                       <p>
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majority have suffered alteration.
+                        Elevate your Magento site with our efficient extensions. Streamline operations and boost sales effortlessly. Explore now!
                       </p>
                     </div>
                   </div>
@@ -51,8 +50,8 @@ const Extension = () => {
 
                 <Extensions column="col-lg-4 col-md-6 col-sm-6 col-12" />
 
-                {/* End Designer Extension  */}
-                <div className="row">
+                {/* End Designer Extension for later use */}
+                {/* <div className="row">
                   <div className="col-lg-12">
                     <div className="view-more-btn mt--60 text-center">
                       <a
@@ -63,7 +62,7 @@ const Extension = () => {
                       </a>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

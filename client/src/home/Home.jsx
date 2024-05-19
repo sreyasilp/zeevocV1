@@ -56,7 +56,7 @@ const MainDemo = () => {
                 <div className="slider-wrapper">
                     <SliderTwo />
                 </div>
-        
+
                 <div className="rn-about-area ptb--120 bg_color--1">
                     <div className="container">
                         <div className="row row--35 align-items-center">
@@ -108,7 +108,9 @@ const MainDemo = () => {
                             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
                                 <div className="section-title text-left">
                                     <h2>Latest Blogs</h2>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
+                                    <p>
+                                        Explore our latest insights and trends in the industry. Stay informed and ahead with our curated blog posts.
+                                    </p>
                                 </div>
                             </div>
                             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
