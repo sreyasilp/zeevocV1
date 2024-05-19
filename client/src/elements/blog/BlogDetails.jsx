@@ -8,10 +8,10 @@ import Footer from "../../component/footer/Footer";
 import ModalVideo from 'react-modal-video';
 import PageHelmet from "../../component/common/Helmet";
 import { getBlogById } from "../../api";
-import 'prismjs/themes/prism.css';
-import Prism from 'prismjs';
-import 'prismjs/components/prism-bash.min.js';
-import 'prismjs/components/prism-sql.min.js';
+// import 'prismjs/themes/prism.css';
+// import Prism from 'prismjs';
+// import 'prismjs/components/prism-bash.min.js';
+// import 'prismjs/components/prism-sql.min.js';
 
 const BlogDetails = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +35,7 @@ const BlogDetails = () => {
             try {
                 const response = await getBlogById(blogId);
                 setBlogData(response.data);
-                Prism.highlightAll();
+                // Prism.highlightAll();
             } catch (error) {
                 console.error("Error fetching blog data:", error);
             }

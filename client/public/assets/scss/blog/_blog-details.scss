@@ -1,3 +1,19 @@
+
+@media (max-width: 768px) {
+    .installation-steps {
+      ol {
+        padding-left: 0;
+  
+        li {
+          .code-snippet {
+            pre {
+              padding-right: 80px; /* Add padding to avoid text overlap with the button */
+            }
+  
+            
+          }
+        }
+    }}}
 .code-snippet {
     position: relative;
     margin: 20px 0;

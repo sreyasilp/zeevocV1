@@ -25,12 +25,7 @@ import Login from './elements/login/Login';
 import SignUp from './elements/signup/SignUp';
 import { ThemeProvider } from './context/ThemeContext';
 import { ToastContainer } from 'react-toastify';
-import 'prismjs/themes/prism.css';
-import Prism from 'prismjs';
 
-// Import the languages you need
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-css';
 class Root extends Component {
   render() {
     return (
