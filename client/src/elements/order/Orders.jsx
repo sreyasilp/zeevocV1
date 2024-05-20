@@ -5,8 +5,9 @@ import { FiChevronUp } from "react-icons/fi";
 import ScrollToTop from "react-scroll-up";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
-import { getAllOrders } from "../../api";
+import { getOrdersByUserId } from "../../api";
 import { useTheme } from "../../context/ThemeContext";
+import { getUserDetails } from "../../auth/authUtils";
 // import "./order.css"; // Import custom CSS for styling
 
 const Orders = () => {
@@ -17,7 +18,9 @@ const Orders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await getAllOrders();
+        const userDetails = getUserDetails();
+        const response = await getOrdersByUserId(userDetails.id);
+        console.log(response)
         setOrders(response.data);
         setLoading(false);
       } catch (error) {
@@ -73,7 +76,7 @@ const Orders = () => {
                         {orders.map((order) => (
                           <tr key={order._id}>
                             <td>{order._id}</td>
-                            <td>{order.user.email}</td>
+                            <td>{order.user.firstName}</td>
                             <td>
                               {order.orderItems.map((item) => (
                                 <div key={item.product._id}>

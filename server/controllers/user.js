@@ -32,7 +32,7 @@ export const signUp = async (req, res) => {
 
     res.status(201).json({ result, token });
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Something went wrong" + error});
     console.log(error);
   }
 };
@@ -58,13 +58,14 @@ export const signIn = async (req, res) => {
     const refreshToken = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, {
       expiresIn: "7d",
     });
-    console.log(token+"toekn server side")
-    res.cookie('token', token, { httpOnly: true, secure: true, sameSite: 'Strict' });
-    res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: true, sameSite: 'Strict' });
 
-    res.status(200).json({ message: "Sign in Successful" });
+    // Instead of setting token in localStorage, send it in the response body
+    res.status(200).json({ message: "Sign in Successful", token });
+
+    // Optionally, you can also set the refreshToken as a cookie here
+    // res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: true, sameSite: 'Strict' });
   } catch (err) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Something went wrong" + err});
   }
 };
 
@@ -107,8 +108,8 @@ export const refreshToken = async (req, res) => {
   try {
     const decoded = jwt.verify(refreshToken, secret);
     const newToken = jwt.sign({ email: decoded.email, id: decoded.id }, secret, { expiresIn: '1h' });
-
-    res.cookie('token', newToken, { httpOnly: true, secure: true, sameSite: 'Strict' });
+    localStorage.setItem('token', newToken);
+    // res.cookie('token', newToken, { httpOnly: true, secure: true, sameSite: 'Strict' });
     res.status(200).json({ message: 'Token refreshed' });
   } catch (err) {
     res.status(403).json({ message: 'Invalid refresh token' });

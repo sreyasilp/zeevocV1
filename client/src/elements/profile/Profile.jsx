@@ -23,8 +23,9 @@ const UserProfile = () => {
     const fetchProfile = async () => {
         try {
             const userDetails = getUserDetails();
-            console.log(userDetails +"hi")
+            console.log(userDetails +"hi profile ")
             const email = userDetails.email;
+            console.log(userDetails.email +"hi profile email")
             const response = await getProfile(email);
             console.log(response)
             setProfile(response.data.user);

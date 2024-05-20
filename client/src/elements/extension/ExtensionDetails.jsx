@@ -80,7 +80,7 @@ const ExtensionDetails = () => {
                 },
                 prefill: {
                     name: "Sreyas",
-                    email: "sreyastp444@gmailc.com",
+                    email: "sreyastp444@gmail.com",
                     contact: "7403563990",
                 },
                 notes: {

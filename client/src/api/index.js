@@ -7,6 +7,7 @@ export const getBlogList = (page) => API.get(`blog/all`);
 export const getProfile = (userEmail) => API.get(`user/${userEmail}`);
 export const getAllServices = (page) => API.get(`service/all`);
 export const getAllOrders = (page) => API.get(`orders`);
+export const getOrdersByUserId = (userId) => API.get(`orders/user/${userId}`);
 export const getAllExtensions = (page) => API.get(`extension/all`);
 export const getServiceById = (serviceId) => API.get(`service/getbyid/${serviceId}`);
 export const getBlogById = (blogId) => API.get(`blog/getbyid/${blogId}`);

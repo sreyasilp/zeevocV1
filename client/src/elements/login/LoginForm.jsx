@@ -6,7 +6,7 @@ import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { signIn } from "../../api/index.js";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./LoginForm.css"; // Make sure to create and import your custom CSS file
+import "./LoginForm.css";
 
 function LoginForm() {
   const history = useHistory();
@@ -53,8 +53,7 @@ function LoginForm() {
         email: email,
         password: password,
       });
-      // console.log(response.data.token+"logintoken")
-      // document.cookie = `token=${response.data.token}; max-age=3600; path=/; secure; samesite=strict`;
+      localStorage.setItem('token', response.data.token);
       showToastMessage("Logged in successfully!", false);
       history.push("/");
     } catch (error) {
@@ -97,7 +96,6 @@ function LoginForm() {
                       required
                     />
                   </label>
-                 
                   <div className="button-group">
                     <button
                       className="rn-button-style--2 btn-solid"
@@ -124,9 +122,9 @@ function LoginForm() {
                         </button>
                       )}
                     />
-                     <p style={{ color: 'black', marginTop: '0px' }}>
-                    Doesn't have an Account? <Link to="/signup" style={{ color: "#f9004d", fontWeight: 'bold' }}>Sign Up</Link>
-                  </p>
+                    <p style={{ color: 'black', marginTop: '0px' }}>
+                      Doesn't have an Account? <Link to="/signup" style={{ color: "#f9004d", fontWeight: 'bold' }}>Sign Up</Link>
+                    </p>
                   </div>
 
                 </form>
