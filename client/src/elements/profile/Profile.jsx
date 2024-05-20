@@ -7,6 +7,7 @@ import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import { getProfile, updateProfile } from "../../api"; // Import updateProfile API function
 import { useTheme } from "../../context/ThemeContext";
+import { getUserDetails } from "../../auth/authUtils";
 
 const UserProfile = () => {
     const [profile, setProfile] = useState({});
@@ -21,11 +22,14 @@ const UserProfile = () => {
 
     const fetchProfile = async () => {
         try {
-            // Hardcoded email for now
-            const email = "zeevocenterprise@gmail.com"; // Replace with actual email
+            const userDetails = getUserDetails();
+            console.log(userDetails +"hi")
+            const email = userDetails.email;
             const response = await getProfile(email);
+            console.log(response)
             setProfile(response.data.user);
             setLoading(false);
+
         } catch (error) {
             console.error("Error fetching profile:", error);
             setLoading(false);

@@ -1,18 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FiX, FiMenu, FiUser, FiSun, FiMoon } from "react-icons/fi"; // Import FiUser icon
+import { FiX, FiMenu, FiUser, FiSun, FiMoon } from "react-icons/fi";
 import { useTheme } from "../../context/ThemeContext";
-import "./Header.css"
+import { getCookie } from "../../auth/authUtils"; // Import the getCookie utility function
+import "./Header.css";
 
 const Header = (props) => {
     // State to hold the token
-    const [token, setToken] = useState(localStorage.getItem('token'));
+    const [token, setToken] = useState(getCookie('token')); // Initialize with cookie value
     const location = useLocation();
     const { isDarkTheme, toggleTheme } = useTheme();
 
-    // Effect to update the token in state when it changes in local storage
+    // Effect to update the token in state when it changes in cookies
     useEffect(() => {
-        setToken(localStorage.getItem('token'));
+        const handleCookieChange = () => {
+            setToken(getCookie('token'));
+        };
+
+        // Listen to storage events to update the token state
+        window.addEventListener('storage', handleCookieChange);
+        
+        // Cleanup listener on component unmount
+        return () => {
+            window.removeEventListener('storage', handleCookieChange);
+        };
     }, []);
 
     // Function to open the menu
@@ -27,7 +38,7 @@ const Header = (props) => {
 
     // Logout function
     const logout = () => {
-        localStorage.removeItem("token");
+        document.cookie = 'token=; Max-Age=0; path=/; secure; samesite=strict'; // Clear the cookie
         setToken(null);
         window.location.href = "/";
     };
@@ -84,10 +95,10 @@ const Header = (props) => {
                                 <ul className="submenu">
                                     {/* Theme Toggle Icon */}
                                     <li>
-                                        {/* <Link to="#" onClick={toggleTheme} className="theme-toggle-icon">
+                                        <Link to="#" onClick={toggleTheme} className="theme-toggle-icon">
                                             {isDarkTheme ? "Theme " : "Theme "}
                                             {isDarkTheme ? <FiSun /> : <FiMoon />}
-                                        </Link> */}
+                                        </Link>
                                     </li>
 
                                     <li><Link to="/orders" >Orders</Link></li>

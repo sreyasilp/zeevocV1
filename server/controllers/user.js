@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-// import jwtDecode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 import userModel from "../models/user.js";
 
@@ -58,7 +58,7 @@ export const signIn = async (req, res) => {
     const refreshToken = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, {
       expiresIn: "7d",
     });
-
+    console.log(token+"toekn server side")
     res.cookie('token', token, { httpOnly: true, secure: true, sameSite: 'Strict' });
     res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: true, sameSite: 'Strict' });
 
@@ -115,37 +115,20 @@ export const refreshToken = async (req, res) => {
   }
 };
 
-
-
-export const isAuthenticated = () => {
-  const token = getCookie('token');
-  if (!token) return false;
-
+//NOTINUSE HANDLED IN FE
+export const getUserDetails = (req, res) => {
   try {
-    const { exp } = jwtDecode(token);
-    if (Date.now() >= exp * 1000) {
-      return false;
-    }
-    return true;
-  } catch (e) {
-    return false;
-  }
-};
+    const token = req.cookies.token;
+    if (!token) throw new Error("No token found");
 
-export const getUserDetails = () => {
-  const token = getCookie('token');
-  if (!token) return null;
-
-  try {
     const userDetails = jwtDecode(token);
-    return userDetails;
-  } catch (e) {
-    return null;
-  }
-};
 
-const getCookie = (name) => {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(';').shift();
+    // Send the user details as a response
+    return res.status(200).json(userDetails);
+  } catch (error) {
+    console.error("Error decoding JWT token:", error);
+
+    // Send an error response to the client
+    return res.status(400).json({ message: "Error decoding JWT token", error: error.message });
+  }
 };

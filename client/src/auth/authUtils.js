@@ -1,4 +1,4 @@
-import jwtDecode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 export const isAuthenticated = () => {
     const token = getCookie('token');
@@ -17,6 +17,7 @@ export const isAuthenticated = () => {
 
 export const getUserDetails = () => {
     const token = getCookie('token');
+    console.log("token"+token)
     if (!token) return null;
 
     try {
@@ -29,6 +30,7 @@ export const getUserDetails = () => {
 
 const getCookie = (name) => {
     const value = `; ${document.cookie}`;
+    console.log(value+"valtok")
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
 };

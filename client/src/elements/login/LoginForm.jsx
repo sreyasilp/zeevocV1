@@ -53,7 +53,8 @@ function LoginForm() {
         email: email,
         password: password,
       });
-      document.cookie = `token=${response.data.token}; max-age=3600; path=/; secure; samesite=strict`;
+      // console.log(response.data.token+"logintoken")
+      // document.cookie = `token=${response.data.token}; max-age=3600; path=/; secure; samesite=strict`;
       showToastMessage("Logged in successfully!", false);
       history.push("/");
     } catch (error) {

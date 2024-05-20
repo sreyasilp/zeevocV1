@@ -2,7 +2,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
 // Create an Axios instance
-const API = axios.create({ baseURL: "http://localhost:4444/" });
+const API = axios.create({ baseURL: "http://localhost:4444/", withCredentials: true });
 // const API = axios.create({ baseURL: "https://zeevoc-server.onrender.com" }); 
 
 // Add a request interceptor
@@ -38,10 +38,11 @@ const refreshToken = async () => {
   }
 };
 
-const getCookie = (name) => {
+export const getCookie = (name) => {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);
   if (parts.length === 2) return parts.pop().split(';').shift();
 };
 
 export default API;
+ 
