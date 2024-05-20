@@ -80,12 +80,15 @@ export const deleteOrder = async (req, res) => {
     res.status(500).json({ message: 'Deleting order failed', error });
   }
 };
+
 // Get all orders of a user by user ID
 export const getOrdersByUserId = async (req, res) => {
   const { userId } = req.params;
 
   try {
-    const orders = await Order.find({ 'user._id': userId }).populate('orderItems.product', 'title quantity price');
+
+    // Fetch orders and populate the product details in orderItems
+    const orders = await Order.find({ user: userId }).populate('orderItems.product');
     res.status(200).json(orders);
   } catch (error) {
     res.status(500).json({ message: 'Fetching user orders failed', error });

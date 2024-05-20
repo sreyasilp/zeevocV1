@@ -15,7 +15,7 @@ router.get("/all", getAllExtensions);
 router.get("/getbyid/:id", getExtensionById);
 
 router.post("/create", adminAuth, createExtension);
-router.patch("updatebyid/:id", adminAuth, updateExtension);
+router.patch("/:id", adminAuth, updateExtension);
 router.delete("/deletebyid/:id", adminAuth, deleteExtension);
 
 export default router;

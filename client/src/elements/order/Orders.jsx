@@ -19,6 +19,7 @@ const Orders = () => {
     const fetchOrders = async () => {
       try {
         const userDetails = getUserDetails();
+        console.log(userDetails.id)
         const response = await getOrdersByUserId(userDetails.id);
         console.log(response)
         setOrders(response.data);

@@ -19,7 +19,8 @@ function LoginForm() {
     const tokenId = res.tokenId;
 
     try {
-      document.cookie = `token=${tokenId}; max-age=3600; path=/; secure; samesite=strict`;
+      // document.cookie = `token=${tokenId}; max-age=3600; path=/; secure; samesite=strict`;
+      localStorage.setItem('token',tokenId)
       showToastMessage("Logged in successfully!", false);
       history.push("/");
       console.log("Google login response:", res);

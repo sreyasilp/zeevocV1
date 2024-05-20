@@ -4,6 +4,7 @@ import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import { getAllExtensions } from '../../api'; // Import the API function
 
+
 const TabStyleThree = ({ column }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [tab1, setTab1] = useState(0);
