@@ -46,7 +46,7 @@ const ExtensionDetails = () => {
             }
             const payOptions = {
                 amount: 1000, // amount in smallest currency unit
-                currency: "INR",
+                currency: "AUD",
                 receipt: "101",
             };
             const result = await createPaymentOrder(payOptions);
@@ -95,6 +95,7 @@ const ExtensionDetails = () => {
             paymentObject.open();
         } catch (error) {
             console.error("Error occurred:", error);
+            console.log(error)
             toast.error("Error occurred. Please try again later.");
         }
     };

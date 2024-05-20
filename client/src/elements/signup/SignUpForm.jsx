@@ -74,7 +74,7 @@ function SignUpForm() {
         <div className="container">
           <div className="row row--35 align-items-start">
             <div className="col-lg-6 order-2 order-lg-1">
-              <div className="section-title text-left mb--50">
+              <div className="section-title text-left mb--10">
                 <h2 className="title">Sign Up</h2>
                 <p className="description">Sign Up to explore more </p>
               </div>
@@ -112,6 +112,7 @@ function SignUpForm() {
                     >
                       Submit
                     </button>
+                    <span>OR</span> {/* Added "or" text here */}
                     <GoogleLogin
                       onSuccess={googleSuccess}
                       onFailure={googleError}

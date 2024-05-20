@@ -12,14 +12,14 @@ function LoginForm() {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState(null);
+  const [copyButtonText, setCopyButtonText] = useState("Copy");
 
   const googleSuccess = async (res) => {
     const profileObj = res.profileObj;
     const tokenId = res.tokenId;
 
     try {
-      localStorage.setItem('token', tokenId);
+      document.cookie = `token=${tokenId}; max-age=3600; path=/; secure; samesite=strict`;
       showToastMessage("Logged in successfully!", false);
       history.push("/");
       console.log("Google login response:", res);
@@ -53,7 +53,7 @@ function LoginForm() {
         email: email,
         password: password,
       });
-      localStorage.setItem('token', response.data.token);
+      document.cookie = `token=${response.data.token}; max-age=3600; path=/; secure; samesite=strict`;
       showToastMessage("Logged in successfully!", false);
       history.push("/");
     } catch (error) {
@@ -96,9 +96,7 @@ function LoginForm() {
                       required
                     />
                   </label>
-                  <p style={{ color: 'black', marginTop: '0px' }}>
-                    Doesn't have an Account? <Link to="/signup" style={{ color: "#f9004d", fontWeight: 'bold' }}>Sign Up</Link>
-                  </p>
+                 
                   <div className="button-group">
                     <button
                       className="rn-button-style--2 btn-solid"
@@ -125,6 +123,9 @@ function LoginForm() {
                         </button>
                       )}
                     />
+                     <p style={{ color: 'black', marginTop: '0px' }}>
+                    Doesn't have an Account? <Link to="/signup" style={{ color: "#f9004d", fontWeight: 'bold' }}>Sign Up</Link>
+                  </p>
                   </div>
 
                 </form>

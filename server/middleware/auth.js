@@ -2,28 +2,53 @@ import jwt from "jsonwebtoken";
 
 const secret = "code416";
 
-const auth = async (req, res, next) => {
+export const auth = async (req, res, next) => {
   try {
-    if(!req.headers.authorization){
-      return res.json({ message: "Unauthenticated" });
-    }
-    const token = req.headers.authorization.split(" ")[1];
-    const isCustomAuth = token.length < 500;
+    const token = req.headers.authorization?.split(" ")[1];
 
+    if (!token) {
+      return res.status(401).json({ message: "No token provided" });
+    }
+
+    const isCustomAuth = token.length < 500;
     let decodedData;
 
-    if (token && isCustomAuth) {
+    if (isCustomAuth) {
       decodedData = jwt.verify(token, secret);
       req.userId = decodedData?.id;
     } else {
       decodedData = jwt.decode(token);
       req.userId = decodedData?.sub;
-    } 
+    }
 
     next();
   } catch (error) {
-    console.log(error);
+    if (error instanceof jwt.TokenExpiredError) {
+      return res.status(401).json({ message: "Token expired" });
+    } else if (error instanceof jwt.JsonWebTokenError) {
+      return res.status(401).json({ message: "Invalid token" });
+    } else {
+      console.error("Error in auth middleware:", error);
+      return res.status(500).json({ message: "Internal server error" });
+    }
   }
 };
 
-export default auth;
+
+export const adminAuth = (req, res, next) => {
+  const token = req.cookies.token;
+  if (!token) return res.status(401).json({ message: 'Unauthorized - Admin Access Required' });
+
+  try {
+    const decoded = jwt.verify(token, secret);
+    if (decoded.email === 'jibymol@gmail.com') {
+      req.userId = decoded.id;
+      next();
+    } else {
+      res.status(403).json({ message: 'Forbidden' });
+    }
+  } catch (err) {
+    res.status(403).json({ message: 'Token is invalid or expired' });
+  }
+};
+

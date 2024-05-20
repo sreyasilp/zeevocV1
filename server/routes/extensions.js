@@ -1,5 +1,5 @@
 import express from "express";
-import auth from "../middleware/auth.js";
+import { adminAuth } from "../middleware/auth.js";
 
 import {
   getAllExtensions,
@@ -14,8 +14,8 @@ const router = express.Router();
 router.get("/all", getAllExtensions);
 router.get("/getbyid/:id", getExtensionById);
 
-router.post("/create", createExtension);
-router.patch("updatebyid/:id",  updateExtension);
-router.delete("/deletebyid/:id", deleteExtension);
+router.post("/create", adminAuth, createExtension);
+router.patch("updatebyid/:id", adminAuth, updateExtension);
+router.delete("/deletebyid/:id", adminAuth, deleteExtension);
 
 export default router;

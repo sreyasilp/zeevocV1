@@ -84,10 +84,10 @@ const Header = (props) => {
                                 <ul className="submenu">
                                     {/* Theme Toggle Icon */}
                                     <li>
-                                        <Link to="#" onClick={toggleTheme} className="theme-toggle-icon">
+                                        {/* <Link to="#" onClick={toggleTheme} className="theme-toggle-icon">
                                             {isDarkTheme ? "Theme " : "Theme "}
-                                            {/* {isDarkTheme ? <FiSun /> : <FiMoon />} */}
-                                        </Link>
+                                            {isDarkTheme ? <FiSun /> : <FiMoon />}
+                                        </Link> */}
                                     </li>
 
                                     <li><Link to="/orders" >Orders</Link></li>

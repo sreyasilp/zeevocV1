@@ -8,10 +8,13 @@ import blogPost from "./routes/blogPosts.js";
 import services from "./routes/services.js";
 import payments from "./routes/payment.js";
 import orderRoutes from './routes/order.js';
+import cookieParser from 'cookie-parser';
 
 
 const app = express();
 
+// Middleware setup
+app.use(cookieParser());  
 app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());

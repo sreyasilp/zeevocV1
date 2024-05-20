@@ -1,5 +1,5 @@
 import express from "express";
-import auth from "../middleware/auth.js";
+import { adminAuth } from "../middleware/auth.js";
 
 import {
   createBlogPost,
@@ -11,10 +11,10 @@ import {
 
 const router = express.Router();
 
-router.post("/create", createBlogPost);
+router.post("/create", adminAuth, createBlogPost);
 router.get("/all", getAllBlogPosts);
 router.get("/getbyid/:id", getBlogPostById);
-router.patch("/updatebyid/:id", updateBlogPost);
-router.delete("/deletebyid/:id", deleteBlogPost);
+router.patch("/updatebyid/:id", adminAuth, updateBlogPost);
+router.delete("/deletebyid/:id", adminAuth, deleteBlogPost);
 
 export default router;

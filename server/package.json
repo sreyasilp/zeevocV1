@@ -13,6 +13,7 @@
   "dependencies": {
     "bcryptjs": "latest",
     "body-parser": "latest",
+    "cookie-parser": "^1.4.6",
     "cors": "latest",
     "crypto": "^1.0.1",
     "dotenv": "^16.4.5",
@@ -20,6 +21,7 @@
     "express-graphql": "latest",
     "graphql": "latest",
     "jsonwebtoken": "latest",
+    "jwt-decode": "^4.0.0",
     "mongoose": "^8.3.4",
     "nodemon": "latest",
     "razorpay": "^2.9.3",
