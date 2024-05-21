@@ -43,11 +43,12 @@ export const handlePaymentSuccess = async (req, res) => {
     // Update the order with payment details and set isPaid to true
     order.paymentResult = {
       id: razorpayPaymentId,
-      status: 'Success', // You can customize this based on your business logic
+      status: 'Paid', // You can customize this based on your business logic
       updateTime: new Date().toISOString(),
       emailAddress: order.user.email // Assuming user has an email field
     };
     order.isPaid = true;
+    order.status = "Success"
     order.paidAt = new Date();
 
     // Save the updated order

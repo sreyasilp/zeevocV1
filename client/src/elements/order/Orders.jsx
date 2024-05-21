@@ -9,6 +9,7 @@ import { getOrdersByUserId } from "../../api";
 import { useTheme } from "../../context/ThemeContext";
 import { getUserDetails } from "../../auth/authUtils";
 // import "./order.css"; // Import custom CSS for styling
+import moment from 'moment'; // Import moment for date formatting
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -19,9 +20,7 @@ const Orders = () => {
     const fetchOrders = async () => {
       try {
         const userDetails = getUserDetails();
-        console.log(userDetails.id)
         const response = await getOrdersByUserId(userDetails.id);
-        console.log(response)
         setOrders(response.data);
         setLoading(false);
       } catch (error) {
@@ -66,18 +65,19 @@ const Orders = () => {
                     <table className="table">
                       <thead>
                         <tr>
-                          <th>Order ID</th>
+                          <th>Order No.</th>
                           <th>Customer</th>
                           <th>Items</th>
                           <th>Total</th>
                           <th>Status</th>
+                          <th>Date</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {orders.map((order) => (
+                        {orders.map((order, index) => (
                           <tr key={order._id}>
-                            <td>{order._id}</td>
-                            <td>{order.user.firstName}</td>
+                            <td>{index + 1}</td> {/* Display a sequential order number */}
+                            <td>{order.user.firstName} {order.user.lastName}</td>
                             <td>
                               {order.orderItems.map((item) => (
                                 <div key={item.product._id}>
@@ -85,8 +85,9 @@ const Orders = () => {
                                 </div>
                               ))}
                             </td>
-                            <td>${order.totalPrice}</td>
+                            <td>${order.totalPrice.toFixed(2)}</td>
                             <td>{order.status}</td>
+                            <td>{moment(order.createdAt).format('MMMM Do YYYY, h:mm a')}</td> {/* Format the date using moment */}
                           </tr>
                         ))}
                       </tbody>

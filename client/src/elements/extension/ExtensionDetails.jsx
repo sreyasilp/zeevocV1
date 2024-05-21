@@ -147,6 +147,8 @@ const ExtensionDetails = () => {
                     try {
                         // Post payment success
                         const result = await postPaymentSuccess(paymentSuccessData);
+                        console.log(result);
+
                         if (result) {
                             toast.success("Order placed successfully!");
                             history.push('/orders');
