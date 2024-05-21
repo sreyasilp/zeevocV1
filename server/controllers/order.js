@@ -15,7 +15,7 @@ export const createOrder = async (req, res) => {
     paymentMethod,
     itemsPrice,
     taxPrice,
-    totalPrice,
+    totalPrice, 
   });
 
   try {

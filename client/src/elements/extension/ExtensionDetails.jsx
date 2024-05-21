@@ -9,7 +9,7 @@ import axios from "axios";
 import dotenv from 'dotenv';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { getExtensionById, createPaymentOrder, getProfile, createOrder } from "../../api";
+import { getExtensionById, createPaymentOrder, getProfile, createOrder, postPaymentSuccess } from "../../api";
 import { getUserDetails } from "../../auth/authUtils";
 dotenv.config();
 
@@ -75,20 +75,19 @@ const ExtensionDetails = () => {
     }, [extensionId]);
 
     const getConvertedPrice = () => {
-        console.log(extensionData.price)
         const basePrice = extensionData.price; // Assuming price is in USD
         const rate = exchangeRates[selectedCurrency];
         return rate ? (basePrice * rate).toFixed(2) : basePrice;
     };
-
     const displayRazorpay = async () => {
         try {
             const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
-
+    
             if (!res) {
                 toast.error("Razorpay SDK failed to load. Are you online?");
                 return;
             }
+            
             // Generate a unique receipt ID including user ID and extension ID
             const receipt = `${extensionId}-${Date.now()}`; // Concatenates
             const payOptions = {
@@ -96,32 +95,68 @@ const ExtensionDetails = () => {
                 currency: selectedCurrency,
                 receipt: receipt,
             };
-            const result = await createPaymentOrder(payOptions);
-            if (!result) {
+            const paymentOrder = await createPaymentOrder(payOptions);
+            if (!paymentOrder) {
                 toast.error("Server error. Are you online?");
                 return;
             }
-
-            const { amount, id: order_id, currency } = result.data;
+    
+            // Prepare order data to create the order before payment
+            const orderItems = [
+                {
+                    title: extensionData.title,
+                    quantity: 1,
+                    price: extensionData.price,
+                    product: extensionData._id
+                }
+            ];
+            
+            const orderData = {
+                user: profileData._id,
+                orderItems: orderItems,
+                paymentMethod: 'Razorpay',
+                itemsPrice: extensionData.price,
+                taxPrice: 0, // assuming no tax for simplicity
+                totalPrice: extensionData.price
+            };
+    
+            // Create the order
+            const createdOrder = await createOrder(orderData);
+            console.log(createdOrder);
+            if (!createdOrder) {
+                toast.error("Failed to create order. Please try again.");
+                return;
+            }
+    
+            const { amount, id: paymentOrderId, currency } = paymentOrder.data;
             const options = {
                 key: process.env.RAZORPAY_KEY_ID || "rzp_test_PtZ63SYmWjwy8t", // use environment variable
                 amount: amount.toString(),
                 currency: currency,
                 name: profileData.firstName,
                 description: "Test Transaction",
-                order_id: order_id,
+                order_id: paymentOrderId,
                 handler: async function (response) {
-                    const data = {
-                        orderCreationId: order_id,
+                    const paymentSuccessData = {
+                        orderCreationId: createdOrder.data._id,
                         razorpayPaymentId: response.razorpay_payment_id,
                         razorpayOrderId: response.razorpay_order_id,
                         razorpaySignature: response.razorpay_signature,
                     };
-
-                    // const result = await axios.post("http://localhost:4444/payment/success", data);
-                    // Redirect to /orders page after successful payment
-                    history.push('/orders');
-                    toast.success("Order Placed successfully!");
+    
+                    try {
+                        // Post payment success
+                        const result = await postPaymentSuccess(paymentSuccessData);
+                        if (result) {
+                            toast.success("Order placed successfully!");
+                            history.push('/orders');
+                        } else {
+                            toast.error("Payment success but failed to update order. Please contact support.");
+                        }
+                    } catch (error) {
+                        console.error("Error handling payment success:", error);
+                        toast.error("Error occurred. Please try again later.");
+                    }
                 },
                 prefill: {
                     name: `${profileData.firstName} ${profileData.lastName}`,
@@ -135,7 +170,7 @@ const ExtensionDetails = () => {
                     color: "#f81f01",
                 },
             };
-
+    
             const paymentObject = new window.Razorpay(options);
             paymentObject.open();
         } catch (error) {
@@ -143,7 +178,7 @@ const ExtensionDetails = () => {
             toast.error("Error occurred. Please try again later.");
         }
     };
-
+    
     const loadScript = (src) => {
         return new Promise((resolve) => {
             const script = document.createElement("script");
@@ -158,9 +193,6 @@ const ExtensionDetails = () => {
         });
     };
 
-    // if (!profileData || !exchangeRates) {
-    //     return <div>Loading...</div>;
-    // }
 
     return (
         <React.Fragment>
