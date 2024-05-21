@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { FcGoogle } from "react-icons/fc";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./LoginForm.css";
 
 function LoginForm() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [copyButtonText, setCopyButtonText] = useState("Copy");
@@ -22,7 +22,7 @@ function LoginForm() {
       // document.cookie = `token=${tokenId}; max-age=3600; path=/; secure; samesite=strict`;
       localStorage.setItem('token',tokenId)
       showToastMessage("Logged in successfully!", false);
-      history.push("/");
+      navigate("/");
       console.log("Google login response:", res);
     } catch (error) {
       console.log(error);
@@ -56,7 +56,7 @@ function LoginForm() {
       });
       localStorage.setItem('token', response.data.token);
       showToastMessage("Logged in successfully!", false);
-      history.push("/");
+      navigate("/");
     } catch (error) {
       showToastMessage(error.response.data.message, true);
     }

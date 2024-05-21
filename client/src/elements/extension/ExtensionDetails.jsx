@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import PageHelmet from "../../component/common/Helmet";
 import ScrollToTop from 'react-scroll-up';
 import { FiChevronUp } from "react-icons/fi";
@@ -14,13 +14,13 @@ import { getUserDetails } from "../../auth/authUtils";
 dotenv.config();
 
 const ExtensionDetails = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
+    const { extensionId } = useParams();
     const [isOpen, setIsOpen] = useState(false);
     const [extensionData, setExtensionData] = useState({});
     const [profileData, setProfileData] = useState(null);
     const [selectedCurrency, setSelectedCurrency] = useState('USD');
     const [exchangeRates, setExchangeRates] = useState({});
-    const { extensionId } = useParams();
 
     const openModal = () => {
         setIsOpen(true);
@@ -39,9 +39,12 @@ const ExtensionDetails = () => {
 
         const fetchUserData = async () => {
             try {
-                const user = await getUserDetails();
-                if (user.email) {
+                const user = getUserDetails();
+                if (user && user.email) {
                     fetchProfileData(user.email);
+                } else {
+                    // Redirect to login if user is not authenticated
+                    navigate.push('/login');
                 }
             } catch (error) {
                 console.error("Error fetching user data:", error);
@@ -72,17 +75,18 @@ const ExtensionDetails = () => {
         fetchExtensionData();
         fetchUserData();
         fetchExchangeRates();
-    }, [extensionId]);
+    }, [extensionId, navigate]);
 
     const getConvertedPrice = () => {
         const basePrice = extensionData.price; // Assuming price is in USD
         const rate = exchangeRates[selectedCurrency];
         return rate ? (basePrice * rate).toFixed(2) : basePrice;
     };
+
     const displayRazorpay = async () => {
         try {
             const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
-    
+
             if (!res) {
                 toast.error("Razorpay SDK failed to load. Are you online?");
                 return;
@@ -122,7 +126,6 @@ const ExtensionDetails = () => {
     
             // Create the order
             const createdOrder = await createOrder(orderData);
-            console.log(createdOrder);
             if (!createdOrder) {
                 toast.error("Failed to create order. Please try again.");
                 return;
@@ -147,11 +150,10 @@ const ExtensionDetails = () => {
                     try {
                         // Post payment success
                         const result = await postPaymentSuccess(paymentSuccessData);
-                        console.log(result);
 
                         if (result) {
                             toast.success("Order placed successfully!");
-                            history.push('/orders');
+                            navigate('/orders');
                         } else {
                             toast.error("Payment success but failed to update order. Please contact support.");
                         }
@@ -180,7 +182,7 @@ const ExtensionDetails = () => {
             toast.error("Error occurred. Please try again later.");
         }
     };
-    
+
     const loadScript = (src) => {
         return new Promise((resolve) => {
             const script = document.createElement("script");
@@ -194,8 +196,6 @@ const ExtensionDetails = () => {
             document.body.appendChild(script);
         });
     };
-
-
     return (
         <React.Fragment>
             <PageHelmet pageTitle={extensionData.title} />

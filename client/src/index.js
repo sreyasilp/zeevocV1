@@ -1,6 +1,5 @@
-// src/index.js
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 import './index.scss';
 import PageScrollTop from './component/PageScrollTop';
 import DarkMainDemo from './home/Home';
@@ -19,46 +18,47 @@ import Products from "./blocks/Products";
 import Orders from './elements/order/Orders';
 import UserProfile from './elements/profile/Profile';
 import Extension from "./blocks/Extensions";
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import Login from './elements/login/Login';
 import SignUp from './elements/signup/SignUp';
 import { ThemeProvider } from './context/ThemeContext';
 import { ToastContainer } from 'react-toastify';
 
-class Root extends Component {
-  render() {
-    return (
-      <ThemeProvider>
-        <BrowserRouter basename={'/'}>
-          <PageScrollTop>
-          <ToastContainer />
-            <Switch>
-              <Route exact path={`${process.env.PUBLIC_URL}/`} component={DarkMainDemo} />
-              <Route exact path={`${process.env.PUBLIC_URL}/login`} component={Login} />
-              <Route exact path={`${process.env.PUBLIC_URL}/signup`} component={SignUp} />
-              <Route exact path={`${process.env.PUBLIC_URL}/orders`} component={Orders} />
-              <Route exact path={`${process.env.PUBLIC_URL}/profile`} component={UserProfile} />
-              <Route exact path={`${process.env.PUBLIC_URL}/about`} component={About} />
-              <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact} />
-              <Route exact path={`${process.env.PUBLIC_URL}/portfolio-details`} component={PortfolioDetails} />
-              <Route exact path={`${process.env.PUBLIC_URL}/services`} component={Service} />
-              <Route exact path={`${process.env.PUBLIC_URL}/service-details/:serviceId`} component={ServiceDetails} />
-              <Route exact path={`${process.env.PUBLIC_URL}/extensions`} component={Extension} />
-              <Route exact path={`${process.env.PUBLIC_URL}/extension-details/:extensionId`} component={ExtensionDetails} />
-              <Route exact path={`${process.env.PUBLIC_URL}/blogs`} component={Blog} />
-              <Route exact path={`${process.env.PUBLIC_URL}/blog-details/:blogId`} component={BlogDetails} />
-              <Route exact path={`${process.env.PUBLIC_URL}/team`} component={Team} />
-              <Route exact path={`${process.env.PUBLIC_URL}/admin`} component={Admin} />
-              <Route path={`${process.env.PUBLIC_URL}/404`} component={error404} />
-              <Route component={error404} />
-            </Switch>
-          </PageScrollTop>
-        </BrowserRouter>
-      </ThemeProvider>
-    );
-  }
-}
+const Root = () => {
+  return (
+    <ThemeProvider>
+      <BrowserRouter basename={'/'}>
+        <PageScrollTop>
+          <Routes>
+            <Route exact path={`${process.env.PUBLIC_URL}/`} element={<DarkMainDemo />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/login`} element={<Login />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/signup`} element={<SignUp />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/orders`} element={<Orders />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/profile`} element={<UserProfile />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/about`} element={<About />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/contact`} element={<Contact />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/portfolio-details`} element={<PortfolioDetails />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/services`} element={<Service />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/service-details/:serviceId`} element={<ServiceDetails />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/extensions`} element={<Extension />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/extension-details/:extensionId`} element={<ExtensionDetails />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/blogs`} element={<Blog />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/blog-details/:blogId`} element={<BlogDetails />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/team`} element={<Team />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/admin`} element={<Admin />} />
+            <Route path={`${process.env.PUBLIC_URL}/404`} element={<error404 />} />
+            <Route path="*" element={<error404 />} />
+          </Routes>
+        </PageScrollTop>
+        <ToastContainer />
+      </BrowserRouter>
+    </ThemeProvider>
+  );
+};
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+const container = document.getElementById('root');
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
+root.render(<Root />);
+
 serviceWorker.register();

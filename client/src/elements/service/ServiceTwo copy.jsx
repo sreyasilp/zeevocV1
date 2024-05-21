@@ -11,7 +11,6 @@ const ServiceTwo = () => {
             try {
                 const response = await getAllServices();
                 setServices(response.data);
-                console.log(response);
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching services:", error);

@@ -23,11 +23,8 @@ const UserProfile = () => {
     const fetchProfile = async () => {
         try {
             const userDetails = getUserDetails();
-            console.log(userDetails +"hi profile ")
             const email = userDetails.email;
-            console.log(userDetails.email +"hi profile email")
             const response = await getProfile(email);
-            console.log(response)
             setProfile(response.data.user);
             setLoading(false);
 
@@ -90,7 +87,6 @@ const UserProfile = () => {
         if (Object.keys(errors).length === 0) {
             try {
                 const response = await updateProfile(profile.email, profile);
-                console.log(response.data);
                 setIsEditing(false);
                 setValidationErrors({});
                 // Refetch profile to get the latest data

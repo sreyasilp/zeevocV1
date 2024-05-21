@@ -86,11 +86,9 @@ export const getOrdersByUserId = async (req, res) => {
   const { id } = req.params; // Extract user ID from req.params.id
 
   try {
-    console.log('Fetching orders for user ID:', id); // Log userId for debugging
     const orders = await Order.find({ user: id })
       .populate('orderItems.product', 'title category')
       .populate('user', 'firstName lastName email');
-    console.log('Fetched orders:', orders); // Log fetched orders for debugging
 
     if (!orders || orders.length === 0) {
       return res.status(404).json({ message: 'No orders found for this user' });

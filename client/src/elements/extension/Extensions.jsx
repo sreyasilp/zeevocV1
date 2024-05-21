@@ -47,7 +47,7 @@ const TabStyleThree = ({ column }) => {
                                         <div className="thumbnail-inner">
                                             <div className="thumbnail">
                                                 <a href={`/extension-details/${value._id}`}>
-                                                    <img src={`/assets/images/portfolio/dp-portfolio-${value.image}.jpg`} alt="Portfolio Images"/>
+                                                    <img src={`/assets/images/portfolio/extension-02.webp`} alt="Portfolio Images"/>
                                                 </a>
                                             </div>
                                         </div>

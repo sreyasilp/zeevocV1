@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { signUp } from "../../api/index.js"; // Import the signUp function from your API file
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { toast, ToastContainer } from "react-toastify";
@@ -14,7 +14,7 @@ const googleSuccess = async (res) => {
   try {
     localStorage.setItem('token', tokenId);
     showToastMessage("Logged in successfully!", false);
-    // history.push("/");
+    // navigate("/");
     console.log("Google login response:", res);
   } catch (error) {
     console.log(error);
@@ -42,7 +42,7 @@ const showToastMessage = (message, error) => {
 function SignUpForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useHistory();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,7 +58,7 @@ function SignUpForm() {
       toast.success("Signed up successfully!", {
         position: toast.POSITION.TOP_RIGHT,
       });
-      navigate.push("/"); // Navigate to the home page on successful signup
+      navigate("/"); // Navigate to the home page on successful signup
     } catch (error) {
       // Handle error
       toast.error("Failed to sign up!", {

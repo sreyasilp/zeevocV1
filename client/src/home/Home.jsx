@@ -33,7 +33,6 @@ const MainDemo = () => {
         const fetchData = async () => {
             try {
                 const data = await getBlogList();
-                console.log(data);
                 setPostList(data.data.slice(0, 3));
             } catch (error) {
                 console.error("Error fetching Blogs:", error);

@@ -27,11 +27,3 @@ export const getUserDetails = () => {
         return null;
     }
 };
-
-// NOT WORKING
-// export const getCookie = (name) => {
-//     const cookies = new Cookies();
-//     let cookieValue = cookies.get("refreshToken");
-//     console.log(cookieValue+"authutils")
-//     return cookieValue;
-// };
