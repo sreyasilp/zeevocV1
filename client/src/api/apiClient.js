@@ -31,19 +31,14 @@ API.interceptors.response.use((response) => {
 
 const refreshToken = async () => {
   try {
-    const response = await API.post('user/refresh-token');
-    // document.cookie = `token=${response.data.token}; max-age=3600; path=/; secure; samesite=strict`;
-    localStorage.setItem('token', response.data.token)
+    const token = localStorage.getItem('token');
+    if (!token) throw new Error('No token found');
+
+    const response = await API.post('user/refresh-token', { token }); // Send current token to backend
+    localStorage.setItem('token', response.data.token); // Update localStorage with new token
   } catch (error) {
     console.error('Refresh token failed', error);
   }
 };
-
-//Not Working
-// export const getCookie = (name) => {
-//   const value = `; ${document.cookie}`;
-//   const parts = value.split(`; ${name}=`);
-//   if (parts.length === 2) return parts.pop().split(';').shift();
-// };
 
 export default API;

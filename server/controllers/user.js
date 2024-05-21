@@ -32,7 +32,7 @@ export const signUp = async (req, res) => {
 
     res.status(201).json({ result, token });
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong" + error});
+    res.status(500).json({ message: "Something went wrong" + error });
     console.log(error);
   }
 };
@@ -65,7 +65,7 @@ export const signIn = async (req, res) => {
     // Optionally, you can also set the refreshToken as a cookie here
     // res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: true, sameSite: 'Strict' });
   } catch (err) {
-    res.status(500).json({ message: "Something went wrong" + err});
+    res.status(500).json({ message: "Something went wrong" + err });
   }
 };
 
@@ -101,16 +101,13 @@ export const updateUser = async (req, res) => {
 };
 
 export const refreshToken = async (req, res) => {
-  const { refreshToken } = req.cookies;
-
+  const refreshToken = req.body.token; // Expecting token in request body
   if (!refreshToken) return res.status(401).json({ message: 'Unauthorized' });
 
   try {
     const decoded = jwt.verify(refreshToken, secret);
     const newToken = jwt.sign({ email: decoded.email, id: decoded.id }, secret, { expiresIn: '1h' });
-    localStorage.setItem('token', newToken);
-    // res.cookie('token', newToken, { httpOnly: true, secure: true, sameSite: 'Strict' });
-    res.status(200).json({ message: 'Token refreshed' });
+    res.status(200).json({ token: newToken, message: 'Token refreshed' }); // Return new token in response
   } catch (err) {
     res.status(403).json({ message: 'Invalid refresh token' });
   }

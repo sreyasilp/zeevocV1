@@ -1,4 +1,5 @@
 import Order from '../models/order.js';
+import user from '../models/user.js';
 
 // Create a new order
 export const createOrder = async (req, res) => {
@@ -81,16 +82,23 @@ export const deleteOrder = async (req, res) => {
   }
 };
 
-// Get all orders of a user by user ID
 export const getOrdersByUserId = async (req, res) => {
-  const { userId } = req.params;
+  const { id } = req.params; // Extract user ID from req.params.id
 
   try {
+    console.log('Fetching orders for user ID:', id); // Log userId for debugging
+    const orders = await Order.find({ user: id })
+      .populate('orderItems.product', 'title category')
+      .populate('user', 'firstName lastName email');
+    console.log('Fetched orders:', orders); // Log fetched orders for debugging
 
-    // Fetch orders and populate the product details in orderItems
-    const orders = await Order.find({ user: userId }).populate('orderItems.product');
+    if (!orders || orders.length === 0) {
+      return res.status(404).json({ message: 'No orders found for this user' });
+    }
+
     res.status(200).json(orders);
   } catch (error) {
+    console.error('Error fetching user orders:', error);
     res.status(500).json({ message: 'Fetching user orders failed', error });
   }
 };

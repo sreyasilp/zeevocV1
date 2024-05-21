@@ -9,7 +9,7 @@ import axios from "axios";
 import dotenv from 'dotenv';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { getExtensionById, createPaymentOrder, getProfile } from "../../api";
+import { getExtensionById, createPaymentOrder, getProfile, createOrder } from "../../api";
 import { getUserDetails } from "../../auth/authUtils";
 dotenv.config();
 
@@ -86,7 +86,7 @@ const ExtensionDetails = () => {
             const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
 
             if (!res) {
-                alert("Razorpay SDK failed to load. Are you online?");
+                toast.error("Razorpay SDK failed to load. Are you online?");
                 return;
             }
             // Generate a unique receipt ID including user ID and extension ID
@@ -101,7 +101,6 @@ const ExtensionDetails = () => {
                 toast.error("Server error. Are you online?");
                 return;
             }
-            toast.success("Order successful!");
 
             const { amount, id: order_id, currency } = result.data;
             const options = {
@@ -119,11 +118,10 @@ const ExtensionDetails = () => {
                         razorpaySignature: response.razorpay_signature,
                     };
 
-                    const result = await axios.post("http://localhost:4444/payment/success", data);
+                    // const result = await axios.post("http://localhost:4444/payment/success", data);
                     // Redirect to /orders page after successful payment
                     history.push('/orders');
-
-                    alert(result.data.msg);
+                    toast.success("Order Placed successfully!");
                 },
                 prefill: {
                     name: `${profileData.firstName} ${profileData.lastName}`,
@@ -134,7 +132,7 @@ const ExtensionDetails = () => {
                     address: `${profileData.address_line_one}, ${profileData.address_line_two}, ${profileData.city}`,
                 },
                 theme: {
-                    color: "#61dafb",
+                    color: "#f81f01",
                 },
             };
 
@@ -159,7 +157,7 @@ const ExtensionDetails = () => {
             document.body.appendChild(script);
         });
     };
-    
+
     // if (!profileData || !exchangeRates) {
     //     return <div>Loading...</div>;
     // }
