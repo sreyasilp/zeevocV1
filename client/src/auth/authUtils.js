@@ -17,13 +17,14 @@ export const isAuthenticated = () => {
 };
 
 export const getUserDetails = () => {
-    const token = localStorage.getItem("token")
-    if (!token) return null;
+  const token = localStorage.getItem("token");
+  if (!token) return null;
 
-    try {
-        const userDetails = jwtDecode(token);
-        return userDetails;
-    } catch (e) {
-        return null;
-    }
+  try {
+    const userDetails = jwtDecode(token);
+    return userDetails;
+  } catch (e) {
+    console.error("Failed to decode JWT", e);
+    return null;
+  }
 };

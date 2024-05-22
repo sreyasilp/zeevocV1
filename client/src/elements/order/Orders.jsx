@@ -18,7 +18,7 @@ const Orders = () => {
 
   useEffect(() => {
     const fetchOrders = async () => {
-      try {
+      try { 
         const userDetails = getUserDetails();
         const response = await getOrdersByUserId(userDetails.id);
         setOrders(response.data);

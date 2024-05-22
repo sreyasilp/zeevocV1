@@ -44,7 +44,7 @@ const ExtensionDetails = () => {
                     fetchProfileData(user.email);
                 } else {
                     // Redirect to login if user is not authenticated
-                    navigate.push('/login');
+                    navigate('/login');
                 }
             } catch (error) {
                 console.error("Error fetching user data:", error);
