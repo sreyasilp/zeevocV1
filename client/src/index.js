@@ -24,6 +24,7 @@ import Login from './elements/login/Login';
 import SignUp from './elements/signup/SignUp';
 import { ThemeProvider } from './context/ThemeContext';
 import { ToastContainer } from 'react-toastify';
+import ForgotPassword from './elements/forgot-password/ForgotPassword';
 
 const Root = () => {
   return (
@@ -34,6 +35,7 @@ const Root = () => {
             <Route exact path={`${process.env.PUBLIC_URL}/`} element={<DarkMainDemo />} />
             <Route exact path={`${process.env.PUBLIC_URL}/login`} element={<Login />} />
             <Route exact path={`${process.env.PUBLIC_URL}/signup`} element={<SignUp />} />
+            <Route exact path={`${process.env.PUBLIC_URL}/forgot-password`} element={<ForgotPassword />} />
             <Route exact path={`${process.env.PUBLIC_URL}/orders`} element={<Orders />} />
             <Route exact path={`${process.env.PUBLIC_URL}/profile`} element={<UserProfile />} />
             <Route exact path={`${process.env.PUBLIC_URL}/about`} element={<About />} />

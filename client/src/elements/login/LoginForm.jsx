@@ -112,6 +112,9 @@ function LoginForm() {
                       required
                     />
                   </label>
+                  <Link to="/forgot-password" className="forgot-password-link">
+                    Forgot Password?
+                  </Link>
                   <div className="button-group">
                     <button
                       className="rn-button-style--2 btn-solid"
@@ -134,14 +137,14 @@ function LoginForm() {
                           disabled={renderProps.disabled}
                           className="google-button"
                         >
-                          <FcGoogle size="1.5em" style={{ marginRight: "8px" }} />
+                          <FcGoogle size="1.5em" className="google-icon" />
                           Sign in with Google
                         </button>
                       )}
                     />
-                    <p style={{ color: "black", marginTop: "0px" }}>
+                    <p className="signup-link">
                       Doesn't have an Account?{" "}
-                      <Link to="/signup" style={{ color: "#f9004d", fontWeight: "bold" }}>
+                      <Link to="/signup" className="highlight-link">
                         Sign Up
                       </Link>
                     </p>

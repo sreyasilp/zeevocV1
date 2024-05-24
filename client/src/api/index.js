@@ -17,5 +17,6 @@ export const getExtensionById = (extensionId) => API.get(`extension/getbyid/${ex
 export const createPaymentOrder = (orderData) => API.post(`payment/createrporder`, orderData);
 export const createOrder = (orderData) => API.post(`orders`, orderData);
 export const postPaymentSuccess = (orderData) => API.post(`/payment/success`, orderData);
+export const forgotPassword = (email) => API.post(`/forgot-password`, email);
 
 export const updateProfile = (userEmail, profileData) => API.put(`user/${userEmail}`, profileData);

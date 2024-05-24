@@ -1,7 +1,6 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { jwtDecode } from "jwt-decode";
-
 import userModel from "../models/user.js";
 
 const secret = "code416";
@@ -9,12 +8,11 @@ const secret = "code416";
 export const signUp = async (req, res) => {
   let { userType } = req.params;
   const { email, password, firstName, lastName } = req.body;
-  userType = typeof userType !== "undefined" ? userType : "buyer";
   try {
     const oldUser = await userModel.findOne({ email });
 
     if (oldUser)
-      return res.status(400).json({ message: "User already exists" });
+      return res.status(200).json({ isExist: true, message: "User already exists" });
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
@@ -22,8 +20,7 @@ export const signUp = async (req, res) => {
       email,
       password: hashedPassword,
       firstName,
-      lastName,
-      userType,
+      lastName
     });
 
     const token = jwt.sign({ email: result.email, id: result._id }, secret, {
@@ -113,7 +110,7 @@ export const refreshToken = async (req, res) => {
   }
 };
 
-//NOTINUSE HANDLED IN FE
+// NOT IN USE HANDLED IN FE
 export const getUserDetails = (req, res) => {
   try {
     const token = req.cookies.token;
