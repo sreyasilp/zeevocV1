@@ -4,7 +4,6 @@ import { signUp } from "../../api/index.js"; // Import the signUp function from 
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./SignUpForm.css"; // Import your custom CSS file
 import { FcGoogle } from "react-icons/fc";
 
 const googleSuccess = async (res) => {
@@ -72,14 +71,14 @@ function SignUpForm() {
       <div className="contact-form--1">
         <ToastContainer />
         <div className="container">
-          <div className="row row--35 align-items-start">
+          <div className="row row--35 justify-content-center">
             <div className="col-lg-6 order-2 order-lg-1">
-              <div className="section-title text-left mb--10">
-                <h2 className="title">Sign Up</h2>
-                <p className="description">Sign Up to explore more </p>
-              </div>
               <div className="form-wrapper">
                 <form onSubmit={handleSubmit}>
+                  <div className="section-title text-center mb--10">
+                    <h2 className="title">Sign Up</h2>
+                    <p className="description">Sign Up to explore more </p>
+                  </div>
                   <label htmlFor="item02">
                     <input
                       type="text"
