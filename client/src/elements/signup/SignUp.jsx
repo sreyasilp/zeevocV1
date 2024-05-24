@@ -32,7 +32,7 @@ const SignUp = () => {
           {/* Start Contact Form  */}
           <div className="rn-contact-form-area ptb--120 bg_color--1">
             <SignUpForm
-              contactTitle="Login"
+              contactTitle="Sign Up"
               contactImages="/assets/images/about/about-6.jpg"
             />
           </div>

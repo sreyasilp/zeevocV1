@@ -1,16 +1,5 @@
 // _profile.scss
 
-// Styles for button group
-.button-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-    justify-content: space-between;
-    /* padding-left: 30px;
-    padding-right: 30px; */
-    flex-wrap: wrap; /* Allows wrapping of items on smaller screens */
-}
 
 .rn-button-style--2.btn-solid {
     width: 216px;
@@ -33,36 +22,21 @@
 // Media queries for responsive design
 @media (max-width: 768px) {
     .button-group {
-        flex-direction: column; /* Stacks buttons vertically on small screens */
-        align-items: stretch; /* Aligns buttons to full width */
+        flex-direction: column;
+        /* Stacks buttons vertically on small screens */
+        align-items: stretch;
+        /* Aligns buttons to full width */
     }
 
     .google-button,
     .rn-button-style--2.btn-solid {
-        width: 216px; /* Buttons take full width on small screens */
-        margin-bottom: 10px; /* Adds space between stacked buttons */
+        width: 216px;
+        /* Buttons take full width on small screens */
+        margin-bottom: 10px;
+        /* Adds space between stacked buttons */
     }
 }
 
-// Styles for Google button in login form
-.google-button {
-    display: flex;
-    align-items: center;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.google-button:hover {
-    background-color: #f1f1f1;
-}
-
-.google-button:disabled {
-    cursor: not-allowed;
-}
 
 // Styles for forgot password form
 .forgot-password-container {
@@ -73,8 +47,8 @@
     padding: 0 15px;
 }
 
-.section-title {
-    margin-bottom: 50px;
+.section-title-login {
+    margin-bottom: 5px;
 }
 
 .section-title .title {
@@ -108,36 +82,42 @@
     border-radius: 5px;
 }
 
+// .login-link {
+//     margin-top: 20px;
+//     text-align: center;
+//     color: rgb(0, 0, 0);
+//     font-size: small;
+// }
+
+
+.signup-link {
+    color: rgb(0, 0, 0);
+    font-size: small;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .highlight-link {
+    color: #f9004d !important;
+    margin-left: 5px; /* Adjust the margin as needed to reduce spacing */
+}
+
 .button-group {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center align items horizontally */
     justify-content: center;
-    margin-top: 20px;
+    /* Center align items vertically if needed */
+    // margin-top: 20px; /* Remove this line if it exists */
 }
 
-.rn-button-style--2.btn-solid {
-    background: linear-gradient(135deg, #ff79c6 0%, #61afef 100%);
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-weight: bold;
-    color: white;
-    font-size: 14px;
+.forgot-password-link {
+    margin-top: 0px;
+    /* Ensure no margin above */
+    color: #f9004d !important;
+    font-size: small;
+    margin-left: auto; 
 }
 
-.rn-button-style--2.btn-solid:hover {
-    background-color: #d00042;
-}
-
-.login-link {
-    color: black;
-    margin-top: 20px;
-    text-align: center;
-}
-
-.highlight-link {
-    color: #f9004d;
-    font-weight: bold;
-}

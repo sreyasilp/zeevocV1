@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { jwtDecode } from "jwt-decode";
 import userModel from "../models/user.js";
-
+import nodemailer from "nodemailer";
 const secret = "code416";
 
 export const signUp = async (req, res) => {
@@ -125,5 +125,64 @@ export const getUserDetails = (req, res) => {
 
     // Send an error response to the client
     return res.status(400).json({ message: "Error decoding JWT token", error: error.message });
+  }
+};
+
+
+export const forgotPassword = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const user = await userModel.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const token = jwt.sign({ email: user.email, id: user._id }, secret, {
+      expiresIn: "1h",
+    });
+    console.log(token)
+    // Send email with reset link
+    const transporter = nodemailer.createTransport({
+      service: "Gmail",
+      auth: {
+        user: "zeevocdigital@gmail.com", //Not working
+        pass: "gbsf cxea ntln eosb",
+      },
+    });
+
+    const mailOptions = {
+      from: "zeevocdigital@gmail.com",
+      to: user.email,
+      subject: "Password Reset",
+      text: `You requested a password reset. Please click the following link to reset your password: http://localhost:3000/reset-password/${token}`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return res.status(500).json({ message: "Error sending email", error });
+      }
+      res.status(200).json({ message: "Password reset email sent!" });
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+  }
+};
+
+
+export const resetPassword = async (req, res) => {
+  const { token, newPassword } = req.body;
+
+  try {
+    const decoded = jwt.verify(token, secret);
+
+    const hashedPassword = await bcrypt.hash(newPassword, 12);
+
+    await userModel.findByIdAndUpdate(decoded.id, { password: hashedPassword });
+
+    res.status(200).json({ message: "Password reset successfully!" });
+  } catch (error) {
+    res.status(500).json({ message: "Invalid or expired token" });
   }
 };

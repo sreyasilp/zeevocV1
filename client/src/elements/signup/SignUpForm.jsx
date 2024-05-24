@@ -76,7 +76,7 @@ function SignUpForm() {
               <div className="form-wrapper">
                 <form onSubmit={handleSubmit}>
                   <div className="section-title text-center mb--10">
-                    <h2 className="title">Sign Up</h2>
+                    <h4 className="title">Sign Up</h4>
                     <p className="description">Sign Up to explore more </p>
                   </div>
                   <label htmlFor="item02">
@@ -101,6 +101,15 @@ function SignUpForm() {
                       required
                     />
                   </label>
+                  <p className="signup-link">
+                      Already have an Account?{" "}
+                      <Link to="/login" className="highlight-link">
+                        Log In
+                      </Link>
+                      <Link to="/forgot-password" className="forgot-password-link">
+                        Forgot Password?
+                      </Link>
+                    </p>
                   <div className="button-group">
                     <button
                       className="rn-button-style--2 btn-solid"
@@ -111,7 +120,6 @@ function SignUpForm() {
                     >
                       Submit
                     </button>
-                    <span>OR</span> {/* Added "or" text here */}
                     <GoogleLogin
                       onSuccess={googleSuccess}
                       onFailure={googleError}
@@ -129,9 +137,7 @@ function SignUpForm() {
                     />
                   </div>
                 </form>
-                <p style={{ color: 'black', marginTop: '20px' }}>
-                  Already a Member? <Link to="/login" style={{ color: "#f9004d", fontWeight: 'bold' }}>Log In</Link>
-                </p>
+       
               </div>
             </div>
           </div>

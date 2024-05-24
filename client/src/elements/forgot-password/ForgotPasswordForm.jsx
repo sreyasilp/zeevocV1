@@ -35,7 +35,7 @@ function ForgotPasswordForm() {
             <div className="form-wrapper">
               <form onSubmit={handleSubmit}>
                 <div className="section-title text-center mb--10">
-                  <h2 className="title">Forgot Password</h2>
+                  <h4 className="title">Forgot Password</h4>
                   <p className="description">Enter your email to receive a password reset link.</p>
                 </div>
                 <label htmlFor="email">
@@ -49,6 +49,12 @@ function ForgotPasswordForm() {
                     required
                   />
                 </label>
+                <p className="signup-link">
+                  Remember your password?{" "}
+                  <Link to="/login" className="highlight-link">
+                    Login
+                  </Link>
+                </p>
                 <div className="button-group">
                   <button
                     className="rn-button-style--2 btn-solid"
@@ -61,12 +67,7 @@ function ForgotPasswordForm() {
                   </button>
                 </div>
               </form>
-              <p className="login-link">
-                Remember your password?{" "}
-                <Link to="/login" className="highlight-link">
-                  Login
-                </Link>
-              </p>
+
             </div>
           </div>
         </div>

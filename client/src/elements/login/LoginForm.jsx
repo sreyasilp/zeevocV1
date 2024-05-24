@@ -88,7 +88,7 @@ function LoginForm() {
                 <div className="form-wrapper">
                   <form onSubmit={handleSubmit}>
                     <div className="section-title text-center mb--10">
-                      <h2 className="title">Login</h2>
+                      <h4 className="title">Login</h4>
                       <p className="description">Login to explore more!!</p>
                     </div>
                     <label htmlFor="item02">
@@ -113,9 +113,16 @@ function LoginForm() {
                         required
                       />
                     </label>
-                    <Link to="/forgot-password" className="forgot-password-link">
-                      Forgot Password?
-                    </Link>
+                    <p className="signup-link">
+                      Doesn't have an Account?{" "}
+                      <Link to="/signup" className="highlight-link">
+                        Sign Up
+                      </Link>
+                      <Link to="/forgot-password" className="forgot-password-link">
+                        Forgot Password?
+                      </Link>
+                    </p>
+
                     <div className="button-group">
                       <button
                         className="rn-button-style--2 btn-solid"
@@ -126,7 +133,7 @@ function LoginForm() {
                       >
                         Submit
                       </button>
-                      <span>OR</span>
+
                       <GoogleLogin
                         onSuccess={googleSuccess}
                         onFailure={googleError}
@@ -143,12 +150,7 @@ function LoginForm() {
                           </button>
                         )}
                       />
-                      <p className="signup-link">
-                        Doesn't have an Account?{" "}
-                        <Link to="/signup" className="highlight-link">
-                          Sign Up
-                        </Link>
-                      </p>
+
                     </div>
                   </form>
                 </div>
