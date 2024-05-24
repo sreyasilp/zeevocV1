@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import jwt_decode from "jwt-decode";
 import { FcGoogle } from "react-icons/fc";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import { signIn } from "../../api/index.js";
+import { signIn, signUp } from "../../api/index.js";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./LoginForm.css";
@@ -12,39 +12,51 @@ function LoginForm() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [copyButtonText, setCopyButtonText] = useState("Copy");
+
+  const generatePassword = () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let password = '';
+    for (let i = 0; i < 8; i++) {
+      password += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return password;
+  };
+
+  const googleSignUp = async (profileObj) => {
+    const generatedPassword = generatePassword();
+    try {
+      const response = await signUp({
+        email: profileObj.email,
+        firstName: profileObj.given_name,
+        lastName: profileObj.family_name,
+        password: generatedPassword,
+      });
+      console.log(response)
+      localStorage.setItem("token", response.data.token);
+      toast.success("Signed up successfully!");
+      navigate("/");
+    } catch (error) {
+      console.error("Sign-up error:", error);
+    }
+  };
 
   const googleSuccess = async (res) => {
-    const profileObj = res.profileObj;
-    const tokenId = res.tokenId;
+    const decodedToken = jwt_decode(res.credential);  
+    const profileObj = {
+      email: decodedToken.email,
+      given_name: decodedToken.given_name,
+      family_name: decodedToken.family_name,
+    };
 
     try {
-      // document.cookie = `token=${tokenId}; max-age=3600; path=/; secure; samesite=strict`;
-      localStorage.setItem('token',tokenId)
-      showToastMessage("Logged in successfully!", false);
-      navigate("/");
-      console.log("Google login response:", res);
+      await googleSignUp(profileObj);
     } catch (error) {
       console.log(error);
     }
   };
 
   const googleError = () => {
-    console.log('Google Sign In was unsuccessful. Try again later');
-  };
-
-  const showToastMessage = (message, error) => {
-    if (error) {
-      toast.error(message, {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-      });
-    } else {
-      toast.success(message, {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-      });
-    }
+    console.log("Google Sign In was unsuccessful. Try again later");
   };
 
   const handleSubmit = async (e) => {
@@ -54,11 +66,14 @@ function LoginForm() {
         email: email,
         password: password,
       });
-      localStorage.setItem('token', response.data.token);
-      showToastMessage("Logged in successfully!", false);
+      localStorage.setItem("token", response.data.token);
+      toast.success("Logged in successfully!", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 5000,
+      });
       navigate("/");
     } catch (error) {
-      showToastMessage(error.response.data.message, true);
+      console.log("Sign-in error:", error);
     }
   };
 
@@ -107,11 +122,12 @@ function LoginForm() {
                     >
                       Submit
                     </button>
-                    <span>OR</span> {/* Added "or" text here */}
+                    <span>OR</span>
                     <GoogleLogin
                       onSuccess={googleSuccess}
                       onFailure={googleError}
-                      cookiePolicy={'single_host_origin'}
+                      cookiePolicy={"single_host_origin"}
+                      useOneTap
                       render={(renderProps) => (
                         <button
                           onClick={renderProps.onClick}
@@ -123,11 +139,13 @@ function LoginForm() {
                         </button>
                       )}
                     />
-                    <p style={{ color: 'black', marginTop: '0px' }}>
-                      Doesn't have an Account? <Link to="/signup" style={{ color: "#f9004d", fontWeight: 'bold' }}>Sign Up</Link>
+                    <p style={{ color: "black", marginTop: "0px" }}>
+                      Doesn't have an Account?{" "}
+                      <Link to="/signup" style={{ color: "#f9004d", fontWeight: "bold" }}>
+                        Sign Up
+                      </Link>
                     </p>
                   </div>
-
                 </form>
               </div>
             </div>
