@@ -144,16 +144,17 @@ a {
     padding: 0 15px;
 }
 
-.section-title-login {
-    margin-bottom: 5px;
+.section-title-zv {
+    margin-bottom: 15px;
 }
 
-.section-title .title {
+.section-title-zv .title {
     font-size: 2.5em;
     font-weight: bold;
+    margin-bottom: 0px;
 }
 
-.section-title .description {
+.section-title-zv .description {
     font-size: 1em;
     color: #6c757d;
 }
@@ -168,7 +169,7 @@ a {
     display: flex;
     flex-direction: column;
     border-radius: 25px;
-    margin-top: 33px;
+    margin-top: 0px;
     margin-bottom: 33px;
 }
 

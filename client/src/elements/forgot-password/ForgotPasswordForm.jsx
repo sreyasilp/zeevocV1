@@ -34,7 +34,7 @@ function ForgotPasswordForm() {
           <div className="col-lg-6 order-2 order-lg-1">
             <div className="form-wrapper">
               <form onSubmit={handleSubmit}>
-                <div className="section-title text-center mb--10">
+                <div className="section-title-zv text-center mb--10">
                   <h4 className="title">Forgot Password</h4>
                   <p className="description">Enter your email to receive a password reset link.</p>
                 </div>

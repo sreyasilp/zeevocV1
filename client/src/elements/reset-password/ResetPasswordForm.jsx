@@ -30,7 +30,7 @@ function ResetPasswordForm() {
                     <div className="col-lg-6 order-2 order-lg-1">
                         <div className="form-wrapper">
                             <form onSubmit={handleResetPassword}>
-                                <div className="section-title text-center mb--10">
+                                <div className="section-title-zv text-center mb--10">
                                     <h4 className="title">Reset Password</h4>
                                     <p className="description">Reset password to get back... </p>
                                 </div>
