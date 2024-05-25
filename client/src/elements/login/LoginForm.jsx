@@ -125,7 +125,7 @@ function LoginForm() {
 
                     <div className="button-group">
                       <button
-                        className="rn-button-style--2 btn-solid"
+                        className="rn-button-style--3 btn-solid"
                         type="submit"
                         value="submit"
                         name="submit"
