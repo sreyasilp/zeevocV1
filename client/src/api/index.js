@@ -5,7 +5,7 @@ export const signIn = (formData) => API.post("/user/signin", formData);
 export const forgotPassword = (email) => API.post(`user/forgot-password`, email);
 export const resetPassword = (data) => API.post(`user/reset-password`, data);
 export const updateProfile = (userEmail, profileData) => API.put(`user/${userEmail}`, profileData);
-export const getBlogList = (page) => API.get(`blogs`);
+export const getBlogList = (page) => API.get(`blog/all`);
 export const getProfile = (userEmail) => API.get(`user/${userEmail}`);
 export const getAllServices = (page) => API.get(`service/all`);
 export const getAllOrders = (page) => API.get(`orders`);
