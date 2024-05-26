@@ -1,8 +1,9 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Create an Axios instance
-// const API = axios.create({ baseURL: "http://localhost:4444/" });
-const API = axios.create({ baseURL: "https://zeevoc-server.onrender.com" });
+const API = axios.create({ baseURL: process.env.REACT_APP_BASE_URL });
 
 // Add a request interceptor
 API.interceptors.request.use((config) => {

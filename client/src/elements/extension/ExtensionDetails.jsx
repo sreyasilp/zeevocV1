@@ -133,7 +133,7 @@ const ExtensionDetails = () => {
     
             const { amount, id: paymentOrderId, currency } = paymentOrder.data;
             const options = {
-                key: process.env.RAZORPAY_KEY_ID || "rzp_test_PtZ63SYmWjwy8t", // use environment variable
+                key: process.env.REACT_APP_RAZORPAY_KEY_ID,
                 amount: amount.toString(),
                 currency: currency,
                 name: profileData.firstName,
