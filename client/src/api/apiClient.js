@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // Create an Axios instance
-const API = axios.create({ baseURL: "http://localhost:4444/" });
-// const API = axios.create({ baseURL: "https://zeevoc-server.onrender.com" });
+// const API = axios.create({ baseURL: "http://localhost:4444/" });
+const API = axios.create({ baseURL: "https://zeevoc-server.onrender.com" });
 
 // Add a request interceptor
 API.interceptors.request.use((config) => {
