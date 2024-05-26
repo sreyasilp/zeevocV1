@@ -142,7 +142,7 @@ function SignUpForm() {
                       Forgot Password?
                     </Link>
                   </p>
-                  <div className="button-group">
+                  <div className="button-group" ref={buttonGroupRef}>
                     <button
                       className="rn-button-style--3 btn-solid"
                       type="submit"

@@ -8,8 +8,8 @@ import Footer from "../../component/footer/Footer";
 import { getOrdersByUserId } from "../../api";
 import { useTheme } from "../../context/ThemeContext";
 import { getUserDetails } from "../../auth/authUtils";
-// import "./order.css"; // Import custom CSS for styling
-import moment from 'moment'; // Import moment for date formatting
+import moment from 'moment';
+import "./order.css"; // Import custom CSS for styling
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -18,7 +18,7 @@ const Orders = () => {
 
   useEffect(() => {
     const fetchOrders = async () => {
-      try { 
+      try {
         const userDetails = getUserDetails();
         const response = await getOrdersByUserId(userDetails.id);
         setOrders(response.data);
@@ -42,12 +42,9 @@ const Orders = () => {
           logoname="logo.png"
         />
 
-        {/* Start Breadcrump Area */}
         <Breadcrumb title={"Orders"} />
-        {/* End Breadcrump Area */}
 
-        {/* Start Orders Table */}
-        <div className="orders-table pt--90 pb--120 bg_color--1">
+        <div className="orders-container pt--90 pb--120 bg_color--1">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
@@ -56,57 +53,43 @@ const Orders = () => {
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-lg-12">
-                {loading ? (
-                  <p>Loading...</p>
-                ) : (
-                  <div className="table-responsive">
-                    <table className="table">
-                      <thead>
-                        <tr>
-                          <th>Order No.</th>
-                          <th>Customer</th>
-                          <th>Items</th>
-                          <th>Total</th>
-                          <th>Status</th>
-                          <th>Date</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {orders.map((order, index) => (
-                          <tr key={order._id}>
-                            <td>{index + 1}</td> {/* Display a sequential order number */}
-                            <td>{order.user.firstName} {order.user.lastName}</td>
-                            <td>
-                              {order.orderItems.map((item) => (
-                                <div key={item.product._id}>
-                                  {item.quantity} x {item.title}
-                                </div>
-                              ))}
-                            </td>
-                            <td>${order.totalPrice.toFixed(2)}</td>
-                            <td>{order.status}</td>
-                            <td>{moment(order.createdAt).format('MMMM Do YYYY, h:mm a')}</td> {/* Format the date using moment */}
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
+            <div className="orders-grid">
+              {loading ? (
+                <p>Loading...</p>
+              ) : (
+                orders.map((order, index) => (
+                  <div className="order-card" key={order._id}>
+                    <div className="order-header">
+                      <div>
+                        <h3>Order ID {index + 1}</h3>
+                        <p>Placed On {moment(order.createdAt).format('MMMM Do YYYY')}</p>
+                      </div>
+                      <a href={`/order/${order._id}`} className="view-details">View Details</a>
+                    </div>
+                    <div className="order-details">
+                      <div>
+                        <h4>{order.orderItems[0].title}</h4>
+                        <p>Qty: {order.orderItems[0].quantity}</p>
+                        <p>${order.totalPrice.toFixed(2)} via {order.paymentMethod}</p>
+                        <p>Tracking Status: {moment(order.updatedAt).format('h:mm a, MMMM Do YYYY')}</p>
+                      </div>
+                      <img src="https://picsum.photos/200/300/?blur" alt={order.orderItems[0].title} style={{ width: '100px', height: '100px' }} />
+                    </div>
+                    <div className="order-actions">
+                      <button>Download Extension</button>
+                    </div>
                   </div>
-                )}
-              </div>
+                ))
+              )}
             </div>
           </div>
         </div>
-        {/* End Orders Table */}
 
-        {/* Start Back To Top */}
         <div className="backto-top">
           <ScrollToTop showUnder={160}>
             <FiChevronUp />
           </ScrollToTop>
         </div>
-        {/* End Back To Top */}
 
         <Footer />
       </div>
