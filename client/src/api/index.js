@@ -12,7 +12,7 @@ export const getAllOrders = (page) => API.get(`orders`);
 export const getOrdersByUserId = (userId) => API.get(`orders/user/${userId}`);
 export const getAllExtensions = (page) => API.get(`extension/all`);
 export const getServiceById = (serviceId) => API.get(`service/getbyid/${serviceId}`);
-export const getServiceByUrlKey = (urlKey) => API.get(`service/${urlKey}`);
+export const getServiceByUrlKey = (urlKey) => API.get(`service/${urlKey }`);
 export const getBlogById = (blogId) => API.get(`blog/getbyid/${blogId}`);
 export const getBlogByUrlKey = (urlKey) => API.get(`blog/${urlKey}`);
 export const getExtensionById = (extensionId) => API.get(`extension/getbyid/${extensionId}`);

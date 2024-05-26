@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"; // Import useParams hook
+import { useLocation, useParams } from "react-router-dom"; // Import useParams hook
 import PageHelmet from "../../component/common/Helmet";
 import ModalVideo from 'react-modal-video';
 import ScrollToTop from 'react-scroll-up';
@@ -11,7 +11,9 @@ import { getServiceByUrlKey } from "../../api"; // Import the API function
 const ServiceDetails = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [breadcrumbData, setBreadcrumbData] = useState({});
-    const { serviceId } = useParams(); // Get the service ID from URL params
+    const location = useLocation();
+
+    const serviceId = location.pathname.split('/').pop();
     const openModal = () => {
         setIsOpen(true);
     };
@@ -68,7 +70,7 @@ const ServiceDetails = () => {
                                         <div className="col-lg-6 col-12">
 
                                             <div className="details mt_md--30 mt_sm--30">
-                                            <h2 className="title">Extension Development</h2>
+                                                <h2 className="title">Extension Development</h2>
 
                                                 <p>but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum. You need to be sure there isn't anything embarrassing</p>
                                                 <p>hidden in the middle of text. All the Lorem Ipsum generators tend toitrrepeat predefined chunks. Necessary, making this the first true generator on the Internet.</p>

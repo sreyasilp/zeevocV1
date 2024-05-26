@@ -66,7 +66,8 @@ export const deleteService = async (req, res) => {
 
 export const getServiceByUrlKey = async (req, res) => {
   try {
-    const service = await Services.findOne({ url_key: req.params.urlKey });
+    const service = await Services.findOne({ urlKey: req.params.urlKey });
+    console.log(req)
     if (!service) {
       return res.status(404).json({ message: 'Service not found' });
     }
