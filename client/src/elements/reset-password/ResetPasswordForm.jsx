@@ -27,7 +27,7 @@ function ResetPasswordForm() {
         <div className="contact-form--1">
             <div className="container">
                 <div className="row row--35 justify-content-center">
-                    <div className="col-lg-6 order-2 order-lg-1">
+                    <div className="col-lg-5 order-2 order-lg-1">
                         <div className="form-wrapper">
                             <form onSubmit={handleResetPassword}>
                                 <div className="section-title-zv text-center mb--10">

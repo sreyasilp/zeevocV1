@@ -86,7 +86,7 @@ function LoginForm() {
         if (firstDiv) {
           const isIpad = /iPad|Macintosh/.test(navigator.userAgent) && 'ontouchend' in document;
 
-          if (true) {
+          if (isIpad) {
             firstDiv.style.width = "750px";
             firstDiv.style.marginLeft = "320px";
           } else if (window.innerWidth > 768) {

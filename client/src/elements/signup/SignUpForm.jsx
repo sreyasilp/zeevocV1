@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { signUp } from "../../api/index.js"; // Import the signUp function from your API file
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
@@ -42,6 +42,7 @@ function SignUpForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const buttonGroupRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -66,13 +67,44 @@ function SignUpForm() {
     }
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (buttonGroupRef.current) {
+        const firstDiv = buttonGroupRef.current.querySelector('div');
+
+        if (firstDiv) {
+          const isIpad = /iPad|Macintosh/.test(navigator.userAgent) && 'ontouchend' in document;
+
+          if (isIpad) {
+            firstDiv.style.width = "750px";
+            firstDiv.style.marginLeft = "320px";
+          } else if (window.innerWidth > 768) {
+            firstDiv.style.width = "980px";
+            firstDiv.style.marginLeft = "540px";
+          } else {
+            firstDiv.style.width = "";
+            firstDiv.style.marginLeft = "-20px";
+          }
+
+        }
+      }
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize); // Add event listener
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Clean up event listener
+    };
+  }, []);
+
   return (
     <GoogleOAuthProvider clientId="168821784143-d0q7nugflesop4nh6rbdp3f95sr6o9c8.apps.googleusercontent.com">
       <div className="contact-form--1">
         <ToastContainer />
         <div className="container">
           <div className="row row--35 justify-content-center">
-            <div className="col-lg-6 order-2 order-lg-1">
+            <div className="col-lg-5 order-2 order-lg-1">
               <div className="form-wrapper">
                 <form onSubmit={handleSubmit}>
                   <div className="section-title-zv text-center mb--10">
@@ -102,14 +134,14 @@ function SignUpForm() {
                     />
                   </label>
                   <p className="signup-link">
-                      Already have an Account?{" "}
-                      <Link to="/login" className="highlight-link">
-                        Log In
-                      </Link>
-                      <Link to="/forgot-password" className="forgot-password-link">
-                        Forgot Password?
-                      </Link>
-                    </p>
+                    Already have an Account?{" "}
+                    <Link to="/login" className="highlight-link">
+                      Log In
+                    </Link>
+                    <Link to="/forgot-password" className="forgot-password-link">
+                      Forgot Password?
+                    </Link>
+                  </p>
                   <div className="button-group">
                     <button
                       className="rn-button-style--3 btn-solid"
@@ -137,7 +169,7 @@ function SignUpForm() {
                     />
                   </div>
                 </form>
-       
+
               </div>
             </div>
           </div>
