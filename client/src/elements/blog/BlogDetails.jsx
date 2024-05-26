@@ -7,7 +7,7 @@ import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import ModalVideo from 'react-modal-video';
 import PageHelmet from "../../component/common/Helmet";
-import { getBlogById } from "../../api";
+import { getBlogByUrlKey } from "../../api";
 // import 'prismjs/themes/prism.css';
 // import Prism from 'prismjs';
 // import 'prismjs/components/prism-bash.min.js';
@@ -16,7 +16,7 @@ import { getBlogById } from "../../api";
 const BlogDetails = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [blogData, setBlogData] = useState({});
-    const { blogId } = useParams();
+    const { urlKey } = useParams();
     const [copyButtonText, setCopyButtonText] = useState("Copy");
 
     const openModal = () => {
@@ -33,7 +33,7 @@ const BlogDetails = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await getBlogById(blogId);
+                const response = await getBlogByUrlKey(urlKey);
                 setBlogData(response.data);
                 // Prism.highlightAll();
             } catch (error) {
@@ -42,7 +42,7 @@ const BlogDetails = () => {
         };
 
         fetchData();
-    }, [blogId]);
+    }, [urlKey]);
 
     return (
         <React.Fragment>

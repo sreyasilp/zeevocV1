@@ -44,7 +44,7 @@ const ServiceTwo = () => {
                         ) : (
                             services.slice(0, 4).map((service, index) => (
                                 <div className="col-lg-6 col-md-6 col-sm-6 col-12" key={index}>
-                                    <a href={`/service-details/${service._id}`}>
+                                    <a href={`/service-details/${service.url_key}`}>
                                         <div className="service service__style--2">
                                             <div className="icon">
                                                 {index === 0 && <FiShoppingBag />} {/* Magento Development */}

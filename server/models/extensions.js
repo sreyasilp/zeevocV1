@@ -5,7 +5,8 @@ const extensionsSchema = new mongoose.Schema({
   category: String,
   title: String,
   bigImage: String,
-  price: { type: Number }
+  price: { type: Number },
+  urlKey: String
 });
 
 const Extensions = mongoose.model('Extensions', extensionsSchema);

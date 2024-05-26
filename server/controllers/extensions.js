@@ -63,3 +63,16 @@ export const deleteExtension = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// Retrieve a single extension by its URL key
+export const getExtensionByUrlKey = async (req, res) => {
+  try {
+    const extension = await Extensions.findOne({ urlKey: req.params.urlKey });
+    if (!extension) {
+      return res.status(404).json({ message: 'Extension not found' });
+    }
+    res.status(200).json(extension);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

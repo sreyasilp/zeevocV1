@@ -77,38 +77,37 @@ function LoginForm() {
     }
   };
 
-  // useEffect(()=>{
-  //   const firstDiv = buttonGroupRef.current.querySelector('div');
-  //   if(firstDiv)
-  //  { const element =   firstDiv.firstElementChild;
-  //   // const iframe = document.querySelector('iframe[title="Sign in with Google Button"]');
-  //   console.log(element,firstDiv)}
-  // },[buttonGroupRef.current])
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     if (buttonGroupRef.current) {
-  //       const firstDiv = buttonGroupRef.current.querySelector('div');
+  useEffect(() => {
+    const handleResize = () => {
+      if (buttonGroupRef.current) {
+        const firstDiv = buttonGroupRef.current.querySelector('div');
       
-  //       if (firstDiv) {
-  //         if (window.innerWidth > 768) {
-  //           firstDiv.style.width = "980px";
-  //           firstDiv.style.marginLeft = "540px";
-  //         } else {
-  //           firstDiv.style.width = "";
-  //           firstDiv.style.marginLeft = "";
-  //         }
-  //       }
-  //     }
-  //   };
+        if (firstDiv) {
+          const isIpad = /iPad|Macintosh/.test(navigator.userAgent) && 'ontouchend' in document;
 
-  //   handleResize(); // Initial check
-  //   window.addEventListener("resize", handleResize); // Add event listener
+          if (true) {
+            firstDiv.style.width = "750px";
+            firstDiv.style.marginLeft = "320px";
+          } else if (window.innerWidth > 768) {
+            firstDiv.style.width = "980px";
+            firstDiv.style.marginLeft = "540px";
+          } else {
+            firstDiv.style.width = "";
+            firstDiv.style.marginLeft = "-20px";
+          }
+          
+        }
+      }
+    };
 
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize); // Clean up event listener
-  //   };
-  // }, []);
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize); // Add event listener
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Clean up event listener
+    };
+  }, []);
 
   return (
     <GoogleOAuthProvider clientId="168821784143-d0q7nugflesop4nh6rbdp3f95sr6o9c8.apps.googleusercontent.com">
@@ -116,7 +115,7 @@ function LoginForm() {
         <ToastContainer />
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-lg-6">
+            <div className="col-lg-5">
               <div className="form-card">
 
                 <div className="form-wrapper">
@@ -173,7 +172,7 @@ function LoginForm() {
                         onFailure={googleError}
                         cookiePolicy={"single_host_origin"}
                         useOneTap
-                        width={1000}
+                        width={window.innerWidth > 768?1000:230}
                         render={(renderProps) => (
                           <button
                             onClick={renderProps.onClick}
@@ -181,7 +180,7 @@ function LoginForm() {
                             className="google-button"
                           >
                             <FcGoogle size="1.5em" className="google-icon" />
-                            Sign in with Google
+                             Google
                           </button>
                         )}
                       />

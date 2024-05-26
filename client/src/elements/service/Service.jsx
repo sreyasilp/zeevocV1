@@ -64,7 +64,7 @@ const Service = () => {
                     className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12"
                     key={i}
                   >
-                    <a className="text-center" href={`/service-details/${val._id}`}>
+                    <a className="text-center" href={`/service/${val.url_key}`}>
                       <div className="service service__style--2">
                         <div className="icon">
 

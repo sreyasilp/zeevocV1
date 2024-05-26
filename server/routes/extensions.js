@@ -7,12 +7,14 @@ import {
   getExtensionById,
   updateExtension,
   deleteExtension,
+  getExtensionByUrlKey
 } from "../controllers/extensions.js";
 
 const router = express.Router();
 
 router.get("/all", getAllExtensions);
 router.get("/getbyid/:id", getExtensionById);
+router.get("/:urlKey", getExtensionByUrlKey);
 
 router.post("/create", adminAuth, createExtension);
 router.patch("/:id", adminAuth, updateExtension);

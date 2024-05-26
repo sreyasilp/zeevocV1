@@ -9,13 +9,13 @@ import axios from "axios";
 import dotenv from 'dotenv';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { getExtensionById, createPaymentOrder, getProfile, createOrder, postPaymentSuccess } from "../../api";
+import { getExtensionByUrlKey, createPaymentOrder, getProfile, createOrder, postPaymentSuccess } from "../../api";
 import { getUserDetails } from "../../auth/authUtils";
 dotenv.config();
 
 const ExtensionDetails = () => {
     const navigate = useNavigate();
-    const { extensionId } = useParams();
+    const { urlKey } = useParams();
     const [isOpen, setIsOpen] = useState(false);
     const [extensionData, setExtensionData] = useState({});
     const [profileData, setProfileData] = useState(null);
@@ -29,7 +29,7 @@ const ExtensionDetails = () => {
     useEffect(() => {
         const fetchExtensionData = async () => {
             try {
-                const response = await getExtensionById(extensionId);
+                const response = await getExtensionByUrlKey(urlKey);
                 setExtensionData(response.data);
             } catch (error) {
                 console.error("Error fetching extension data:", error);
@@ -75,7 +75,7 @@ const ExtensionDetails = () => {
         fetchExtensionData();
         fetchUserData();
         fetchExchangeRates();
-    }, [extensionId, navigate]);
+    }, [urlKey, navigate]);
 
     const getConvertedPrice = () => {
         const basePrice = extensionData.price; // Assuming price is in USD
@@ -93,7 +93,7 @@ const ExtensionDetails = () => {
             }
             
             // Generate a unique receipt ID including user ID and extension ID
-            const receipt = `${extensionId}-${Date.now()}`; // Concatenates
+            const receipt = `${urlKey}-${Date.now()}`; // Concatenates
             const payOptions = {
                 amount: getConvertedPrice() * 100, // amount in smallest currency unit
                 currency: selectedCurrency,

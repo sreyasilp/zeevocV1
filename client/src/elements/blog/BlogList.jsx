@@ -31,7 +31,7 @@ const BlogList = () => {
             <div className="col-lg-4 col-md-6 col-sm-6 col-12" key={i}>
               <div className="blog blog-style--1">
                 <div className="thumbnail">
-                  <a href={`/blog-details/${value._id}`}>
+                  <a href={`/blog/${value.urlKey}`}>
                     <img
                       className="w-100"
                       src={`/assets/images/blog/blog-${value.images}.jpg`}
@@ -42,10 +42,10 @@ const BlogList = () => {
                 <div className="content">
                   <p className="blogtype">{value.category}</p>
                   <h4 className="title">
-                    <a href={`/blog-details/${value._id}`}>{value.title}</a>
+                    <a href={`/blog/${value.urlKey}`}>{value.title}</a>
                   </h4>
                   <div className="blog-btn">
-                    <a className="rn-btn text-white" href={`/blog-details/${value._id}`}>
+                    <a className="rn-btn text-white" href={`/blog/${value.urlKey}`}>
                       Read More
                     </a>
                   </div>

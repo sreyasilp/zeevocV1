@@ -86,35 +86,10 @@ a {
     }
 }
 
-.S9gUrf-YoZ4jf{
-    // width: 540px !important;
-    // height: 40px;
+.S9gUrf-YoZ4jf {
     margin-top: 20px !important;
-    
+    margin-left: 20px !important;
 }
-// .rn-button-style--3.btn-solid {
-//     width: 540px;
-//     height: 40px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     background:#f9004d;
-//     border: none;
-//     border-radius: 4px;
-//     padding: 10px 20px;
-//     cursor: pointer;
-//     transition: background-color 0.3s ease, transform 0.3s ease;
-//     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-//     font-weight: bold;
-//     // color: #ffffff;
-//     font-size: 14px;
-//     &:hover {
-//         border: 2px solid $theme-color;
-//         transform: translateY(-3px);
-//         color: #ffffff;
-//         background: $theme-color;
-//     }
-// }
 
 // Media queries for responsive design
 @media (max-width: 768px) {
@@ -171,6 +146,8 @@ a {
     border-radius: 25px;
     margin-top: 0px;
     margin-bottom: 33px;
+    margin-left: 19px;
+    margin-right: 19px;
 }
 
 .form-wrapper form label {
@@ -182,14 +159,6 @@ a {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
-// .login-link {
-//     margin-top: 20px;
-//     text-align: center;
-//     color: rgb(0, 0, 0);
-//     font-size: small;
-// }
-
 
 .signup-link {
     color: rgb(0, 0, 0);
@@ -223,39 +192,38 @@ a {
     font-size: small;
     margin-left: auto;
 }
-// @media (min-width: 769px) {
-//     .jVeSEe{
-//         min-width: 540px;
-//         max-width: 900px;
-//     }
-// }
-
 
 @media (max-width: 768px) {
+    .form-wrapper form {
+        margin-left: 0px!important;
+        margin-right: 0px !important;
+    }
+
     .signup-link {
-        flex-direction: column; /* Stack links vertically on small screens */
-        align-items: flex-start; /* Align items to the start */
-        margin-top: -17px; /* Adjust as needed */
+        flex-direction: column;
+        /* Stack links vertically on small screens */
+        align-items: flex-start;
+        /* Align items to the start */
+        margin-top: -17px;
+        /* Adjust as needed */
         font-size: small !important;
-        
+
     }
 
     .highlight-link {
-        margin-left: 0; /* Remove left margin for better alignment */
-        margin-top: -5px; /* Add top margin to separate from previous link */
+        margin-left: 0;
+        /* Remove left margin for better alignment */
+        margin-top: -5px;
+        /* Add top margin to separate from previous link */
         font-size: small;
     }
 
     .forgot-password-link {
-        margin-left: 233; /* Remove left margin for better alignment */
-        margin-top: -30px; /* Add top margin to separate from previous link */
+        margin-left: 233;
+        /* Remove left margin for better alignment */
+        margin-top: -30px;
+        /* Add top margin to separate from previous link */
         font-size: small;
-        
+
     }
 }
-
-// .S9gUrf-YoZ4jf{
-//     width: 540px !important;
-
-// }
-

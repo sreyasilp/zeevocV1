@@ -6,7 +6,7 @@ import ScrollToTop from 'react-scroll-up';
 import { FiChevronUp } from "react-icons/fi";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
-import { getServiceById } from "../../api"; // Import the API function
+import { getServiceByUrlKey } from "../../api"; // Import the API function
 
 const ServiceDetails = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -17,9 +17,9 @@ const ServiceDetails = () => {
     };
 
     useEffect(() => {
-        const fetchData = async (id) => { // Modify fetchData to accept ID as a parameter
+        const fetchData = async (urlKey) => { // Modify fetchData to accept ID as a parameter
             try {
-                const response = await getServiceById(id); // Pass the service ID
+                const response = await getServiceByUrlKey(urlKey); // Pass the service ID
                 setBreadcrumbData(response.data); // Assuming the response contains breadcrumb data
             } catch (error) {
                 console.error("Error fetching breadcrumb data:", error);

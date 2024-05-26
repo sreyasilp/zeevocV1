@@ -46,7 +46,7 @@ const TabStyleThree = ({ column }) => {
                                     <div className="portfolio-static">
                                         <div className="thumbnail-inner">
                                             <div className="thumbnail">
-                                                <a href={`/extension-details/${value._id}`}>
+                                                <a href={`/extension/${value.urlKey}`}>
                                                     <img src={`/assets/images/portfolio/extension-02.webp`} alt="Portfolio Images"/>
                                                 </a>
                                             </div>
@@ -54,7 +54,7 @@ const TabStyleThree = ({ column }) => {
                                         <div className="content">
                                             <div className="inner">
                                                 <p>{value.category}</p>
-                                                <h4><a href={`/extension-details/${value._id}`}>{value.title}</a></h4>
+                                                <h4><a href={`/extension/${value.urlKey}`}>{value.title}</a></h4>
                                             </div>
                                         </div>
                                     </div>

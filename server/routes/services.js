@@ -7,6 +7,7 @@ import {
   getServiceById,
   updateService,
   deleteService,
+  getServiceByUrlKey
 } from "../controllers/services.js";
 
 const router = express.Router();
@@ -14,6 +15,7 @@ const router = express.Router();
 router.post("/create", adminAuth, createService);
 router.get("/all", getAllServices);
 router.get("/getbyid/:id", getServiceById);
+router.get("/:urlKey", getServiceByUrlKey);
 router.patch("/updatebyid/:id", adminAuth, updateService);
 router.delete("/deletebyid/:id", adminAuth, deleteService);
 

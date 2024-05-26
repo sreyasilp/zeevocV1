@@ -64,3 +64,15 @@ export const deleteBlogPost = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+export const getBlogByUrlKey = async (req, res) => {
+  try {
+    const blogPost = await BlogPost.findOne({ urlKey: req.params.urlKey });
+    if (!blogPost) {
+      return res.status(404).json({ message: 'Blog post not found' });
+    }
+    res.status(200).json(blogPost);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
