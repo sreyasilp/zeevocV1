@@ -9,12 +9,14 @@ import { getOrdersByUserId } from "../../api";
 import { useTheme } from "../../context/ThemeContext";
 import { getUserDetails } from "../../auth/authUtils";
 import moment from 'moment';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import "./order.css"; // Import custom CSS for styling
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const { isDarkTheme } = useTheme();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -31,6 +33,10 @@ const Orders = () => {
 
     fetchOrders();
   }, []);
+
+  const handleOrderClick = (orderId) => {
+    navigate(`/order/${orderId}`);
+  };
 
   return (
     <React.Fragment>
@@ -58,25 +64,26 @@ const Orders = () => {
                 <p>Loading...</p>
               ) : (
                 orders.map((order, index) => (
-                  <div className="order-card" key={order._id}>
+                  <div
+                    className="order-card"
+                    key={order._id}
+                    onClick={() => handleOrderClick(order._id)}
+                  >
                     <div className="order-header">
                       <div>
-                        <h3>Order ID {index + 1}</h3>
-                        <p>Placed On {moment(order.createdAt).format('MMMM Do YYYY')}</p>
+                        <h4>{order.orderItems[0].title}</h4>
                       </div>
-                      <a href={`/order/${order._id}`} className="view-details">View Details</a>
                     </div>
                     <div className="order-details">
                       <div>
-                        <h4>{order.orderItems[0].title}</h4>
-                        <p>Qty: {order.orderItems[0].quantity}</p>
+                        <p>Placed On {moment(order.createdAt).format('MMMM Do YYYY')}</p>
                         <p>${order.totalPrice.toFixed(2)} via {order.paymentMethod}</p>
-                        <p>Tracking Status: {moment(order.updatedAt).format('h:mm a, MMMM Do YYYY')}</p>
+                        <p className="payment-status">Status: {order.status}</p>
                       </div>
                       <img src="https://picsum.photos/200/300/?blur" alt={order.orderItems[0].title} style={{ width: '100px', height: '100px' }} />
                     </div>
                     <div className="order-actions">
-                      <button>Download Extension</button>
+                      <button>Download</button>
                     </div>
                   </div>
                 ))
