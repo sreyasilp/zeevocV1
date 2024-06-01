@@ -5,7 +5,7 @@ import { FiChevronUp } from "react-icons/fi";
 import ScrollToTop from "react-scroll-up";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
-import { getOrdersByUserId } from "../../api";
+import { getOrdersByUserId } from "../../api"; // Import the downloadOrder API
 import { useTheme } from "../../context/ThemeContext";
 import { getUserDetails } from "../../auth/authUtils";
 import moment from 'moment';
@@ -36,6 +36,20 @@ const Orders = () => {
 
   const handleOrderClick = (orderId) => {
     navigate(`/order/${orderId}`);
+  };
+
+  const handleDownload = async (orderId) => {
+    try {
+      // const response = await downloadOrder(orderId);
+      // const url = window.URL.createObjectURL(new Blob([response.data]));
+      // const link = document.createElement('a');
+      // link.href = url;
+      // link.setAttribute('download', 'order-details.pdf');
+      // document.body.appendChild(link);
+      // link.click();
+    } catch (error) {
+      console.error("Error downloading order:", error);
+    }
   };
 
   return (
@@ -83,7 +97,7 @@ const Orders = () => {
                       <img src="https://picsum.photos/200/300/?blur" alt={order.orderItems[0].title} style={{ width: '100px', height: '100px' }} />
                     </div>
                     <div className="order-actions">
-                      <button>Download</button>
+                      <button onClick={(e) => { e.stopPropagation(); handleDownload(order._id); }}>Download</button>
                     </div>
                   </div>
                 ))
