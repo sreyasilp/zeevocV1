@@ -5,18 +5,18 @@ import { FiChevronUp } from "react-icons/fi";
 import ScrollToTop from "react-scroll-up";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
-import { getOrdersByUserId } from "../../api"; // Import the downloadOrder API
+import { getOrdersByUserId } from "../../api";
 import { useTheme } from "../../context/ThemeContext";
 import { getUserDetails } from "../../auth/authUtils";
 import moment from 'moment';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
-import "./order.css"; // Import custom CSS for styling
+import { useNavigate } from 'react-router-dom';
+import "./order.css";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const { isDarkTheme } = useTheme();
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -77,27 +77,24 @@ const Orders = () => {
               {loading ? (
                 <p>Loading...</p>
               ) : (
-                orders.map((order, index) => (
+                orders.map((order) => (
                   <div
                     className="order-card"
                     key={order._id}
                     onClick={() => handleOrderClick(order._id)}
                   >
-                    <div className="order-header">
-                      <div>
-                        <h4>{order.orderItems[0].title}</h4>
+                    <div className="order-top">
+                      <div className="order-info">
+                        <h4 className="order-title">{order.orderItems[0].title}</h4>
+                        <p className="order-id">Order #: 0000001</p>
+                        <p className="order-date">Purchase Date: {moment(order.createdAt).format('MMMM D, YYYY')}</p>
                       </div>
+                      <img src="https://picsum.photos/200/300/?blur" alt={order.orderItems[0].title} className="order-image" />
                     </div>
                     <div className="order-details">
-                      <div>
-                        <p>Placed On {moment(order.createdAt).format('MMMM Do YYYY')}</p>
-                        <p>${order.totalPrice.toFixed(2)} via {order.paymentMethod}</p>
-                        <p className="payment-status">Status: {order.status}</p>
-                      </div>
-                      <img src="https://picsum.photos/200/300/?blur" alt={order.orderItems[0].title} style={{ width: '100px', height: '100px' }} />
-                    </div>
-                    <div className="order-actions">
-                      <button onClick={(e) => { e.stopPropagation(); handleDownload(order._id); }}>Download</button>
+                      <p>Total: ${order.totalPrice.toFixed(2)}</p>
+                      <p>Status: {order.status}</p>
+                      <button onClick={(e) => { e.stopPropagation(); handleDownload(order._id); }} className="order-download-button">Download</button>
                     </div>
                   </div>
                 ))
