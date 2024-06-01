@@ -9,12 +9,16 @@ import { getProfile, updateProfile } from "../../api";
 import { useTheme } from "../../context/ThemeContext";
 import { getUserDetails } from "../../auth/authUtils";
 import "./UserProfile.css"; // Import CSS for custom styles
+import Datetime from "react-datetime";
+import "react-datetime/css/react-datetime.css";
+import moment from "moment";
 
 const UserProfile = () => {
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
     const [isEditing, setIsEditing] = useState(false);
     const [validationErrors, setValidationErrors] = useState({});
+    const [profileImage, setProfileImage] = useState(null);
     const { isDarkTheme } = useTheme();
 
     useEffect(() => {
@@ -40,6 +44,19 @@ const UserProfile = () => {
             ...prevProfile,
             [name]: value,
         }));
+    };
+
+    const handleDateChange = (date) => {
+        setProfile((prevProfile) => ({
+            ...prevProfile,
+            dateOfBirth: date,
+        }));
+    };
+
+    const handleImageChange = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            setProfileImage(URL.createObjectURL(e.target.files[0]));
+        }
     };
 
     const validateForm = () => {
@@ -113,22 +130,62 @@ const UserProfile = () => {
                                     <div className="profile-card">
                                         <div className="profile-header">
                                             <div className="profile-image">
-                                                <img src="https://picsum.photos/id/237/200/300" alt="Profile" />
+                                                <img src={profileImage || "https://picsum.photos/id/237/200/300"} alt="Profile" />
+                                                {isEditing && (
+                                                    <div className="image-upload">
+                                                        <label htmlFor="file-upload" className="custom-file-upload">
+                                                            Choose File
+                                                        </label>
+                                                        <input id="file-upload" type="file" accept="image/*" onChange={handleImageChange} />
+                                                    </div>
+                                                )}
                                             </div>
                                             <div className="profile-info">
-                                                <h3>{profile.firstName} {profile.lastName}</h3>
-                                                <p>{profile.email}</p>
-                                                <p>{profile.phoneNumber}</p>
-                                            </div>
-                                            <div className="profile-actions">
                                                 {isEditing ? (
-                                                    <button className="rn-button-style--2 btn-solid" onClick={handleSubmit}>
-                                                        <FiSave /> Save Changes
-                                                    </button>
+                                                    <>
+                                                        <input
+                                                            type="text"
+                                                            name="firstName"
+                                                            value={profile.firstName}
+                                                            onChange={handleInputChange}
+                                                            placeholder="First Name"
+                                                            className="form-control"
+                                                        />
+                                                        <input
+                                                            type="text"
+                                                            name="lastName"
+                                                            value={profile.lastName}
+                                                            onChange={handleInputChange}
+                                                            placeholder="Last Name"
+                                                            className="form-control"
+                                                        />
+                                                        <input
+                                                            type="email"
+                                                            name="email"
+                                                            value={profile.email}
+                                                            onChange={handleInputChange}
+                                                            placeholder="Email"
+                                                            className="form-control"
+                                                        />
+                                                        <input
+                                                            type="text"
+                                                            name="phoneNumber"
+                                                            value={profile.phoneNumber}
+                                                            onChange={handleInputChange}
+                                                            placeholder="Phone Number"
+                                                            className="form-control"
+                                                        />
+                                                        <span className="error-message">{validationErrors.firstName}</span>
+                                                        <span className="error-message">{validationErrors.lastName}</span>
+                                                        <span className="error-message">{validationErrors.email}</span>
+                                                        <span className="error-message">{validationErrors.phoneNumber}</span>
+                                                    </>
                                                 ) : (
-                                                    <button className="rn-button-style--2 btn-solid" onClick={() => setIsEditing(true)}>
-                                                        <FiEdit2 /> Edit Profile
-                                                    </button>
+                                                    <>
+                                                        <h3>{profile.firstName} {profile.lastName}</h3>
+                                                        <p>{profile.email}</p>
+                                                        <p>{profile.phoneNumber}</p>
+                                                    </>
                                                 )}
                                             </div>
                                         </div>
@@ -142,13 +199,13 @@ const UserProfile = () => {
                                                                 name="sex"
                                                                 value={profile.sex}
                                                                 onChange={handleInputChange}
+                                                                className="form-control"
                                                             >
                                                                 <option value="">Select...</option>
                                                                 <option value="Male">Male</option>
                                                                 <option value="Female">Female</option>
                                                                 <option value="Other">Other</option>
                                                             </select>
-                                                            <br />
                                                             <span className="error-message">{validationErrors.sex}</span>
                                                         </React.Fragment>
                                                     ) : (
@@ -158,7 +215,19 @@ const UserProfile = () => {
                                             </div>
                                             <div className="profile-item">
                                                 <div className="profile-label">Date of Birth:</div>
-                                                <div className="profile-value">{profile.dateOfBirth}</div>
+                                                <div className="profile-value">
+                                                    {isEditing ? (
+                                                        <Datetime
+                                                            value={moment(profile.dateOfBirth)}
+                                                            onChange={handleDateChange}
+                                                            dateFormat="DD-MM-YYYY"
+                                                            timeFormat={false}
+                                                            className="form-control"
+                                                        />
+                                                    ) : (
+                                                        moment(profile.dateOfBirth).format("DD-MM-YYYY")
+                                                    )}
+                                                </div>
                                             </div>
                                             <div className="profile-item">
                                                 <div className="profile-label">Address Line 1:</div>
@@ -170,8 +239,8 @@ const UserProfile = () => {
                                                                 name="address_line_one"
                                                                 value={profile.address_line_one}
                                                                 onChange={handleInputChange}
+                                                                className="form-control"
                                                             />
-                                                            <br />
                                                             <span className="error-message">{validationErrors.address}</span>
                                                         </React.Fragment>
                                                     ) : (
@@ -188,6 +257,7 @@ const UserProfile = () => {
                                                             name="address_line_two"
                                                             value={profile.address_line_two}
                                                             onChange={handleInputChange}
+                                                            className="form-control"
                                                         />
                                                     ) : (
                                                         profile.address_line_two
@@ -203,13 +273,24 @@ const UserProfile = () => {
                                                             name="pincode"
                                                             value={profile.pincode}
                                                             onChange={handleInputChange}
+                                                            className="form-control"
                                                         />
                                                     ) : (
                                                         profile.pincode
                                                     )}
                                                 </div>
                                             </div>
-                                     
+                                        </div>
+                                        <div className="profile-actions">
+                                            {isEditing ? (
+                                                <button className="rn-button-style--2 btn-solid" onClick={handleSubmit}>
+                                                    <FiSave /> Save Changes
+                                                </button>
+                                            ) : (
+                                                <button className="rn-button-style--2 btn-solid" onClick={() => setIsEditing(true)}>
+                                                    <FiEdit2 /> Edit Profile
+                                                </button>
+                                            )}
                                         </div>
                                     </div>
                                 )}

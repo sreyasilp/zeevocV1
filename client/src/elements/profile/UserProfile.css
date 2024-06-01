@@ -7,11 +7,22 @@
 
 .profile-header {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     border-bottom: 1px solid #eaeaea;
     padding-bottom: 20px;
     margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .profile-header {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+.profile-image {
+    position: relative;
 }
 
 .profile-image img {
@@ -21,24 +32,86 @@
     object-fit: cover;
 }
 
+.image-upload {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+.image-upload input[type="file"] {
+    display: none;
+}
+
+.image-upload label {
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
 .profile-info {
     flex-grow: 1;
     margin-left: 20px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .profile-info {
+        text-align: left;
+    }
+}
+
+.profile-info input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .profile-actions {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .profile-actions {
+        justify-content: flex-end;
+    }
 }
 
 .profile-content {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    margin-top: 20px;
 }
 
 .profile-item {
-    flex: 1 1 45%;
+    flex: 1 1 100%;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .profile-item {
+        flex: 1 1 45%;
+        text-align: left;
+    }
 }
 
 .profile-label {
@@ -66,4 +139,6 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 100%;
+    justify-content: center;
 }
