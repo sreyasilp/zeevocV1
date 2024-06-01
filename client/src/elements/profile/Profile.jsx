@@ -230,7 +230,7 @@ const UserProfile = () => {
                                                 </div>
                                             </div>
                                             <div className="profile-item">
-                                                <div className="profile-label">Address Line 1:</div>
+                                                <div className="profile-label">Street Address:</div>
                                                 <div className="profile-value">
                                                     {isEditing ? (
                                                         <React.Fragment>
@@ -249,7 +249,7 @@ const UserProfile = () => {
                                                 </div>
                                             </div>
                                             <div className="profile-item">
-                                                <div className="profile-label">Address Line 2:</div>
+                                                <div className="profile-label">City/State/Suburb</div>
                                                 <div className="profile-value">
                                                     {isEditing ? (
                                                         <input
@@ -280,6 +280,7 @@ const UserProfile = () => {
                                                     )}
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                         <div className="profile-actions">
                                             {isEditing ? (
