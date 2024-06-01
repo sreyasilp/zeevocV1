@@ -23,6 +23,7 @@
 
 .profile-image {
     position: relative;
+    margin-bottom: 20px; /* Add space below the image */
 }
 
 .profile-image img {
@@ -104,7 +105,7 @@
 
 .profile-item {
     flex: 1 1 100%;
-    text-align: center;
+    text-align: left;
 }
 
 @media (min-width: 768px) {
@@ -112,6 +113,20 @@
         flex: 1 1 45%;
         text-align: left;
     }
+    .rn-button-style--2.btn-solid {
+        background-color: #000;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+    
 }
 
 .profile-label {
