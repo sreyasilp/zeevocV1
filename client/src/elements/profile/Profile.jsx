@@ -182,15 +182,6 @@ const UserProfile = () => {
                                                         />
                                                         <span className="error-message">{validationErrors.lastName}</span>
                                                         <input
-                                                            type="email"
-                                                            name="email"
-                                                            value={profile.email}
-                                                            onChange={handleInputChange}
-                                                            placeholder="Email"
-                                                            className="form-control"
-                                                        />
-                                                        <span className="error-message">{validationErrors.email}</span>
-                                                        <input
                                                             type="text"
                                                             name="phoneNumber"
                                                             value={profile.phoneNumber}
@@ -315,11 +306,11 @@ const UserProfile = () => {
                                         <div className="profile-actions">
                                             {isEditing ? (
                                                 <button className="rn-button-style--2 btn-solid" onClick={handleSubmit}>
-                                                    <FiSave /> Save Changes
+                                                    <FiSave /> Save
                                                 </button>
                                             ) : (
                                                 <button className="rn-button-style--2 btn-solid" onClick={() => setIsEditing(true)}>
-                                                    <FiEdit2 /> Edit Profile
+                                                    <FiEdit2 /> Edit
                                                 </button>
                                             )}
                                         </div>
