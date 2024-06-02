@@ -3,7 +3,8 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    position: relative; /* Add this to position the button */
+    position: relative;
+    /* Add this to position the button */
 }
 
 .profile-header {
@@ -24,7 +25,8 @@
 
 .profile-image {
     position: relative;
-    margin-bottom: 20px; /* Add space below the image */
+    margin-bottom: 20px;
+    /* Add space below the image */
 }
 
 .profile-image img {
@@ -49,22 +51,25 @@
 
 .image-upload label {
     cursor: pointer;
-    background-color: #000;
     color: #fff;
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 12px;
+    margin-bottom: 30px;
 }
 
 .profile-info {
     flex-grow: 1;
-    margin-left: 20px;
+    margin-left: 0px;
     text-align: center;
+    width: 100%;
 }
 
 @media (min-width: 768px) {
     .profile-info {
         text-align: left;
+        margin-left: 20px;
+        width: 100%;
     }
 }
 
@@ -72,7 +77,7 @@
     display: block;
     margin-bottom: 10px;
     padding: 5px;
-    width: 100%;
+    width: 599px;
     box-sizing: border-box;
 }
 
@@ -117,6 +122,7 @@
         flex: 1 1 45%;
         text-align: left;
     }
+
     .rn-button-style--2.btn-solid {
         background-color: #000;
         color: #fff;

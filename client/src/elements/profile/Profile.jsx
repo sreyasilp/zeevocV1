@@ -62,26 +62,44 @@ const UserProfile = () => {
     const validateForm = () => {
         const errors = {};
         if (!profile.firstName) errors.firstName = "First name is required";
+        else if (profile.firstName.length > 15) errors.firstName = "First name cannot exceed 15 characters";
+
         if (!profile.lastName) errors.lastName = "Last name is required";
+        else if (profile.lastName.length > 15) errors.lastName = "Last name cannot exceed 15 characters";
+
         if (!profile.email) {
             errors.email = "Email is required";
         } else if (!/\S+@\S+\.\S+/.test(profile.email)) {
             errors.email = "Email address is invalid";
         }
+
         if (!profile.phoneNumber) {
             errors.phoneNumber = "Phone number is required";
         } else if (!/^\d{10}$/.test(profile.phoneNumber)) {
             errors.phoneNumber = "Phone number must be 10 digits";
         }
+
         if (!profile.sex) errors.sex = "Sex is required";
-        if (!profile.address_line_one) errors.address = "Address line 1 is required";
-        if (!profile.city) errors.address = "City is required";
-        if (!profile.country) errors.address = "Country is required";
-        if (!profile.pincode) {
-            errors.address = "Pincode is required";
-        } else if (!/^\d{6}$/.test(profile.pincode)) {
-            errors.address = "Pincode must be 6 digits";
+
+        if (!profile.address_line_one) errors.address_line_one = "Address line 1 is required";
+        else if (profile.address_line_one.length > 20) errors.address_line_one = "Address line 1 cannot exceed 20 characters";
+
+        if (profile.address_line_two && profile.address_line_two.length > 20) {
+            errors.address_line_two = "Address line 2 cannot exceed 20 characters";
         }
+
+        if (!profile.city) errors.city = "City is required";
+        else if (profile.city.length > 15) errors.city = "City cannot exceed 15 characters";
+
+        if (!profile.country) errors.country = "Country is required";
+        else if (profile.country.length > 10) errors.country = "Country cannot exceed 10 characters";
+
+        if (!profile.pincode) {
+            errors.pincode = "Pincode is required";
+        } else if (!/^\d{6}$/.test(profile.pincode)) {
+            errors.pincode = "Pincode must be 6 digits";
+        }
+
         return errors;
     };
 
@@ -150,7 +168,9 @@ const UserProfile = () => {
                                                             onChange={handleInputChange}
                                                             placeholder="First Name"
                                                             className="form-control"
+                                                            maxLength="30"
                                                         />
+                                                        <span className="error-message">{validationErrors.firstName}</span>
                                                         <input
                                                             type="text"
                                                             name="lastName"
@@ -158,7 +178,9 @@ const UserProfile = () => {
                                                             onChange={handleInputChange}
                                                             placeholder="Last Name"
                                                             className="form-control"
+                                                            maxLength="30"
                                                         />
+                                                        <span className="error-message">{validationErrors.lastName}</span>
                                                         <input
                                                             type="email"
                                                             name="email"
@@ -167,6 +189,7 @@ const UserProfile = () => {
                                                             placeholder="Email"
                                                             className="form-control"
                                                         />
+                                                        <span className="error-message">{validationErrors.email}</span>
                                                         <input
                                                             type="text"
                                                             name="phoneNumber"
@@ -174,10 +197,8 @@ const UserProfile = () => {
                                                             onChange={handleInputChange}
                                                             placeholder="Phone Number"
                                                             className="form-control"
+                                                            maxLength="10"
                                                         />
-                                                        <span className="error-message">{validationErrors.firstName}</span>
-                                                        <span className="error-message">{validationErrors.lastName}</span>
-                                                        <span className="error-message">{validationErrors.email}</span>
                                                         <span className="error-message">{validationErrors.phoneNumber}</span>
                                                     </>
                                                 ) : (
@@ -194,7 +215,7 @@ const UserProfile = () => {
                                                 <div className="profile-label">Gender:</div>
                                                 <div className="profile-value">
                                                     {isEditing ? (
-                                                        <React.Fragment>
+                                                        <>
                                                             <select
                                                                 name="sex"
                                                                 value={profile.sex}
@@ -207,7 +228,7 @@ const UserProfile = () => {
                                                                 <option value="Other">Other</option>
                                                             </select>
                                                             <span className="error-message">{validationErrors.sex}</span>
-                                                        </React.Fragment>
+                                                        </>
                                                     ) : (
                                                         profile.sex
                                                     )}
@@ -233,16 +254,17 @@ const UserProfile = () => {
                                                 <div className="profile-label">Street Address:</div>
                                                 <div className="profile-value">
                                                     {isEditing ? (
-                                                        <React.Fragment>
+                                                        <>
                                                             <input
                                                                 type="text"
                                                                 name="address_line_one"
                                                                 value={profile.address_line_one}
                                                                 onChange={handleInputChange}
                                                                 className="form-control"
+                                                                maxLength="100"
                                                             />
-                                                            <span className="error-message">{validationErrors.address}</span>
-                                                        </React.Fragment>
+                                                            <span className="error-message">{validationErrors.address_line_one}</span>
+                                                        </>
                                                     ) : (
                                                         profile.address_line_one
                                                     )}
@@ -252,13 +274,17 @@ const UserProfile = () => {
                                                 <div className="profile-label">City/State/Suburb</div>
                                                 <div className="profile-value">
                                                     {isEditing ? (
-                                                        <input
-                                                            type="text"
-                                                            name="address_line_two"
-                                                            value={profile.address_line_two}
-                                                            onChange={handleInputChange}
-                                                            className="form-control"
-                                                        />
+                                                        <>
+                                                            <input
+                                                                type="text"
+                                                                name="address_line_two"
+                                                                value={profile.address_line_two}
+                                                                onChange={handleInputChange}
+                                                                className="form-control"
+                                                                maxLength="100"
+                                                            />
+                                                            <span className="error-message">{validationErrors.address_line_two}</span>
+                                                        </>
                                                     ) : (
                                                         profile.address_line_two
                                                     )}
@@ -268,13 +294,17 @@ const UserProfile = () => {
                                                 <div className="profile-label">Pincode:</div>
                                                 <div className="profile-value">
                                                     {isEditing ? (
-                                                        <input
-                                                            type="text"
-                                                            name="pincode"
-                                                            value={profile.pincode}
-                                                            onChange={handleInputChange}
-                                                            className="form-control"
-                                                        />
+                                                        <>
+                                                            <input
+                                                                type="text"
+                                                                name="pincode"
+                                                                value={profile.pincode}
+                                                                onChange={handleInputChange}
+                                                                className="form-control"
+                                                                maxLength="6"
+                                                            />
+                                                            <span className="error-message">{validationErrors.pincode}</span>
+                                                        </>
                                                     ) : (
                                                         profile.pincode
                                                     )}
