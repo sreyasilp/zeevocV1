@@ -1,0 +1,289 @@
+/* extension.css */
+
+.App {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px; /* Add border radius */
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px; /* Add border radius */
+}
+
+.header-content {
+    flex-grow: 1;
+    padding: 0 20px;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.header-content span {
+    display: block;
+}
+
+.platinum-badge {
+    background-color: #e5e5e5;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.rating {
+    font-size: 18px;
+}
+
+.main-content {
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap; /* Enable wrapping for smaller screens */
+}
+
+.image-gallery {
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 20px; /* Add margin bottom for spacing in mobile view */
+}
+
+.main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Add border radius */
+}
+
+.thumbnails {
+    display: flex;
+    margin-top: 10px;
+}
+
+.thumbnails img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px; /* Add border radius */
+}
+
+.thumbnails img.active {
+    border: 2px solid #000;
+}
+
+.details {
+    flex: 1;
+    min-width: 300px; /* Ensure minimum width for better display on mobile */
+}
+
+.select-box {
+    margin-bottom: 20px;
+}
+
+.select-box label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.select-box select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.info-box {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.price-box {
+    margin-bottom: 20px;
+}
+
+.price-box .price, .price-box .total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+
+
+.contact-vendor {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color:  #f9004d;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.contact-vendor:hover {
+    background-color: #ffffff;
+    color: #f9004d;
+    border: 2px solid #f9004d;
+}
+
+.bottom-section {
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap; /* Enable wrapping for smaller screens */
+}
+
+.sidebar {
+    width: 100%;
+    margin-bottom: 20px; /* Add margin bottom for spacing in mobile view */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    flex: 1;
+}
+
+.content h2 {
+    font-size: 24px; /* Optimize heading size */
+}
+
+.content p {
+    font-size: 16px; /* Optimize paragraph text size */
+    line-height: 1.5; /* Add line height for better readability */
+}
+
+/* Media queries for mobile view */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .rating {
+        margin-top: 10px;
+    }
+
+    .main-content {
+        flex-direction: column;
+    }
+
+    .image-gallery {
+        margin-right: 0;
+    }
+
+    .details {
+        margin-top: 20px;
+    }
+
+    .bottom-section {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .content {
+        margin-top: 20px;
+    }
+}
+
+
+/* Add this to the existing CSS */
+
+.bottom-section {
+    display: flex;
+    padding: 20px;
+    flex-wrap: nowrap; /* Ensure no wrap for larger screens */
+    align-items: flex-start; /* Align items to the top */
+}
+
+.sidebar {
+    width: 200px;
+    margin-right: 20px;
+    border-right: 1px solid #ccc; /* Add a line separator */
+    padding-right: 20px; /* Add padding to the right for spacing */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    flex: 1;
+    padding-left: 20px; /* Add padding to the left for spacing */
+}
+
+.content h2 {
+    font-size: 24px; /* Optimize heading size */
+    margin-top: 0; /* Remove the default margin */
+}
+
+.content p {
+    font-size: 16px; /* Optimize paragraph text size */
+    line-height: 1.5; /* Add line height for better readability */
+}
+
+@media (max-width: 768px) {
+    .bottom-section {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none; /* Remove the line separator */
+        padding-right: 0;
+        border-bottom: 1px solid #ccc; /* Add bottom border for mobile view */
+        padding-bottom: 20px;
+    }
+
+    .content {
+        padding-left: 0; /* Remove left padding for mobile view */
+        margin-top: 20px; /* Add top margin for spacing */
+    }
+}
+
+
