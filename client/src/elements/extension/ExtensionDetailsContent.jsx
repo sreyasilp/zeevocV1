@@ -15,14 +15,15 @@ const ExtensionDetailsContent = ({
         <div className="portfolio-area ptb--120 bg_color--5">
             <div className="portfolio-sacousel-inner">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="section-title text-center service-style--3 mb--30">
-                                <h2 className="title">Import Export Extension</h2>
-                                <p>
-                                    Elevate your Magento site with our efficient extensions. Streamline operations and boost sales effortlessly. Explore now!
-                                </p>
-                            </div>
+                    <div className="header">
+                        <img src="https://picsum.photos/seed/picsum/600/400" alt="Meta Logo" className="logo" />
+                        <div className="header-content">
+                            <h1>Facebook & Instagram Extension</h1>
+                            <span>by Meta</span>
+                        </div>
+                        <div className="rating">
+                            <span className="stars">★★★★☆</span>
+                            <span className="reviews">4.0 (13)</span>
                         </div>
                     </div>
 
@@ -77,7 +78,7 @@ const ExtensionDetailsContent = ({
                                     ))}
                                 </select>
                             </div>
-                            <button className="contact-vendor" onClick={displayRazorpay}>Purchase</button>
+                            <button className="contact-vendor" onClick={displayRazorpay}>Purchase Now</button>
                         </div>
 
                         <div className="bottom-section">
@@ -93,6 +94,16 @@ const ExtensionDetailsContent = ({
                                 <h2>Overview</h2>
                                 <p><strong>The official extension from Meta.</strong> Seamlessly manage your Facebook & Instagram presence from one place.</p>
                                 <p>Meta builds technologies that help people connect, find communities and grow businesses. The Facebook & Instagram Extension enables users to set up Conversions API, Pixel, Catalog, and enables Adobe Commerce (on-prem) and Magento Open Source users to create and manage a checkout-enabled Shop on Facebook & Instagram.</p>
+                                <h2>Tech Specs</h2>
+                                <p><strong>The official extension from Meta.</strong> Seamlessly manage your Facebook & Instagram presence from one place.</p>
+                                <p>Meta builds technologies that help people connect, find communities and grow businesses. The Facebook & Instagram Extension enables users to set up Conversions API, Pixel, Catalog, and enables Adobe Commerce (on-prem) and Magento Open Source users to create and manage a checkout-enabled Shop on Facebook & Instagram.</p>
+                                <h2>Relaease Notes</h2>
+                                <p><strong>The official extension from Meta.</strong> Seamlessly manage your Facebook & Instagram presence from one place.</p>
+                                <p>Meta builds technologies that help people connect, find communities and grow businesses. The Facebook & Instagram Extension enables users to set up Conversions API, Pixel, Catalog, and enables Adobe Commerce (on-prem) and Magento Open Source users to create and manage a checkout-enabled Shop on Facebook & Instagram.</p>
+                                <h2>Support</h2>
+                                <p><strong>The official extension from Meta.</strong> Seamlessly manage your Facebook & Instagram presence from one place.</p>
+                                <p>Meta builds technologies that help people connect, find communities and grow businesses. The Facebook & Instagram Extension enables users to set up Conversions API, Pixel, Catalog, and enables Adobe Commerce (on-prem) and Magento Open Source users to create and manage a checkout-enabled Shop on Facebook & Instagram.</p>
+                            
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,6 @@
 /* extension.css */
 
 .App {
-    font-family: Arial, sans-serif;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px 40px;
@@ -194,7 +193,9 @@
         flex-direction: column;
         align-items: flex-start;
     }
-
+    .header-content {
+        padding: 10px 0px;
+    }
     .rating {
         margin-top: 10px;
     }
@@ -221,9 +222,6 @@
 
     .content {
         margin-top: 20px;
-    }
-    .thumbnails {
-        justify-content: center;
     }
 }
 
@@ -293,18 +291,5 @@
     .content {
         padding-left: 0; /* Remove left padding for mobile view */
         margin-top: 20px; /* Add top margin for spacing */
-    }
-}
-
-
-/* Ensure to handle smaller screens in media query */
-@media (max-width: 768px) {
-    .App {
-        /* padding: 20px;  */
-    }
-
-    .main-content, .bottom-section {
-        /* padding-left: 20px; */
-        /* padding-right: 20px; */
     }
 }
