@@ -35,12 +35,6 @@
     display: block;
 }
 
-.platinum-badge {
-    background-color: #e5e5e5;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-}
 
 .rating {
     font-size: 18px;
@@ -226,6 +220,9 @@
 }
 
 
+
+
+
 /* Add this to the existing CSS */
 
 .bottom-section {
@@ -235,8 +232,13 @@
     align-items: flex-start; /* Align items to the top */
 }
 
+/* Add this to your existing CSS */
+
 .sidebar {
-    width: 200px;
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 20px; /* Distance from the top of the viewport */
+    width: 200px; /* Ensure it maintains the width */
     margin-right: 20px;
     border-right: 1px solid #ccc; /* Add a line separator */
     padding-right: 20px; /* Add padding to the right for spacing */
