@@ -4,7 +4,7 @@
     font-family: Arial, sans-serif;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 40px;
 }
 
 .header {
@@ -105,9 +105,9 @@
 
 .info-box {
     background-color: #f9f9f9;
-    padding: 20px;
+    padding: 12px;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .price-box {
@@ -143,6 +143,11 @@
     display: flex;
     padding: 20px;
     flex-wrap: wrap; /* Enable wrapping for smaller screens */
+}
+
+.main-content, .bottom-section {
+    padding-left: 70px;
+    padding-right: 70px;
 }
 
 .sidebar {
@@ -287,3 +292,14 @@
 }
 
 
+/* Ensure to handle smaller screens in media query */
+@media (max-width: 768px) {
+    .App {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .main-content, .bottom-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
