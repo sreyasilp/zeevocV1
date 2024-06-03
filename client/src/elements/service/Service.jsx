@@ -43,7 +43,7 @@ const Service = () => {
         {/* End Breadcrump Area */}
 
         {/* Start Service Area */}
-        <div className="service-area creative-service-wrapper pt--90 pb--120 bg_color--1">
+        <div className="service-area creative-service-wrapper pt--50 pb--90 bg_color--1">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">

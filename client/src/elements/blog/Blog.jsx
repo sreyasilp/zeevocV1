@@ -25,7 +25,7 @@ const Blog = () => {
                 {/* End Breadcrump Area */}
 
                 {/* Start Blog Area */}
-                <div className="rn-blog-area ptb--120 bg_color--1">
+                <div className="rn-blog-area pt--100 pb--70 bg_color--1">
                     <div className="container">
                         <BlogList />
                         {/* <div className="row mt--20">
