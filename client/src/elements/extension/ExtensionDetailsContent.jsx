@@ -12,7 +12,7 @@ const ExtensionDetailsContent = ({
     displayRazorpay,
 }) => {
     return (
-        <div className="extension-area ptb--10 bg_color--5">
+        <div className="extension-area ptb--20 bg_color--5">
             <div className="extension-carousel-inner">
                 <div className="container">
                     <div className="extension-header">
