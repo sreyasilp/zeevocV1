@@ -33,12 +33,12 @@ const Extension = () => {
         {/* Start Page Wrapper  */}
         <main className="page-wrapper">
           {/* Start Extension Area */}
-          <div className="portfolio-area ptb--120 bg_color--5">
+          <div className="portfolio-area ptb--50 bg_color--5">
             <div className="portfolio-sacousel-inner">
               <div className="container">
                 <div className="row">
                   <div className="col-lg-12">
-                    <div className="section-title text-center service-style--3 mb--30">
+                    <div className="section-title text-center service-style--3 mb--10">
                       <h2 className="title">All Extensions</h2>
                       <p>
                         Elevate your Magento site with our efficient extensions. Streamline operations and boost sales effortlessly. Explore now!

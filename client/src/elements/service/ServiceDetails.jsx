@@ -39,7 +39,7 @@ const ServiceDetails = () => {
             <Header headertransparent="header--transparent" colorblack="color--black" logoname="logo.png" />
 
             {/* Start Breadcrump Area */}
-            <div className="rn-page-title-area pt--120 pb--190 bg_image bg_image--5" data-black-overlay="5">
+            <div className="rn-page-title-area pt--120 pb--190 bg_image bg_image--1" data-black-overlay="5">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">

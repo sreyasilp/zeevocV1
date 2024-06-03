@@ -214,7 +214,7 @@ const ExtensionDetails = () => {
 
             <Header headertransparent="header--transparent" colorblack="color--black" logoname="logo.png" />
 
-            <div className="rn-page-title-area pt--120 pb--190 bg_image bg_image--5" data-black-overlay="7">
+            <div className="rn-page-title-area pt--120 pb--190 bg_image bg_image--1" data-black-overlay="7">
                 <div className="extension-container">
                     <div className="row">
                         <div className="col-lg-12">
