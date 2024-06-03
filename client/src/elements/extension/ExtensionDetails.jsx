@@ -13,6 +13,7 @@ import { getExtensionByUrlKey, createPaymentOrder, getProfile, createOrder, post
 import { getUserDetails } from "../../auth/authUtils";
 import "./extension.css";
 import ExtensionDetailsContent from "./ExtensionDetailsContent";
+import { useTheme } from "../../context/ThemeContext";
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ const ExtensionDetails = () => {
     const [selectedCurrency, setSelectedCurrency] = useState('USD');
     const [exchangeRates, setExchangeRates] = useState({});
     const [selectedImage, setSelectedImage] = useState('https://picsum.photos/seed/picsum/600/400');
+    const { isDarkTheme } = useTheme();
 
     const images = [
         'https://picsum.photos/seed/picsum/600/400',
@@ -207,6 +209,7 @@ const ExtensionDetails = () => {
 
     return (
         <React.Fragment>
+            <div className={isDarkTheme ? "active-dark" : "active-white"}></div>
             <PageHelmet pageTitle={extensionData.title} />
 
             <Header headertransparent="header--transparent" colorblack="color--black" logoname="logo.png" />
@@ -243,6 +246,7 @@ const ExtensionDetails = () => {
             </div>
 
             <Footer />
+            <div />
         </React.Fragment>
     );
 };
