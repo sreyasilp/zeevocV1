@@ -44,7 +44,7 @@ const Root = () => {
             <Route exact path={`${process.env.PUBLIC_URL}/contact`} element={<Contact />} />
             <Route exact path={`${process.env.PUBLIC_URL}/portfolio-details`} element={<PortfolioDetails />} />
             <Route exact path={`${process.env.PUBLIC_URL}/services`} element={<Service />} />
-            <Route exact path={`${process.env.PUBLIC_URL}/service/:urlKey`} element={<ServiceDetails />} />
+            {/* <Route exact path={`${process.env.PUBLIC_URL}/service/:urlKey`} element={<ServiceDetails />} /> */}
             <Route exact path={`${process.env.PUBLIC_URL}/extensions`} element={<Extension />} />
             <Route exact path={`${process.env.PUBLIC_URL}/extension/:urlKey`} element={<ExtensionDetails />} />
             <Route exact path={`${process.env.PUBLIC_URL}/blogs`} element={<Blog />} />
