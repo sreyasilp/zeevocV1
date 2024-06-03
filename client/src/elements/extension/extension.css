@@ -174,14 +174,19 @@
 .extension-content {
     flex: 1;
 }
-
 .extension-content h2 {
     font-size: 24px; /* Optimize heading size */
+    margin-top: 0; /* Remove the default margin */
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ccc; /* Add a line below the heading */
 }
 
 .extension-content p {
     font-size: 16px; /* Optimize paragraph text size */
     line-height: 1.5; /* Add line height for better readability */
+    margin-top: 10px;
+    padding-bottom: 10px;
+    /* border-bottom: 1px solid #ccc; */
 }
 
 /* Media queries for mobile view */

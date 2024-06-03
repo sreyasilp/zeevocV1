@@ -120,11 +120,39 @@
     }
     .contact-form--1 input,
     .contact-form--1 textarea {
-        color: rgba(198, 201, 216, 0.75)
+        color: #ffffff
     }
 
     .personal-portfolio-slider::before {
         display: none;
+    }
+/*--------------------------
+    Profile Darker Version  
+----------------------------*/
+    .profile-card {
+        background-color: #101010;
+    }
+    .profile-content {
+        color: #ffffff;
+    }
+    .profile-info{
+        color: #ffffff;
+    }
+    .form-control{
+        background-color: #101010;
+        color: #ffffff;
+    }
+    .form-wrapper {
+        background-color: #101010;
+        color: #ffffff;
+        box-shadow: 0px 0px 0px rgba(250, 249, 249, 0.1);
+        border-radius:5px;
+    }
+    .signup-link {
+        color: #ffffff;   
+    }
+    .section-title-zv .description {
+        color: #ffffff;
     }
 
     @media #{$md-layout} {

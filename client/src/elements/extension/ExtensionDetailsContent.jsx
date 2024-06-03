@@ -47,6 +47,8 @@ const ExtensionDetailsContent = ({
                                 <label>Edition</label>
                                 <select>
                                     <option>Magento Open Source</option>
+                                    <option>Magento 2.4 On Premise</option>
+                                    <option>Magento 2.4 Cloud </option>
                                 </select>
                             </div>
                             <div className="extension-select-box">
