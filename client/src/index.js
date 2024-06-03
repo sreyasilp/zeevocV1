@@ -50,7 +50,7 @@ const Root = () => {
             <Route exact path={`${process.env.PUBLIC_URL}/blogs`} element={<Blog />} />
             <Route exact path={`${process.env.PUBLIC_URL}/blog/:urlKey`} element={<BlogDetails />} />
             <Route exact path={`${process.env.PUBLIC_URL}/team`} element={<Team />} />
-            <Route exact path={`${process.env.PUBLIC_URL}/admin`} element={<Admin />} />
+            {/* <Route exact path={`${process.env.PUBLIC_URL}/admin`} element={<Admin />} /> */}
             <Route path={`${process.env.PUBLIC_URL}/404`} element={<error404 />} />
             <Route path="*" element={<error404 />} />
           </Routes>

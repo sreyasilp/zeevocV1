@@ -167,7 +167,7 @@ const UserProfile = () => {
                                                             value={profile.firstName}
                                                             onChange={handleInputChange}
                                                             placeholder="First Name"
-                                                            className="form-control"
+                                                            className="profile-form-control"
                                                             maxLength="30"
                                                         />
                                                         <span className="error-message">{validationErrors.firstName}</span>
@@ -177,7 +177,7 @@ const UserProfile = () => {
                                                             value={profile.lastName}
                                                             onChange={handleInputChange}
                                                             placeholder="Last Name"
-                                                            className="form-control"
+                                                            className="profile-form-control"
                                                             maxLength="30"
                                                         />
                                                         <span className="error-message">{validationErrors.lastName}</span>
@@ -187,7 +187,7 @@ const UserProfile = () => {
                                                             value={profile.phoneNumber}
                                                             onChange={handleInputChange}
                                                             placeholder="Phone Number"
-                                                            className="form-control"
+                                                            className="profile-form-control"
                                                             maxLength="10"
                                                         />
                                                         <span className="error-message">{validationErrors.phoneNumber}</span>
@@ -211,7 +211,7 @@ const UserProfile = () => {
                                                                 name="sex"
                                                                 value={profile.sex}
                                                                 onChange={handleInputChange}
-                                                                className="form-control"
+                                                                className="profile-form-control"
                                                             >
                                                                 <option value="">Select...</option>
                                                                 <option value="Male">Male</option>
@@ -234,7 +234,7 @@ const UserProfile = () => {
                                                             onChange={handleDateChange}
                                                             dateFormat="DD-MM-YYYY"
                                                             timeFormat={false}
-                                                            className="form-control"
+                                                            className="profile-form-control"
                                                         />
                                                     ) : (
                                                         moment(profile.dateOfBirth).format("DD-MM-YYYY")
@@ -251,7 +251,7 @@ const UserProfile = () => {
                                                                 name="address_line_one"
                                                                 value={profile.address_line_one}
                                                                 onChange={handleInputChange}
-                                                                className="form-control"
+                                                                className="profile-form-control"
                                                                 maxLength="100"
                                                             />
                                                             <span className="error-message">{validationErrors.address_line_one}</span>
@@ -271,7 +271,7 @@ const UserProfile = () => {
                                                                 name="address_line_two"
                                                                 value={profile.address_line_two}
                                                                 onChange={handleInputChange}
-                                                                className="form-control"
+                                                                className="profile-form-control"
                                                                 maxLength="100"
                                                             />
                                                             <span className="error-message">{validationErrors.address_line_two}</span>
@@ -291,7 +291,7 @@ const UserProfile = () => {
                                                                 name="pincode"
                                                                 value={profile.pincode}
                                                                 onChange={handleInputChange}
-                                                                className="form-control"
+                                                                className="profile-form-control"
                                                                 maxLength="6"
                                                             />
                                                             <span className="error-message">{validationErrors.pincode}</span>

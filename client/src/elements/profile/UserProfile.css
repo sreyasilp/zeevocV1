@@ -81,12 +81,21 @@
     box-sizing: border-box;
 }
 
-.form-control {
+.profile-form-control {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+.rdt {
+    padding: 0px;
+}
+
+.rdtOpen {
+    border-color: #f9004d;
+
 }
 
 .profile-actions {
