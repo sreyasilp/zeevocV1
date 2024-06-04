@@ -59,17 +59,7 @@ const Header = (props) => {
 
     const { logo, color = 'default-color' } = props;
     let logoUrl;
-    if (logo === 'light') {
-        logoUrl = <img src="/assets/images/logo/logo-light.png" alt="Zeevoc" />;
-    } else if (logo === 'dark') {
-        logoUrl = <img src="/assets/images/logo/logo-dark.png" alt="Zeevoc" />;
-    } else if (logo === 'symbol-dark') {
-        logoUrl = <img src="/assets/images/logo/logo-symbol-dark.png" alt="Zeevoc" />;
-    } else if (logo === 'symbol-light') {
-        logoUrl = <img src="/assets/images/logo/logo-symbol-light.png" alt="Zeevoc" />;
-    } else {
-        logoUrl = <img src="/assets/images/logo/logo.png" alt="Zeevoc" />;
-    }
+    logoUrl = <img src="/assets/images/logo/logo.png" alt="Zeevoc" />;
 
     return (
         <header className={`header-area formobile-menu header--transparent ${color}`}>

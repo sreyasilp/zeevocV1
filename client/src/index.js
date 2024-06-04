@@ -26,37 +26,40 @@ import { ThemeProvider } from './context/ThemeContext';
 import { ToastContainer } from 'react-toastify';
 import ForgotPassword from './elements/forgot-password/ForgotPassword';
 import ResetPassword from './elements/reset-password/ResetPassword';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const Root = () => {
   return (
     <ThemeProvider>
-      <BrowserRouter basename={'/'}>
-        <PageScrollTop>
-          <Routes>
-            <Route exact path={`${process.env.PUBLIC_URL}/`} element={<DarkMainDemo />} />
-            <Route exact path={`${process.env.PUBLIC_URL}/login`} element={<Login />} />
-            <Route exact path={`${process.env.PUBLIC_URL}/signup`} element={<SignUp />} />
-            <Route exact path={`${process.env.PUBLIC_URL}/forgot-password`} element={<ForgotPassword />} />
-            <Route path="/reset-password/:token" element={<ResetPassword />} />
-            <Route exact path={`${process.env.PUBLIC_URL}/orders`} element={<Orders />} />
-            <Route exact path={`${process.env.PUBLIC_URL}/profile`} element={<UserProfile />} />
-            <Route exact path={`${process.env.PUBLIC_URL}/about`} element={<About />} />
-            <Route exact path={`${process.env.PUBLIC_URL}/contact`} element={<Contact />} />
-            <Route exact path={`${process.env.PUBLIC_URL}/portfolio-details`} element={<PortfolioDetails />} />
-            <Route exact path={`${process.env.PUBLIC_URL}/services`} element={<Service />} />
-            {/* <Route exact path={`${process.env.PUBLIC_URL}/service/:urlKey`} element={<ServiceDetails />} /> */}
-            <Route exact path={`${process.env.PUBLIC_URL}/extensions`} element={<Extension />} />
-            <Route exact path={`${process.env.PUBLIC_URL}/extension/:urlKey`} element={<ExtensionDetails />} />
-            <Route exact path={`${process.env.PUBLIC_URL}/blogs`} element={<Blog />} />
-            <Route exact path={`${process.env.PUBLIC_URL}/blog/:urlKey`} element={<BlogDetails />} />
-            <Route exact path={`${process.env.PUBLIC_URL}/team`} element={<Team />} />
-            {/* <Route exact path={`${process.env.PUBLIC_URL}/admin`} element={<Admin />} /> */}
-            <Route path={`${process.env.PUBLIC_URL}/404`} element={<error404 />} />
-            <Route path="*" element={<error404 />} />
-          </Routes>
-        </PageScrollTop>
-        <ToastContainer />
-      </BrowserRouter>
+      <GoogleOAuthProvider clientId="168821784143-d0q7nugflesop4nh6rbdp3f95sr6o9c8.apps.googleusercontent.com">
+        <BrowserRouter basename={'/'}>
+          <PageScrollTop>
+            <Routes>
+              <Route exact path={`${process.env.PUBLIC_URL}/`} element={<DarkMainDemo />} />
+              <Route exact path={`${process.env.PUBLIC_URL}/login`} element={<Login />} />
+              <Route exact path={`${process.env.PUBLIC_URL}/signup`} element={<SignUp />} />
+              <Route exact path={`${process.env.PUBLIC_URL}/forgot-password`} element={<ForgotPassword />} />
+              <Route path="/reset-password/:token" element={<ResetPassword />} />
+              <Route exact path={`${process.env.PUBLIC_URL}/orders`} element={<Orders />} />
+              <Route exact path={`${process.env.PUBLIC_URL}/profile`} element={<UserProfile />} />
+              <Route exact path={`${process.env.PUBLIC_URL}/about`} element={<About />} />
+              <Route exact path={`${process.env.PUBLIC_URL}/contact`} element={<Contact />} />
+              <Route exact path={`${process.env.PUBLIC_URL}/portfolio-details`} element={<PortfolioDetails />} />
+              <Route exact path={`${process.env.PUBLIC_URL}/services`} element={<Service />} />
+              {/* <Route exact path={`${process.env.PUBLIC_URL}/service/:urlKey`} element={<ServiceDetails />} /> */}
+              <Route exact path={`${process.env.PUBLIC_URL}/extensions`} element={<Extension />} />
+              <Route exact path={`${process.env.PUBLIC_URL}/extension/:urlKey`} element={<ExtensionDetails />} />
+              <Route exact path={`${process.env.PUBLIC_URL}/blogs`} element={<Blog />} />
+              <Route exact path={`${process.env.PUBLIC_URL}/blog/:urlKey`} element={<BlogDetails />} />
+              <Route exact path={`${process.env.PUBLIC_URL}/team`} element={<Team />} />
+              {/* <Route exact path={`${process.env.PUBLIC_URL}/admin`} element={<Admin />} /> */}
+              <Route path={`${process.env.PUBLIC_URL}/404`} element={<error404 />} />
+              <Route path="*" element={<error404 />} />
+            </Routes>
+          </PageScrollTop>
+          <ToastContainer />
+        </BrowserRouter>
+      </GoogleOAuthProvider>
     </ThemeProvider>
   );
 };
