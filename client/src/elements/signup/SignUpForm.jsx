@@ -108,8 +108,8 @@ function SignUpForm() {
               <div className="form-wrapper">
                 <form onSubmit={handleSubmit}>
                   <div className="section-title-zv text-center mb--10">
-                    <h4 className="title">Sign Up</h4>
-                    <p className="description">Sign Up to explore more </p>
+                    <h4 className="title">Join Us Today!</h4>
+                    <p className="description">Sign up to get started.</p>
                   </div>
                   <label htmlFor="item02">
                     <input
