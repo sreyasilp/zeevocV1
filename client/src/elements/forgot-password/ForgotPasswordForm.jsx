@@ -18,14 +18,21 @@ function ForgotPasswordForm() {
       });
       navigate("/login");
     } catch (error) {
-      toast.error("Error sending password reset link", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-      });
+      if (error.response && error.response.status === 404) {
+        toast.error("User not found", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 5000,
+        });
+      } else {
+        toast.error("Error sending password reset link", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 5000,
+        });
+      }
       console.error("Forgot password error:", error);
     }
   };
-
+  
   return (
     <div className="contact-form--1">
       <ToastContainer />
