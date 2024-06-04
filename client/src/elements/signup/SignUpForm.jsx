@@ -30,9 +30,12 @@ function SignUpForm() {
         lastName: profileObj.family_name,
         password: generatedPassword,
       });
-      console.log(response);
       localStorage.setItem("token", response.data.token);
-      toast.success("Signed up successfully!");
+      if (response.data.isExist == true) {
+        toast.success("Login successfull!");
+      } else {
+        toast.success("Signed up successfully!");
+      }
       navigate("/");
     } catch (error) {
       console.error("Sign-up error:", error);
@@ -44,12 +47,9 @@ function SignUpForm() {
       console.log("Google login response:", res);
       const accessToken = res.access_token;
 
-      // Fetch user info from Google API
       const response = await fetch(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${accessToken}`);
       const profileObj = await response.json();
-      console.log("User profile:", profileObj);
 
-      // Proceed with signup using profileObj
       await googleSignUp(profileObj);
     } catch (error) {
       console.error("Google Sign In was unsuccessful:", error);
