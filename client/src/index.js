@@ -27,6 +27,8 @@ import { ToastContainer } from 'react-toastify';
 import ForgotPassword from './elements/forgot-password/ForgotPassword';
 import ResetPassword from './elements/reset-password/ResetPassword';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const Root = () => {
   return (

@@ -5,14 +5,26 @@ import userModel from "../models/user.js";
 import nodemailer from "nodemailer";
 const secret = "code416";
 
+const validateEmail = (email) => {
+  const re = /\S+@\S+\.\S+/;
+  return re.test(email);
+};
+
 export const signUp = async (req, res) => {
-  let { userType } = req.params;
+  const { userType } = req.params;
   const { email, password, firstName, lastName } = req.body;
+
+  // Validate email format
+  if (!validateEmail(email)) {
+    return res.status(400).json({ message: "Invalid email format" });
+  }
+
   try {
     const oldUser = await userModel.findOne({ email });
 
-    if (oldUser)
+    if (oldUser) {
       return res.status(200).json({ isExist: true, message: "User already exists" });
+    }
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
@@ -29,7 +41,7 @@ export const signUp = async (req, res) => {
 
     res.status(201).json({ result, token });
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong" + error });
+    res.status(500).json({ message: "Something went wrong: " + error });
     console.log(error);
   }
 };
@@ -46,7 +58,7 @@ export const signIn = async (req, res) => {
     const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
 
     if (!isPasswordCorrect)
-      return res.status(400).json({ message: "Invalid credentials" });
+      return res.status(400).json({ message: "Password Incorrect!" });
 
     const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, {
       expiresIn: "1h",

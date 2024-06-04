@@ -12,6 +12,10 @@ function SignUpForm() {
   const [password, setPassword] = useState("");
   const buttonGroupRef = useRef(null);
 
+  // Added state variables for error messages
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
   const generatePassword = () => {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let password = '';
@@ -32,7 +36,7 @@ function SignUpForm() {
       });
       localStorage.setItem("token", response.data.token);
       if (response.data.isExist == true) {
-        toast.success("Login successfull!");
+        toast.success("Login successful!");
       } else {
         toast.success("Signed up successfully!");
       }
@@ -67,22 +71,59 @@ function SignUpForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await signUp({
-        email: email,
-        password: password,
-      });
-      localStorage.setItem("token", response.data.token);
-      toast.success("Signed up successfully!", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-      });
-      navigate("/");
-    } catch (error) {
-      console.error("Sign-up error:", error);
-      toast.error("Failed to sign up!", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
+    const errors = {};
+
+    // Reset error state variables
+    setEmailError("");
+    setPasswordError("");
+
+    // Validate email
+    if (!email) {
+      errors.email = "Email is required";
+      setEmailError("Email is required"); // Set email error message
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      errors.email = "Email address is invalid";
+      setEmailError("Email address is invalid"); // Set email error message
+    }
+
+    // Validate password
+    if (!password) {
+      errors.password = "Password is required";
+      setPasswordError("Password is required"); // Set password error message
+    } else if (password.length < 8) {
+      errors.password = "Password must be at least 8 characters long";
+      setPasswordError("Password must be at least 8 characters long"); // Set password error message
+    } else if (!/[A-Za-z]/.test(password) || !/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      errors.password = "Password must contain at least one letter and one special character";
+      setPasswordError("Password must contain at least one letter and one special character"); // Set password error message
+    }
+
+    if (Object.keys(errors).length === 0) {
+      try {
+        const response = await signUp({
+          email: email,
+          password: password,
+        });
+        localStorage.setItem("token", response.data.token);
+        toast.success("Signed up successfully!", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 5000,
+        });
+        navigate("/");
+      } catch (error) {
+        console.error("Sign-up error:", error);
+        toast.error("Failed to sign up!", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 5000,
+        });
+      }
+    } else {
+      // Display validation errors
+      Object.entries(errors).forEach(([key, value]) => {
+        toast.error(value, {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 5000,
+        });
       });
     }
   };
@@ -109,6 +150,8 @@ function SignUpForm() {
                     placeholder="Email"
                     required
                   />
+                  {/* Render email error message */}
+                  {/* {emailError && <div className="error-message">{emailError}</div>} */}
                 </label>
                 <label htmlFor="item04">
                   <input
@@ -120,6 +163,8 @@ function SignUpForm() {
                     placeholder="Password"
                     required
                   />
+                  {/* Render password error message */}
+                  {/* {passwordError && <div className="error-message">{passwordError}</div>} */}
                 </label>
                 <p className="signup-link">
                   Already have an Account?{" "}
