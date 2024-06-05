@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
 
 const extensionsSchema = new mongoose.Schema({
-  image: String,
   category: String,
   title: String,
-  bigImage: String,
   price: { type: Number },
-  urlKey: String
+  urlKey: String,
+  imageName: String,
+  thumbnail: String,
+  contentHtml: String
 });
 
 const Extensions = mongoose.model('Extensions', extensionsSchema);

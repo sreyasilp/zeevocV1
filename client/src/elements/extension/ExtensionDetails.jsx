@@ -228,8 +228,6 @@ const ExtensionDetails = () => {
             </div>
 
             <ExtensionDetailsContent
-                selectedImage={selectedImage}
-                images={images}
                 setSelectedImage={setSelectedImage}
                 extensionData={extensionData}
                 selectedCurrency={selectedCurrency}
