@@ -5,11 +5,26 @@ dotenv.config();
 // Create an Axios instance
 const API = axios.create({ baseURL: process.env.REACT_APP_BASE_URL });
 
+// Function to determine if the token is a JWT
+const isJWT = (token) => {
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return Boolean(payload);
+  } catch (e) {
+    return false;
+  }
+};
+
 // Add a request interceptor
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    if (isJWT(token)) {
+      config.headers.Authorization = `Bearer ${token}`;
+    } else {
+      // Handle Google OAuth token differently if needed
+      config.headers['X-Google-OAuth'] = token;
+    }
   }
   return config;
 }, (error) => {

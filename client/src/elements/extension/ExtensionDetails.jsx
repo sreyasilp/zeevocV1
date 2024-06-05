@@ -50,12 +50,12 @@ const ExtensionDetails = () => {
             try {
                 const user = await getUserDetails(); // Wait for the promise to resolve
                 console.log(user); // Log the resolved user details
-                // if (user && user.email) {
-                //     fetchProfileData(user.email);
-                // } else {
-                //     // Redirect to login if user is not authenticated
-                //     navigate('/login');
-                // }
+                if (user && user.email) {
+                    fetchProfileData(user.email);
+                } else {
+                    // Redirect to login if user is not authenticated
+                    navigate('/login');
+                }
             } catch (error) {
                 console.error("Error fetching user data:", error);
                 toast.error("Error fetching user data. Please try again later.");
