@@ -35,8 +35,6 @@ function LoginForm() {
         lastName: profileObj.family_name,
         password: generatedPassword,
       });
-      console.log(response);
-      localStorage.setItem("token", response.data.token);
       toast.success("Login successful!");
       navigate("/");
     } catch (error) {
@@ -52,7 +50,8 @@ function LoginForm() {
       const response = await fetch(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${accessToken}`);
       const profileObj = await response.json();
       console.log("User profile:", profileObj);
-
+      localStorage.setItem("token", res.access_token);
+      localStorage.setItem("googleLogin", true);
       await googleSignUp(profileObj);
     } catch (error) {
       console.error("Google Sign In was unsuccessful:", error);
