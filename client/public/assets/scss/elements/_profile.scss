@@ -61,7 +61,7 @@ a {
                 border: 2px solid $theme-color;
                 background: $theme-color;
                 color: #ffffff;
-                transform: translateY(-5px);
+                transform: translateY(-2px);
             }
         }
 
@@ -81,12 +81,13 @@ a {
             background: transparent;
             color: $theme-color;
             box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
-            transform: translateY(-5px);
+            transform: translateY(-2px);
         }
     }
-   
-    
+
+
 }
+
 .rn-button-style--6 {
     width: 540px;
     height: 40px;
@@ -94,14 +95,16 @@ a {
     font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border: 2px solid #b1b4c1;
+    border: 2px solid rgb(180, 180, 180);
     border-radius: 6px;
     display: inline-block;
     font-weight: 500;
     transition: 0.3s;
     padding: 10px 20px;
-    background-color: #ffffff; /* White background for the Google button */
-    display: flex; /* To align items properly */
+    background-color: #ffffff;
+    /* White background for the Google button */
+    display: flex;
+    /* To align items properly */
     align-items: center;
     justify-content: center;
 
@@ -109,72 +112,23 @@ a {
         padding: 9px 25px;
     }
 
-    &.rn-btn-dark {
-        border: 2px solid #1f1f25;
-        color: #1f1f25;
-
-        &:hover {
-            background: #1f1f25;
-            color: #fff;
-        }
-    }
-
-    &.border-opacity-half {
-        border-color: rgba(31, 31, 37, 0.1);
-    }
-
-    &.rn-btn-small {
-        padding: 10px 20px;
-    }
-
-    &.btn-primary-color {
-        &:hover {
-            border: 2px solid white;
-            background: white;
-            color:  $theme-color;
-        }
-    }
-
-    &.btn-solid {
-        border: 2px solid $theme-color;
-        background: white;
-        color: #ffffff;
-    }
-
-    &.btn-solid-border {
-        border: 2px solid $theme-color;
-        background: transparent;
-        color: $theme-color;
-
-        &:hover {
-            border: 2px solid $theme-color;
-            background: white;
-            color: #ffffff;
-            transform: translateY(-5px);
-        }
-    }
-
-    &.rn-btn-small-2 {
-        padding: 11px 15px;
-        font-size: 13px;
-        letter-spacing: 0;
-        line-height: 13px;
-    }
-
     &.btn-solid {
         background: white;
-        color: $theme-color;
+        color: rgb(112, 112, 112);
     }
 
     &:hover {
         background: transparent;
         color: $theme-color;
         box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
-        transform: translateY(-5px);
+        transform: translateY(-2px);
+        border: 2px solid $theme-color;
+
     }
 
     .google-icon {
-        margin-right: 10px; /* Space between the Google logo and the text */
+        margin-right: 10px;
+        /* Space between the Google logo and the text */
     }
 }
 
@@ -213,8 +167,8 @@ a {
     padding: 30px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    margin-left: 40px ;
-    margin-right: 40px ;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 .form-wrapper form {
@@ -269,20 +223,24 @@ a {
     font-size: small;
     margin-left: auto;
 }
-.google-button{
+
+.google-button {
     margin-top: 10px;
     width: 100%;
 }
-button.rn-button-style--3.btn-solid, a.rn-button-style--3.btn-solid{
+
+button.rn-button-style--3.btn-solid,
+a.rn-button-style--3.btn-solid {
     width: 100%;
 }
+
 @media (max-width: 768px) {
     .form-wrapper form {
         margin-left: 0px !important;
         margin-right: 0px !important;
     }
 
-    .form-wrapper{
+    .form-wrapper {
         margin-left: 0px !important;
         margin-right: 0px !important;
     }
@@ -322,9 +280,11 @@ button.rn-button-style--3.btn-solid, a.rn-button-style--3.btn-solid{
         font-size: small;
 
     }
+
     .form-wrapper {
         box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
     }
+
     .button-group {
         flex-direction: column;
         /* Stacks buttons vertically on small screens */
