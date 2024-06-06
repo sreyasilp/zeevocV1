@@ -3,7 +3,7 @@ import ScrollToTop from 'react-scroll-up';
 import { FiChevronUp, FiSun, FiMoon, FiCheck } from "react-icons/fi";
 import Header from "../component/header/Header";
 import Footer from "../component/footer/Footer";
-import SliderTwo from "../component/slider/SliderTwo"
+import SliderTwo from "../component/slider/SliderTwo";
 import ServiceTwo from "../elements/service/ServiceTwo";
 import BlogContent from "../elements/blog/BlogContent";
 import BrandTwo from "../elements/brand/BrandTwo";
@@ -156,7 +156,11 @@ const MainDemo = () => {
                         <FiChevronUp />
                     </ScrollToTop>
                 </div>
-
+                <div className="dark-theme">
+                    <button onClick={toggleTheme} className="theme-toggle-button">
+                        {isDarkTheme ? <FiSun size={24} /> : <FiMoon size={24} />}
+                    </button>
+                </div>
                 <Footer />
             </div>
         </Fragment>

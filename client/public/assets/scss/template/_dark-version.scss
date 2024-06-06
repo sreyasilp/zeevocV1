@@ -213,6 +213,47 @@
         color: #ffffff;
     }
 
+    .rn-contact-top-area .ptb--120 .bg_color--5 {
+        background-color: #101010;
+        color: #ffffff;
+    }
+
+    .rn-address {
+        background-color: #101010;
+        color: #ffffff !important;
+    }
+
+    .rn-address .inner p a {
+        background-color: #101010;
+        color: #ffffff !important;
+    }
+
+    .rn-address .inner p {
+        background-color: #101010;
+        color: #ffffff !important;
+    }
+
+    .rn-address .icon {
+        background-color: #101010;
+
+    }
+
+    .rn-address {
+        background-color: #101010;
+
+    }
+
+    .rn-address:hover .icon {
+        background: #f9004d;
+        border-color: #f9004d;
+        color: #fff;
+    }
+
+    .theme-toggle-button {
+        background-color: #101010;
+        color: #fff;
+    }
+
     @media #{$md-layout} {
         .header-style-two .humberger-menu span.text-white {
             color: #c6c9d8 !important;
