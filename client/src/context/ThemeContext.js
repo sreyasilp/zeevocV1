@@ -10,7 +10,7 @@ export const ThemeProvider = ({ children }) => {
     const savedTheme = localStorage.getItem("isDarkTheme");
     if (savedTheme !== null) {
       setIsDarkTheme(JSON.parse(savedTheme));
-    }
+    } 
   }, []);
 
   // Toggle theme and save preference to local storage

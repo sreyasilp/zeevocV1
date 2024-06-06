@@ -50,12 +50,11 @@ const MainDemo = () => {
         <Fragment>
             <Helmet pageTitle="Zeevoc Digital" />
             <Header headertransparent="header--transparent" colorblack="color--black" logoname="logo.png" />
+            <div className="slider-wrapper">
+                <SliderTwo />
+            </div>
 
             <div className={isDarkTheme ? "active-dark" : "active-white"}>
-                <div className="slider-wrapper">
-                    <SliderTwo />
-                </div>
-
                 <div className="rn-about-area ptb--120 bg_color--1">
                     <div className="container">
                         <div className="row row--35 align-items-center">
