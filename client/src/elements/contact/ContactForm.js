@@ -79,7 +79,7 @@ function ContactForm() {
             </div>
 
             <div className="rn-form-group">
-                <button className="rn-button-style--2 btn-solid" type="submit" value="submit" name="submit" id="mc-embedded-subscribe">Submit Now</button>
+                <button className="rn-contact-button-style btn-solid" type="submit" value="submit" name="submit" id="mc-embedded-subscribe">Submit Now</button>
             </div> 
 
             <div className="rn-form-group">

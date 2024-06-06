@@ -13,7 +13,7 @@ class ContactTwo extends Component {
                                 <p className="description">Have questions or inquiries? Feel free to reach out to us. We're here to assist you with any queries. </p>
                             </div>
 
-                            <div className="form-wrapper">
+                            <div className="contact-form-wrapper">
                                 <ContactForm />
                             </div>
                         </div>
