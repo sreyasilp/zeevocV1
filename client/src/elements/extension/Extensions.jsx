@@ -42,20 +42,18 @@ const TabStyleThree = ({ column }) => {
                                 />
                             )}
                             <div className="item-portfolio-static">
-                                <div onClick={() => setIsOpen(true, setTab1(index))}>
-                                    <div className="portfolio-static">
-                                        <div className="thumbnail-inner">
-                                            <div className="thumbnail">
-                                                <a href={`/extension/${value.urlKey}`}>
-                                                    <img src={`/assets/images/portfolio/dp-portfolio-03.jpg`} alt="Portfolio Images"/>
-                                                </a>
-                                            </div>
+                                <div className="portfolio-static">
+                                    <div className="thumbnail-inner">
+                                        <div className="thumbnail">
+                                            <a href={`/extension/${value.urlKey}`}>
+                                                <img src={`/assets/images/portfolio/dp-portfolio-03.jpg`} alt="Portfolio Images" />
+                                            </a>
                                         </div>
-                                        <div className="content">
-                                            <div className="inner">
-                                                <p>{value.category}</p>
-                                                <h4><a href={`/extension/${value.urlKey}`}>{value.title}</a></h4>
-                                            </div>
+                                    </div>
+                                    <div className="content">
+                                        <div className="inner">
+                                            <p><a href={`/extension/${value.urlKey}`}>{value.category}</a></p>
+                                            <h4><a href={`/extension/${value.urlKey}`}>{value.title}</a></h4>
                                         </div>
                                     </div>
                                 </div>
