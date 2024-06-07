@@ -25,7 +25,7 @@ const SlideList = [
   },
   {
       textPosition: 'text-center',
-      bgImage: 'bg_image--40',
+      bgImage: 'bg_image--42',
       category: '',
       title: 'Extension Development',
       description: 'Need custom features? We build Magento 2 extensions.',
