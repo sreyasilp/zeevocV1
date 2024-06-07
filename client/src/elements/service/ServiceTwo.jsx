@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FiChevronUp, FiShoppingBag, FiShoppingCart, FiBookOpen, FiSettings, FiMonitor, FiCode } from "react-icons/fi";
+import LoadingSpinner from "../../component/spinner/LoadingSpinner";
 
 import { getAllServices } from "../../api";
 
@@ -40,7 +41,7 @@ const ServiceTwo = () => {
                 <div className="col-lg-8 col-12 mt_md--50">
                     <div className="row service-one-wrapper">
                         {loading? (
-                            <p>Loading...</p>
+                           <LoadingSpinner/>
                         ) : (
                             services.slice(0, 4).map((service, index) => (
                                 <div className="col-lg-6 col-md-6 col-sm-6 col-12" key={index}>

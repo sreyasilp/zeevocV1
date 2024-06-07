@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { getBlogList } from "../../api";
+import LoadingSpinner from "../../component/spinner/LoadingSpinner";
 
 const BlogList = () => {
   const [posts, setPosts] = useState([]);
@@ -24,7 +25,7 @@ const BlogList = () => {
   return (
     <Fragment>
       {loading ? (
-        <div>Loading...</div>
+        <LoadingSpinner />
       ) : (
         <div className="row">
           {PostList.map((value, i) => (

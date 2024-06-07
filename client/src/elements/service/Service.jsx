@@ -7,6 +7,7 @@ import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import { getAllServices } from "../../api";
 import { useTheme } from "../../context/ThemeContext";
+import LoadingSpinner from "../../component/spinner/LoadingSpinner";
 
 const Service = () => {
   const [services, setServices] = useState([]);
@@ -24,7 +25,7 @@ const Service = () => {
         setLoading(false);
       }
     };
-    
+
     fetchServices();
   }, []);
 
@@ -57,7 +58,7 @@ const Service = () => {
             </div>
             <div className="row creative-service">
               {loading ? (
-                <p>Loading...</p>
+                <LoadingSpinner />
               ) : (
                 services.map((val, i) => (
                   <div

@@ -12,6 +12,7 @@ import "./UserProfile.css"; // Import CSS for custom styles
 import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
 import moment from "moment";
+import LoadingSpinner from "../../component/spinner/LoadingSpinner";
 
 const UserProfile = () => {
     const [profile, setProfile] = useState({});
@@ -143,7 +144,7 @@ const UserProfile = () => {
                         <div className="row">
                             <div className="col-lg-12">
                                 {loading ? (
-                                    <p>Loading...</p>
+                                   <LoadingSpinner/>
                                 ) : (
                                     <div className="profile-card">
                                         <div className="profile-header">

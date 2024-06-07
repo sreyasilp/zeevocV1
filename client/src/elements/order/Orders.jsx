@@ -11,6 +11,7 @@ import { getUserDetails } from "../../auth/authUtils";
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
 import "./order.css";
+import LoadingSpinner from "../../component/spinner/LoadingSpinner";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -75,7 +76,7 @@ const Orders = () => {
             </div>
             <div className="orders-grid">
               {loading ? (
-                <p>Loading...</p>
+                <LoadingSpinner />
               ) : (
                 orders.map((order) => (
                   <div

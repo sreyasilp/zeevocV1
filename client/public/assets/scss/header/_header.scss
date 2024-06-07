@@ -712,3 +712,19 @@
         margin-top: 5px;
     }
 }
+
+/* In your CSS file or in a style tag */
+.spinner-container {
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    justify-content: center;
+    height: 40vh;
+    /* Full viewport height */
+}
+
+.spinner {
+    width: 50px;
+    /* Adjust size as needed */
+    height: 50px;
+}

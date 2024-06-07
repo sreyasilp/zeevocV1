@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import LoadingSpinner from "../../component/spinner/LoadingSpinner";
 
 const ExtensionDetailsContent = ({
     extensionData,
@@ -42,7 +43,7 @@ const ExtensionDetailsContent = ({
     };
 
     if (!extensionData) {
-        return <div>Loading...</div>;
+        return <LoadingSpinner/>
     }
     return (
         <div className="extension-area ptb--20 bg_color--5">
