@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , useRef} from "react";
 import Slider from "react-slick";
 import { slideSlick } from "../../page-demo/script";
 
@@ -48,17 +48,24 @@ const SlideList = [
 
 const SliderOne = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const sliderRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % SlideList.length);
-    }, 400);
+    }, 5000); // 4 seconds
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.slickGoTo(currentSlide);
+    }
+  }, [currentSlide]);
+
   return (
     <div className="slider-activation">
-      <Slider className="rn-slick-dot dot-light" {...slideSlick} autoplay={true} autoplaySpeed={400} initialSlide={currentSlide}>
+      <Slider ref={sliderRef} className="rn-slick-dot dot-light" {...slideSlick} initialSlide={currentSlide}>
         {SlideList.map((value, index) => (
           <div className={`slide slide-style-2 fullscreen d-flex align-items-center justify-content-center bg_image ${value.bgImage}`} key={index} data-black-overlay="8">
             <div className="container">
@@ -68,7 +75,6 @@ const SliderOne = () => {
                     {value.category ? <span>{value.category}</span> : ''}
                     {value.title ? <h1 className="title theme-gradient">{value.title}</h1> : ''}
                     {value.description ? <p className="description">{value.description}</p> : ''}
-                    {value.descriptionTwo ? <p className="description">{value.descriptionTwo}</p> : ''}
                     {value.buttonText ? <div className="slide-btn"><a className="rn-button-style--2 btn-primary-color" href={`${value.buttonLink}`}>{value.buttonText}</a></div> : ''}
                   </div>
                 </div>
