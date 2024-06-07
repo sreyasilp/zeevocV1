@@ -3,43 +3,48 @@ import Slider from "react-slick";
 import { slideSlick } from "../../page-demo/script";
 
 const SlideList = [
-    {
-        textPosition: 'text-center',
-        bgImage: 'bg_image--24',
-        category: '',
-        title: 'Website Development',
-        description: 'Elevate your online presence with our cutting-edge web solutions',
-        buttonText: 'Contact Us',
-        buttonLink: '/blog'
-    },
-    {
-        textPosition: 'text-center',
-        bgImage: 'bg_image--22',
-        category: '',
-        title: 'Ecommerce Development',
-        description: 'Looking to set up an ecommerce site? Let us help you with Magento 2 or Adobe Commerce solutions.',
-        buttonText: 'Contact Us',
-        buttonLink: '/blog'
-    },
-    {
-        textPosition: 'text-center',
-        bgImage: 'bg_image--21',
-        category: '',
-        title: 'Extension Development',
-        description: 'Need custom features for your Magento 2 store? We provide expert Magento 2 extension development services.',
-        buttonText: 'Contact Us',
-        buttonLink: '/blog'
-    },
-    {
-        textPosition: 'text-center',
-        bgImage: 'bg_image--11',
-        category: '',
-        title: 'College Projects',
-        description: 'We assist students in completing electrical/electronics college projects.',
-        buttonText: 'Contact Us',
-        buttonLink: '/blog'
-    }
+  {
+      textPosition: 'text-center',
+      bgImage: 'bg_image--39',
+      category: '',
+      title: 'Website Development',
+      description: 'Boost your online presence with our web solutions.',
+      descriptionTwo: 'We provide professional website development services.',
+      buttonText: 'Contact Us',
+      buttonLink: '/contact'
+  },
+  {
+      textPosition: 'text-center',
+      bgImage: 'bg_image--24',
+      category: '',
+      title: 'Ecommerce Development',
+      description: 'Set up your ecommerce site with our Magento solutions.',
+      descriptionTwo: 'Our team specializes in Adobe Commerce.',
+      buttonText: 'Contact Us',
+      buttonLink: '/contact'
+  },
+  {
+      textPosition: 'text-center',
+      bgImage: 'bg_image--40',
+      category: '',
+      title: 'Extension Development',
+      description: 'Need custom features? We build Magento 2 extensions.',
+      descriptionTwo: 'Get expert services tailored to your needs.',
+      buttonText: 'Contact Us',
+      buttonLink: '/contact'
+  },
+  {
+      textPosition: 'text-center',
+      bgImage: 'bg_image--11',
+      category: '',
+      title: 'Academic Project Assistance',
+      description: 'We help students complete their academic projects.',
+      descriptionTwo: 'Get professional guidance for your assignments.',
+      buttonText: 'Contact Us',
+      buttonLink: '/contact'
+  }
 ];
+
 
 const SliderOne = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -63,6 +68,7 @@ const SliderOne = () => {
                     {value.category ? <span>{value.category}</span> : ''}
                     {value.title ? <h1 className="title theme-gradient">{value.title}</h1> : ''}
                     {value.description ? <p className="description">{value.description}</p> : ''}
+                    {value.descriptionTwo ? <p className="description">{value.descriptionTwo}</p> : ''}
                     {value.buttonText ? <div className="slide-btn"><a className="rn-button-style--2 btn-primary-color" href={`${value.buttonLink}`}>{value.buttonText}</a></div> : ''}
                   </div>
                 </div>

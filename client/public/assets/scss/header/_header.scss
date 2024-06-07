@@ -104,6 +104,7 @@
 
         .logo {
             width: 85px;
+            margin-left: 25px;
 
             a {
                 img {
@@ -700,12 +701,14 @@
 
 @media #{$sm-layout} {
     .logo {
+        margin-left: 0px !important;
         margin-top: 5px;
     }
 }
 
 @media #{$md-layout} {
     .logo {
+        margin-left: 0px !important;
         margin-top: 5px;
     }
 }
