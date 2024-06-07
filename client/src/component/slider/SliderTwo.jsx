@@ -53,7 +53,7 @@ const SliderOne = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % SlideList.length);
-    }, 5000); // 4 seconds
+    }, 7000); // 4 seconds
     return () => clearInterval(interval);
   }, []);
 
