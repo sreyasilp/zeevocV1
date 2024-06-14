@@ -88,7 +88,7 @@ const BlogDetails = () => {
                                     {/* Magento Installation Steps */}
                                     <div className="installation-steps">
                                         <h3 className="title">Steps to Install Magento</h3>
-                                        <ol>
+                                        <ul>
                                             <li>
                                                 <h4 className="step-title">Step 1: System Requirements</h4>
                                                 <p>Ensure your server meets the system requirements for Magento. This includes having the correct PHP version, necessary extensions, and appropriate server settings.</p>
@@ -145,7 +145,7 @@ chown -R :www-data . && chmod u+x bin/magento\nbin/magento setup:static-content:
                                                     </button>
                                                 </div>
                                             </li>
-                                        </ol>
+                                        </ul>
                                     </div>
 
                                     <p className="mt--25 mt_sm--5">Once the installation is complete, you can access the Magento admin panel by navigating to your store's base URL followed by /admin. From there, you can begin setting up your store, adding products, and configuring settings to meet your business needs.</p>

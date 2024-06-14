@@ -254,6 +254,17 @@
         color: #fff;
     }
 
+    .rn-button-style--6.btn-solid {
+        color: #f9004d;
+        border-color: #f9004d;
+        background-color: #101010;
+    }
+    .rn-button-style--6:hover {
+        color: #fff;
+        background-color: #101010;
+
+    }
+
     @media #{$md-layout} {
         .header-style-two .humberger-menu span.text-white {
             color: #c6c9d8 !important;

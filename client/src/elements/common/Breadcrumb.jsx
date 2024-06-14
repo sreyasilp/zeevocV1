@@ -13,7 +13,7 @@ class Breadcrumb extends Component{
                                 <div className="breadcrumb-inner pt--100">
                                     <h2 className="title">{title}</h2>
                                     <ul className="page-list">
-                                        <li className="breadcrumb-item"><Link to={`${process.env.PUBLIC_URL}`}>Home</Link></li>
+                                        <li className="breadcrumb-item"><Link to={"/"}>Home</Link></li>
                                         {parent? <li className="breadcrumb-item">{parent}</li>:''}
                                         <li className="breadcrumb-item active">{title}</li>
                                     </ul>
