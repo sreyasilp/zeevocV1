@@ -43,6 +43,7 @@ const refreshToken = async () => {
   } catch (error) {
     console.error('Refresh token failed', error);
     localStorage.removeItem('token'); // Clear token from storage
+    localStorage.removeItem('googeLogin'); // Clear token from storage
     window.location.href = '/login'; // Redirect to login page
     return null;
   }

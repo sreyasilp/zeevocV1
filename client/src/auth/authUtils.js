@@ -19,8 +19,8 @@ export const getUserDetails = async () => {
   const googleLogin = localStorage.getItem("googleLogin");
   console.log(token)
   if (!token) return null;
-  console.log("gl", true);
   if (googleLogin) {
+    console.log("gl", true);
     try {
       const response = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
         headers: {
@@ -39,8 +39,10 @@ export const getUserDetails = async () => {
       return null;
     }
   } else {
+    console.log("gl", false);
     try {
       const userDetails = jwtDecode(token);
+      console.log(userDetails)
       return userDetails;
     } catch (e) {
       console.error("Failed to decode JWT", e);

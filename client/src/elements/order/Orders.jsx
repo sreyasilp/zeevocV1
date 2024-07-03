@@ -22,12 +22,17 @@ const Orders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const userDetails = getUserDetails();
-        const response = await getOrdersByUserId(userDetails.id);
-        setOrders(response.data);
-        setLoading(false);
+        const userDetails = await getUserDetails(); // Await here
+        if (userDetails) {
+          console.log(userDetails);
+          const response = await getOrdersByUserId(userDetails.id);
+          setOrders(response.data);
+        } else {
+          console.error("No user details found");
+        }
       } catch (error) {
         console.error("Error fetching orders:", error);
+      } finally {
         setLoading(false);
       }
     };

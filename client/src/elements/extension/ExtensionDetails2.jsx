@@ -19,7 +19,7 @@ const ExtensionDetails = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [extensionData, setExtensionData] = useState({});
     const [profileData, setProfileData] = useState(null);
-    const [selectedCurrency, setSelectedCurrency] = useState('USD');
+    const [selectedCurrency, setSelectedCurrency] = useState('INR');
     const [exchangeRates, setExchangeRates] = useState({});
 
     const openModal = () => {
@@ -64,7 +64,7 @@ const ExtensionDetails = () => {
 
         const fetchExchangeRates = async () => {
             try {
-                const response = await axios.get(`https://api.exchangerate-api.com/v4/latest/USD`);
+                const response = await axios.get(`https://api.exchangerate-api.com/v4/latest/INR`);
                 setExchangeRates(response.data.rates);
             } catch (error) {
                 console.error("Error fetching exchange rates:", error);
@@ -78,7 +78,7 @@ const ExtensionDetails = () => {
     }, [urlKey, navigate]);
 
     const getConvertedPrice = () => {
-        const basePrice = extensionData.price; // Assuming price is in USD
+        const basePrice = extensionData.price; // Assuming price is in INR
         const rate = exchangeRates[selectedCurrency];
         return rate ? (basePrice * rate).toFixed(2) : basePrice;
     };

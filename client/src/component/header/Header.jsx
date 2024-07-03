@@ -43,6 +43,7 @@ const Header = (props) => {
     const logout = () => {
         // document.cookie = 'token=; Max-Age=0; path=/; secure; samesite=strict';
         localStorage.removeItem('token');
+        localStorage.removeItem('googleLogin');
         setToken(null);
         window.location.href = "/";
     };

@@ -23,7 +23,7 @@ const ExtensionDetails = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [extensionData, setExtensionData] = useState({});
     const [profileData, setProfileData] = useState(null);
-    const [selectedCurrency, setSelectedCurrency] = useState('USD');
+    const [selectedCurrency, setSelectedCurrency] = useState('INR');
     const [exchangeRates, setExchangeRates] = useState({});
     const [selectedImage, setSelectedImage] = useState('https://picsum.photos/seed/picsum/600/400');
     const { isDarkTheme } = useTheme();
@@ -35,6 +35,8 @@ const ExtensionDetails = () => {
         'https://picsum.photos/seed/picsum/200/302',
         'https://picsum.photos/seed/picsum/200/303',
     ];
+
+    const popularCurrencies = ['USD', 'GBP', 'INR', 'AUD', 'EUR', 'CAD', 'JPY', 'CNY']; // Add more if needed
 
     useEffect(() => {
         const fetchExtensionData = async () => {
@@ -74,8 +76,14 @@ const ExtensionDetails = () => {
 
         const fetchExchangeRates = async () => {
             try {
-                const response = await axios.get(`https://api.exchangerate-api.com/v4/latest/USD`);
-                setExchangeRates(response.data.rates);
+                const response = await axios.get(`https://api.exchangerate-api.com/v4/latest/INR`);
+                const filteredRates = Object.keys(response.data.rates)
+                    .filter(currency => popularCurrencies.includes(currency))
+                    .reduce((obj, key) => {
+                        obj[key] = response.data.rates[key];
+                        return obj;
+                    }, {});
+                setExchangeRates(filteredRates);
             } catch (error) {
                 console.error("Error fetching exchange rates:", error);
                 toast.error("Error fetching exchange rates. Please try again later.");
@@ -88,7 +96,7 @@ const ExtensionDetails = () => {
     }, [urlKey, navigate]);
 
     const getConvertedPrice = () => {
-        const basePrice = extensionData.price; // Assuming price is in USD
+        const basePrice = extensionData.price; // Assuming price is in INR
         const rate = exchangeRates[selectedCurrency];
         return rate ? (basePrice * rate).toFixed(2) : basePrice;
     };
