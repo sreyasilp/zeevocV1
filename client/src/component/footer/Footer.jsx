@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import {FaTwitter ,FaInstagram ,FaFacebookF , FaLinkedinIn} from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 
 const SocialShare = [
-    {Social: <FaFacebookF /> , link: 'https://www.facebook.com/'},
-    {Social: <FaLinkedinIn /> , link: 'https://www.linkedin.com/'},
-    {Social: <FaInstagram /> , link: 'https://www.instagram.com/'},
-    {Social: <FaTwitter /> , link: 'https://twitter.com/'},
+    // {Social: <FaFacebookF /> , link: 'https://www.facebook.com/'},
+    { Social: <FaLinkedinIn />, link: 'https://www.linkedin.com/' },
+    { Social: <FaInstagram />, link: 'https://www.instagram.com/' },
+    // {Social: <FaTwitter /> , link: 'https://twitter.com/'},
 ]
 
-class Footer extends Component{
-    render(){
-        return(
+class Footer extends Component {
+    render() {
+        return (
             <React.Fragment>
                 <footer className="footer-area">
                     <div className="footer-wrapper">
@@ -32,11 +32,14 @@ class Footer extends Component{
                                         {/* Start Single Widget  */}
                                         <div className="col-lg-6 col-sm-6 col-12">
                                             <div className="footer-link">
-                                                <h4>Quick Link</h4>
+                                                <h4>Quick Links</h4>
                                                 <ul className="ft-link">
-                                                    <li><a href="/portfolio">Work</a></li>
-                                                    <li><a href="/about">About</a></li>
-                                                    <li><a href="/contact">Let's Talk</a></li>
+                                                    {/* <li><a href="/portfolio">Portfolio</a></li> */}
+                                                    {/* <li><a href="/about">About</a></li> */}
+                                                    {/* <li><a href="/contact">Let's Talk</a></li> */}
+                                                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                                                    <li><a href="/terms-and-conditions">Terms & Conditions</a></li>
+                                                    <li><a href="/refund-policy">Refund Policy</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -46,17 +49,18 @@ class Footer extends Component{
                                             <div className="footer-link">
                                                 <h4>Say Hello</h4>
                                                 <ul className="ft-link">
+                                                    <li><a href="/contact">Let's Talk</a></li>
                                                     <li><a href="mailto:zeevocdigital@gmail.com">zeevocdigital@gmail.com</a></li>
-                                                    <li><a href="mailto:zeevocenterprise@gmail.com">zeevocenterprise@gmail.com</a></li>
+                                                    {/* <li><a href="mailto:zeevocenterprise@gmail.com">zeevocenterprise@gmail.com</a></li> */}
                                                 </ul>
 
                                                 <div className="social-share-inner">
                                                     <ul className="social-share social-style--2 d-flex justify-content-start liststyle mt--15">
-                                                        {SocialShare.map((val , i) => (
+                                                        {SocialShare.map((val, i) => (
                                                             <li key={i}><a href={`${val.link}`}>{val.Social}</a></li>
                                                         ))}
                                                     </ul>
-                                                </div> 
+                                                </div>
                                             </div>
                                         </div>
                                         {/* End Single Widget  */}
