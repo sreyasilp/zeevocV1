@@ -43,7 +43,7 @@ const ExtensionDetailsContent = ({
     };
 
     if (!extensionData) {
-        return <LoadingSpinner/>
+        return <LoadingSpinner />
     }
     return (
         <div className="extension-area ptb--20 bg_color--5">
@@ -105,7 +105,7 @@ const ExtensionDetailsContent = ({
                                 </select>
                             </div>
                             <div className="extension-info-box">
-                                <p>This is an Integration with a Third Party Service. Other charges and fees may be required to use this extension on your Store</p>
+                                <p>Please note that all sales are final. Once a purchase is made, there are no refunds or cancellations available.</p>
                             </div>
                             <div className="extension-price-box">
                                 <div className="extension-price">

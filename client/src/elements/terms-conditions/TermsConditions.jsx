@@ -31,7 +31,7 @@ const TermsAndConditions = () => {
                 <div className="col-lg-12">
                   <div className="terms-inner inner">
                     <div className="section-title">
-                      <h3 className="title">Terms and Conditions</h3>
+                      <h2 className="title">Terms and Conditions</h2>
                       <p className="description">
                         By using this website, you agree to be bound by these terms and conditions. If you do not agree, please do not use this website. We reserve the right to alter and change these terms occasionally, and your continued use of the website represents an agreement to be bound by the amended terms.
                       </p>
@@ -39,7 +39,7 @@ const TermsAndConditions = () => {
                         The website and its content are provided "as is" without any warranties. We do not guarantee the accuracy or completeness of the information on the website and are not liable for any damages that result from its use. You must ensure that your access to this website is legal and does not expose you to risks.
                       </p>
                       <p className="description">
-                        All design and intellectual property on this website is owned by Zeevoc. You are authorized to use the materials for personal, informational, and non-commercial purposes only. Redistribution or commercial use is not allowed without written permission.
+                        All design and intellectual property on this website is owned by Zeevoc Digital. Customers who purchase our Magento 2 extensions are permitted to use them for any of their needs, including commercial purposes on their own websites. Redistribution, sharing, or reselling of our extensions without written permission is strictly prohibited.
                       </p>
                       <p className="description">
                         You agree to indemnify us against all actions arising from your use of this website.

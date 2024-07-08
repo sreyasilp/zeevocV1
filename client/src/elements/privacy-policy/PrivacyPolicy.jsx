@@ -33,7 +33,7 @@ const PrivacyPolicy = () => {
                     <div className="section-title">
                       <h3 className="title">Privacy Policy</h3>
                       <p className="description">
-                        We recognize that your personal information is important to you, and we are committed to protecting your privacy. This policy outlines the type of information collected by Zeevoc, how we use it, and how we protect it.
+                        We recognize that your personal information is important to you, and we are committed to protecting your privacy. This policy outlines the type of information collected by Zeevoc Digital, how we use it, and how we protect it.
                       </p>
                       <p className="description">
                         By using this website, you agree to accept the terms of our current privacy policy. If you do not agree, you may not use our website. We collect personal information such as your name, address, email, and phone number when you inquire about our products or services. This information is used to respond to your inquiries, process your purchases, and send you information about our products and services.
