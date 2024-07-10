@@ -31,9 +31,12 @@
         background-image: inherit !important;
     }
 
-    .bg_color--1,
-    .brand-separation {
+    .bg_color--1 {
         background: #191919;
+    }
+
+    .brand-separation {
+        background: #000000;
     }
 
     .bg_color--5,
@@ -259,6 +262,7 @@
         border-color: #f9004d;
         background-color: #101010;
     }
+
     .rn-button-style--6:hover {
         color: #fff;
         background-color: #101010;
