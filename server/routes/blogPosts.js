@@ -7,7 +7,9 @@ import {
   getBlogPostById,
   updateBlogPost,
   deleteBlogPost,
-  getBlogByUrlKey
+  getBlogByUrlKey,
+  createMultipleBlogPosts,
+  deleteAllBlogPosts
 } from "../controllers/blogPost.js";
 
 const router = express.Router();
@@ -18,5 +20,7 @@ router.get("/getbyid/:id", getBlogPostById);
 router.get("/:urlKey", getBlogByUrlKey);
 router.patch("/updatebyid/:id", adminAuth, updateBlogPost);
 router.delete("/deletebyid/:id", adminAuth, deleteBlogPost);
+router.delete("/deleteall", adminAuth, deleteAllBlogPosts);
+router.post('/createmultiple', createMultipleBlogPosts);
 
 export default router;
