@@ -93,6 +93,19 @@ export const getUser = async (req, res) => {
   }
 };
 
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await userModel.find().select("-password");
+    if (!users.length) {
+      return res.status(404).json({ message: "No users found" });
+    }
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+    console.log(error);
+  }
+};
+
 export const updateUser = async (req, res) => {
   const { email } = req.params;
   const updateData = req.body;
@@ -140,7 +153,6 @@ export const getUserDetails = (req, res) => {
   }
 };
 
-
 export const forgotPassword = async (req, res) => {
   const { email } = req.body;
 
@@ -181,7 +193,6 @@ export const forgotPassword = async (req, res) => {
     res.status(500).json({ message: "Something went wrong" });
   }
 };
-
 
 export const resetPassword = async (req, res) => {
   const { token, newPassword } = req.body;

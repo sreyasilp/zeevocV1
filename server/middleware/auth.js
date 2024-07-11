@@ -40,7 +40,7 @@ export const adminAuth = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, secret);
-    if (decoded.email === 'jibymol@gmail.com') {
+    if (decoded.email === 'admin@zeevoc.com') {
       req.userId = decoded.id;
       next();
     } else {

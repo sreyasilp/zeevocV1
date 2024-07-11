@@ -1,24 +1,30 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
 }
 
-.page-wrapper {
+.admin-page-wrapper {
     display: flex;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.sidebar {
-    height: 100vh;
-    position: fixed;
+.admin-sidebar {
+    height: 100%;
     overflow-y: auto;
     background-color: #f8f9fa; /* Light gray background */
     color: black;
     padding-top: 20px;
     width: 200px;
     border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
 }
 
-.sidebar .nav-link {
+.admin-sidebar .admin-nav-link {
     color: #000000 !important;
     margin: 5px 0;
     padding: 10px;
@@ -26,53 +32,59 @@ body {
     transition: background-color 0.3s;
 }
 
-.sidebar .nav-link:hover {
+.admin-sidebar .admin-nav-link:hover {
     background-color: #e0e0e0;
 }
 
-.sidebar .nav-link.selected {
+.admin-sidebar .admin-nav-link.selected {
     background-color: #007bff; /* Highlight color */
     color: #ffffff !important;
 }
 
-.main-content {
+.admin-main-content {
     margin-left: 220px; /* Adjusted margin to align with sidebar width */
     padding: 20px;
+    height: 100%;
+    overflow-y: auto;
 }
 
-.table {
+.admin-table {
     margin-top: 20px;
 }
 
-.button-group {
+.admin-button-group {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 20px;
 }
 
-.modal-header, .modal-footer {
+.admin-modal-header, .admin-modal-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.modal-header .btn-close {
+.admin-modal-header .admin-btn-close {
     padding: 0;
     margin: 0;
 }
 
-.button {
+.admin-button {
     cursor: pointer;
 }
 
-.button:hover {
+.admin-button:hover {
     background-color: #495057;
 }
 
-h1 {
+.admin-h1 {
     font-size: 2.5em;
 }
 
-.section-title {
+.admin-section-title {
     font-size: 1.5em;
+}
+
+.admin-table-container {
+    overflow-x: auto;
 }

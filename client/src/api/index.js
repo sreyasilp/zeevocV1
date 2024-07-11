@@ -6,6 +6,7 @@ export const forgotPassword = (email) => API.post(`user/forgot-password`, email)
 export const resetPassword = (data) => API.post(`user/reset-password`, data);
 export const updateProfile = (userEmail, profileData) => API.put(`user/${userEmail}`, profileData);
 export const getProfile = (userEmail) => API.get(`user/${userEmail}`);
+export const getAllUsers = () => API.get("/user/all");
 export const getUserDetails = () => API.get("user/get-user");
 
 // Blog APIs

@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Table, Modal, Form } from 'react-bootstrap';
+import { FaEdit, FaTrashAlt, FaPlus } from 'react-icons/fa'; // Importing icons
 import {
     getAllBlogPosts,
     getAllServices,
     getAllOrders,
     createOrder,
     updateProfile,
-    deleteBlogPost,
-    deleteService,
-    deleteOrder,
-    createBlogPost,
-    createService,
-    updateBlogPost,
-    updateService,
+    getAllExtensions
 } from '../../api/index.js'; // Adjust the path as necessary
 
 const MainContent = ({ selectedItem }) => {
@@ -39,13 +34,15 @@ const MainContent = ({ selectedItem }) => {
                 case 'orders':
                     response = await getAllOrders();
                     break;
-                // Add more cases as needed for other items
+                case 'extensions':
+                    response = await getAllExtensions();
+                    break;
                 default:
                     response = { data: [] };
             }
             setData(response.data);
             if (response.data.length > 0) {
-                setColumnsToShow(Object.keys(response.data[0]));
+                setColumnsToShow(Object.keys(response.data[0]).slice(0, 4)); // Show only first 4 columns
             }
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -67,16 +64,9 @@ const MainContent = ({ selectedItem }) => {
     const handleDelete = async (id) => {
         try {
             switch (selectedItem) {
-                case 'blogposts':
-                    await deleteBlogPost(id);
-                    break;
                 case 'services':
-                    await deleteService(id);
+                    // await deleteService(id);
                     break;
-                case 'orders':
-                    await deleteOrder(id);
-                    break;
-                // Add more cases as needed for other items
                 default:
                     break;
             }
@@ -90,31 +80,17 @@ const MainContent = ({ selectedItem }) => {
         try {
             if (isEditing) {
                 switch (selectedItem) {
-                    case 'blogposts':
-                        await updateBlogPost(formData._id, formData);
-                        break;
-                    case 'services':
-                        await updateService(formData._id, formData);
-                        break;
                     case 'orders':
                         await updateProfile(formData.id, formData);
                         break;
-                    // Add more cases as needed for other items
                     default:
                         break;
                 }
             } else {
                 switch (selectedItem) {
-                    case 'blogposts':
-                        await createBlogPost(formData);
-                        break;
-                    case 'services':
-                        await createService(formData);
-                        break;
                     case 'orders':
                         await createOrder(formData);
                         break;
-                    // Add more cases as needed for other items
                     default:
                         break;
                 }
@@ -134,37 +110,45 @@ const MainContent = ({ selectedItem }) => {
 
     const renderTableRows = () => {
         return data.map((item, index) => (
-            <tr key={item._id || item.id}>
+            <tr key={item.id}>
                 <td>{index + 1}</td>
                 {columnsToShow.map((key) => (
-                    <td key={key}>{item[key]}</td>
+                    <td key={key}>{typeof item[key] === 'object' ? JSON.stringify(item[key]) : item[key]}</td>
                 ))}
                 <td>
-                    <Button variant="warning" className="me-2" onClick={() => handleEdit(item)}>Edit</Button>
-                    <Button variant="danger" onClick={() => handleDelete(item._id || item.id)}>Delete</Button>
+                    <Button variant="warning" className="me-2" onClick={() => handleEdit(item)}>
+                        <FaEdit />
+                    </Button>
+                    <Button variant="danger" onClick={() => handleDelete(item.id)}>
+                        <FaTrashAlt />
+                    </Button>
                 </td>
             </tr>
         ));
     };
 
     return (
-        <div className="main-content p-4">
+        <div className="admin-main-content p-4">
             <div className="d-flex justify-content-between align-items-center mb-4">
-                <h1>{selectedItem.charAt(0).toUpperCase() + selectedItem.slice(1)}</h1>
-                <Button variant="primary" onClick={handleAdd}>Add New</Button>
+                <h4>{selectedItem}</h4>
+                <Button variant="primary" onClick={handleAdd}>
+                    <FaPlus />
+                </Button>
             </div>
-            <Table striped bordered hover className="mt-4">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        {renderTableHeader()}
-                        <th>ACTIONS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {renderTableRows()}
-                </tbody>
-            </Table>
+            <div className="admin-table-container">
+                <Table striped bordered hover className="mt-4">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            {renderTableHeader()}
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {renderTableRows()}
+                    </tbody>
+                </Table>
+            </div>
 
             <Modal show={show} onHide={() => setShow(false)}>
                 <Modal.Header closeButton>
@@ -172,12 +156,12 @@ const MainContent = ({ selectedItem }) => {
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        {columnsToShow.map((key) => (
+                        {Object.keys(formData).map((key) => (
                             <Form.Group controlId={`form${key}`} key={key}>
                                 <Form.Label>{key.toUpperCase()}</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    value={formData[key] || ''}
+                                    value={formData[key]}
                                     onChange={(e) => setFormData({ ...formData, [key]: e.target.value })}
                                 />
                             </Form.Group>

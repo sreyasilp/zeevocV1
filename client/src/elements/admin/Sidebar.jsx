@@ -3,7 +3,7 @@ import { Nav } from 'react-bootstrap';
 
 const Sidebar = ({ onSelect }) => {
     const menuItems = [
-         "users", "extensions", "services", "blogposts"
+         "orders","users", "extensions", "services", "blogposts"
     ];
     const [selectedItem, setSelectedItem] = useState(menuItems[0]);
 
