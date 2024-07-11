@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { getBlogList } from "../../api";
+import { getAllBlogPosts } from "../../api";
 import LoadingSpinner from "../../component/spinner/LoadingSpinner";
 
 const BlogList = () => {
@@ -9,7 +9,7 @@ const BlogList = () => {
   useEffect(() => {
     const fetchBlogList = async () => {
       try {
-        const response = await getBlogList();
+        const response = await getAllBlogPosts();
         setPosts(response.data);
         setLoading(false);
       } catch (error) {

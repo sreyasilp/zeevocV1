@@ -1,0 +1,78 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.page-wrapper {
+    display: flex;
+}
+
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+    background-color: #f8f9fa; /* Light gray background */
+    color: black;
+    padding-top: 20px;
+    width: 200px;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar .nav-link {
+    color: #000000 !important;
+    margin: 5px 0;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #e0e0e0;
+}
+
+.sidebar .nav-link.selected {
+    background-color: #007bff; /* Highlight color */
+    color: #ffffff !important;
+}
+
+.main-content {
+    margin-left: 220px; /* Adjusted margin to align with sidebar width */
+    padding: 20px;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.modal-header, .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header .btn-close {
+    padding: 0;
+    margin: 0;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #495057;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+.section-title {
+    font-size: 1.5em;
+}

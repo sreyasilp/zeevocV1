@@ -13,7 +13,7 @@ import Blog from "./elements/blog/Blog";
 import BlogDetails from "./elements/blog/BlogDetails";
 import error404 from "./elements/error404";
 import Team from "./blocks/Team";
-import Admin from "./blocks/Admin";
+import Admin from "./elements/admin/Admin";
 import Products from "./blocks/Products";
 import Orders from './elements/order/Orders';
 import UserProfile from './elements/profile/Profile';
@@ -61,7 +61,7 @@ const Root = () => {
               <Route exact path={`${process.env.PUBLIC_URL}/privacy-policy`} element={<PrivacyPolicy />} />
               <Route exact path={`${process.env.PUBLIC_URL}/refund-policy`} element={<RefundsPolicy />} />
               <Route exact path={`${process.env.PUBLIC_URL}/terms-and-conditions`} element={<TermsAndConditions />} />
-              {/* <Route exact path={`${process.env.PUBLIC_URL}/admin`} element={<Admin />} /> */}
+              <Route exact path={`${process.env.PUBLIC_URL}/admin`} element={<Admin />} />
               <Route path={`${process.env.PUBLIC_URL}/404`} element={<error404 />} />
               <Route path="*" element={<error404 />} />
             </Routes>

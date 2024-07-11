@@ -8,7 +8,7 @@ import ServiceTwo from "../elements/service/ServiceTwo";
 import BrandTwo from "../elements/brand/BrandTwo";
 import Helmet from "../component/common/Helmet";
 import ModalVideo from 'react-modal-video';
-import { getBlogList } from "../api";
+import { getAllBlogPosts } from "../api";
 import { useTheme } from "../context/ThemeContext";
 
 const MainDemo = () => {
@@ -31,7 +31,7 @@ const MainDemo = () => {
         // Fetch Blogs data
         const fetchData = async () => {
             try {
-                const data = await getBlogList();
+                const data = await getAllBlogPosts();
                 setPostList(data.data.slice(0, 3));
             } catch (error) {
                 console.error("Error fetching Blogs:", error);
