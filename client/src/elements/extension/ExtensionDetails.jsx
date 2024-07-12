@@ -155,7 +155,7 @@ const ExtensionDetails = () => {
                 amount: amount.toString(),
                 currency: currency,
                 name: profileData.firstName,
-                description: "Test Transaction",
+                description: "Transaction",
                 order_id: paymentOrderId,
                 handler: async function (response) {
                     const paymentSuccessData = {

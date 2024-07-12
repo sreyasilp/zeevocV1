@@ -44,6 +44,9 @@ const PrivacyPolicy = () => {
                       <p className="description">
                         You have the right to access and correct your personal information, and any complaints about privacy breaches will be investigated promptly. We reserve the right to change this privacy policy at our discretion, and changes will be posted on our website. We encourage you to review the policy regularly to stay informed.
                       </p>
+                      <p className="description">
+                        This privacy policy is maintained by SREYAS THACHANGAD PUSHPADAS, operating under Zeevoc Digital.
+                      </p>
                     </div>
                   </div>
                 </div>
