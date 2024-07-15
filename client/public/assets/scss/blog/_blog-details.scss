@@ -49,7 +49,6 @@
     }
 }
 
-
 .installation-steps {
     margin: 20px 0;
 }
@@ -128,7 +127,7 @@
 }
 
 .rn-blog-details {
-    padding-top: 110px;
+    padding-top: 30px;
     padding-bottom: 70px;
     background-color: #f9f9f9;
 }
@@ -139,19 +138,19 @@
 
 @media (max-width: 1200px) {
     .inner-wrapper .inner {
-        padding: 0 0px;
+        padding: 0 15px;
     }
 }
 
 @media (max-width: 992px) {
     .inner-wrapper .inner {
-        padding: 0 0px;
+        padding: 0 10px;
     }
 }
 
 @media (max-width: 768px) {
     .inner-wrapper .inner {
-        padding: 0 0px;
+        padding: 0 5px;
     }
 }
 

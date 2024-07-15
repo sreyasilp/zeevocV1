@@ -81,19 +81,13 @@ const BlogDetails = () => {
             {/* End Breadcrump Area */}
 
             {/* Start Blog Details */}
-            <div className="rn-blog-details pt--110 pb--70 bg_color--1">
+            <div className="rn-blog-details pt--50 pb--70 bg_color--1">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="inner-wrapper">
                                 <div className="inner" ref={contentRef}>
                                     <div dangerouslySetInnerHTML={{ __html: blogData.html_content }} />
-                                    <div className="video-wrapper position-relative mb--40">
-                                        <div className="thumbnail">
-                                            <img src="/assets/images/blog/bl-big-01.jpg" alt="Blog Images" />
-                                        </div>
-                                        <button className="video-popup position-top-center" onClick={openModal}><span className="play-icon"></span></button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
