@@ -92,7 +92,7 @@
 }
 
 .extension-details {
-    flex: 0.6;
+    flex: 0.8;
     min-width: 300px;
     /* Ensure minimum width for better display on mobile */
 }
