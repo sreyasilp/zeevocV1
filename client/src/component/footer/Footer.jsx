@@ -3,7 +3,7 @@ import { FaTwitter, FaInstagram, FaFacebookF, FaLinkedinIn } from "react-icons/f
 
 const SocialShare = [
     // {Social: <FaFacebookF /> , link: 'https://www.facebook.com/'},
-    // { Social: <FaLinkedinIn />, link: 'https://www.linkedin.com/' },
+    { Social: <FaLinkedinIn />, link: 'https://www.linkedin.com/' },
     { Social: <FaInstagram />, link: 'https://www.instagram.com/zeevoc_digital' },
     // {Social: <FaTwitter /> , link: 'https://twitter.com/'},
 ]

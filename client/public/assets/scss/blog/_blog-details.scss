@@ -89,13 +89,13 @@
 .blog-single-page-title h2 {
     font-weight: 700;
     line-height: 90px;
-    font-size: 72px;
+    font-size: 54px;
 }
 
 @media (max-width: 768px) {
     .blog-single-page-title h2 {
         line-height: 62px;
-        font-size: 40px;
+        font-size: 30px;
     }
 }
 
@@ -305,3 +305,25 @@
     padding: 15px;
     font-size: 16px;
 }
+.code-download {
+    margin-top: 40px;
+    text-align: center;
+}
+.download-button {
+    background: #f9004d;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    border: 2px solid #f9004d;
+}
+
+.download-button:hover {
+    background: rgba(0, 0, 0, 0);
+    color: #f9004d;
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+

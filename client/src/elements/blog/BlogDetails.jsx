@@ -8,10 +8,8 @@ import Footer from "../../component/footer/Footer";
 import ModalVideo from 'react-modal-video';
 import PageHelmet from "../../component/common/Helmet";
 import { getBlogByUrlKey } from "../../api";
-// import 'prismjs/themes/prism.css';
-// import Prism from 'prismjs';
-// import 'prismjs/components/prism-bash.min.js';
-// import 'prismjs/components/prism-sql.min.js';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BlogDetails = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +23,10 @@ const BlogDetails = () => {
 
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text).then(() => {
-            alert("Copied to clipboard!");
+            toast.success("Copied to clipboard!", {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 1000
+            });
         });
     };
 
@@ -105,6 +106,7 @@ const BlogDetails = () => {
             {/* End Back To Top */}
 
             <Footer />
+            <ToastContainer />
         </React.Fragment>
     );
 };
