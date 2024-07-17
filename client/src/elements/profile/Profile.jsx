@@ -151,7 +151,7 @@ const UserProfile = () => {
 
                 <Breadcrumb title={"Profile"} />
 
-                <div className="profile-details pt--90 pb--120 bg_color--1">
+                <div className="profile-details pt--60 pb--120 bg_color--1">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
