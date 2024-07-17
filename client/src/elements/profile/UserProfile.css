@@ -34,8 +34,8 @@
 
 .profile-image img {
     border-radius: 50%;
-    width: 120px;  /* Ensure width and height are the same */
-    height: 120px; /* Ensure width and height are the same */
+    width: 100px;  /* Ensure width and height are the same */
+    height: 100px; /* Ensure width and height are the same */
     object-fit: cover;
 }
 
