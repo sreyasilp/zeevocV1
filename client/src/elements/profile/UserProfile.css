@@ -168,6 +168,11 @@
     font-size: 14px;
 }
 
+.placeholder-text {
+    color: #888;
+    font-style: italic;
+}
+
 .error-message {
     color: red;
     font-size: 12px;

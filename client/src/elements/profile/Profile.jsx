@@ -139,6 +139,21 @@ const UserProfile = () => {
         }
     };
 
+    const renderProfileItem = (label, value, isEditing, inputProps) => {
+        return (
+            <div className="profile-item">
+                <div className="profile-label">{label}:</div>
+                <div className="profile-value">
+                    {isEditing ? (
+                        <input {...inputProps} value={value || ""} onChange={handleInputChange} />
+                    ) : (
+                        value || "Not provided"
+                    )}
+                </div>
+            </div>
+        );
+    };
+
     return (
         <React.Fragment>
             <div className={isDarkTheme ? "active-dark" : "active-white"}>
@@ -178,35 +193,44 @@ const UserProfile = () => {
                                             <div className="profile-info">
                                                 {isEditing ? (
                                                     <>
-                                                        <input
-                                                            type="text"
-                                                            name="firstName"
-                                                            value={profile.firstName}
-                                                            onChange={handleInputChange}
-                                                            placeholder="First Name"
-                                                            className="profile-form-control"
-                                                            maxLength="30"
-                                                        />
+                                                        {renderProfileItem(
+                                                            "First Name",
+                                                            profile.firstName,
+                                                            isEditing,
+                                                            {
+                                                                type: "text",
+                                                                name: "firstName",
+                                                                placeholder: "First Name",
+                                                                className: "profile-form-control",
+                                                                maxLength: "30"
+                                                            }
+                                                        )}
                                                         <span className="error-message">{validationErrors.firstName}</span>
-                                                        <input
-                                                            type="text"
-                                                            name="lastName"
-                                                            value={profile.lastName}
-                                                            onChange={handleInputChange}
-                                                            placeholder="Last Name"
-                                                            className="profile-form-control"
-                                                            maxLength="30"
-                                                        />
+                                                        {renderProfileItem(
+                                                            "Last Name",
+                                                            profile.lastName,
+                                                            isEditing,
+                                                            {
+                                                                type: "text",
+                                                                name: "lastName",
+                                                                placeholder: "Last Name",
+                                                                className: "profile-form-control",
+                                                                maxLength: "30"
+                                                            }
+                                                        )}
                                                         <span className="error-message">{validationErrors.lastName}</span>
-                                                        <input
-                                                            type="text"
-                                                            name="phoneNumber"
-                                                            value={profile.phoneNumber}
-                                                            onChange={handleInputChange}
-                                                            placeholder="Phone Number"
-                                                            className="profile-form-control"
-                                                            maxLength="10"
-                                                        />
+                                                        {renderProfileItem(
+                                                            "Phone Number",
+                                                            profile.phoneNumber,
+                                                            isEditing,
+                                                            {
+                                                                type: "text",
+                                                                name: "phoneNumber",
+                                                                placeholder: "Phone Number",
+                                                                className: "profile-form-control",
+                                                                maxLength: "10"
+                                                            }
+                                                        )}
                                                         <span className="error-message">{validationErrors.phoneNumber}</span>
                                                     </>
                                                 ) : (
@@ -219,106 +243,69 @@ const UserProfile = () => {
                                             </div>
                                         </div>
                                         <div className="profile-content">
-                                            <div className="profile-item">
-                                                <div className="profile-label">Gender:</div>
-                                                <div className="profile-value">
-                                                    {isEditing ? (
-                                                        <>
-                                                            <select
-                                                                name="sex"
-                                                                value={profile.sex}
-                                                                onChange={handleInputChange}
-                                                                className="profile-form-control"
-                                                            >
-                                                                <option value="">Select...</option>
-                                                                <option value="Male">Male</option>
-                                                                <option value="Female">Female</option>
-                                                                <option value="Other">Other</option>
-                                                            </select>
-                                                            <span className="error-message">{validationErrors.sex}</span>
-                                                        </>
-                                                    ) : (
-                                                        profile.sex
-                                                    )}
-                                                </div>
-                                            </div>
-                                            <div className="profile-item">
-                                                <div className="profile-label">Date of Birth:</div>
-                                                <div className="profile-value">
-                                                    {isEditing ? (
-                                                        <Datetime
-                                                            value={moment(profile.dateOfBirth)}
-                                                            onChange={handleDateChange}
-                                                            dateFormat="DD-MM-YYYY"
-                                                            timeFormat={false}
-                                                            className="profile-form-control"
-                                                        />
-                                                    ) : (
-                                                        moment(profile.dateOfBirth).format("DD-MM-YYYY")
-                                                    )}
-                                                </div>
-                                            </div>
-                                            <div className="profile-item">
-                                                <div className="profile-label">Street Address:</div>
-                                                <div className="profile-value">
-                                                    {isEditing ? (
-                                                        <>
-                                                            <input
-                                                                type="text"
-                                                                name="address_line_one"
-                                                                value={profile.address_line_one}
-                                                                onChange={handleInputChange}
-                                                                className="profile-form-control"
-                                                                maxLength="100"
-                                                            />
-                                                            <span className="error-message">{validationErrors.address_line_one}</span>
-                                                        </>
-                                                    ) : (
-                                                        profile.address_line_one
-                                                    )}
-                                                </div>
-                                            </div>
-                                            <div className="profile-item">
-                                                <div className="profile-label">City/State/Suburb</div>
-                                                <div className="profile-value">
-                                                    {isEditing ? (
-                                                        <>
-                                                            <input
-                                                                type="text"
-                                                                name="address_line_two"
-                                                                value={profile.address_line_two}
-                                                                onChange={handleInputChange}
-                                                                className="profile-form-control"
-                                                                maxLength="100"
-                                                            />
-                                                            <span className="error-message">{validationErrors.address_line_two}</span>
-                                                        </>
-                                                    ) : (
-                                                        profile.address_line_two
-                                                    )}
-                                                </div>
-                                            </div>
-                                            <div className="profile-item">
-                                                <div className="profile-label">Pincode:</div>
-                                                <div className="profile-value">
-                                                    {isEditing ? (
-                                                        <>
-                                                            <input
-                                                                type="text"
-                                                                name="pincode"
-                                                                value={profile.pincode}
-                                                                onChange={handleInputChange}
-                                                                className="profile-form-control"
-                                                                maxLength="6"
-                                                            />
-                                                            <span className="error-message">{validationErrors.pincode}</span>
-                                                        </>
-                                                    ) : (
-                                                        profile.pincode
-                                                    )}
-                                                </div>
-                                            </div>
-                                            
+                                            {renderProfileItem(
+                                                "Gender",
+                                                profile.sex,
+                                                isEditing,
+                                                {
+                                                    type: "text",
+                                                    name: "sex",
+                                                    placeholder: "Gender",
+                                                    className: "profile-form-control",
+                                                }
+                                            )}
+                                            <span className="error-message">{validationErrors.sex}</span>
+                                            {renderProfileItem(
+                                                "Date of Birth",
+                                                moment(profile.dateOfBirth).format("DD-MM-YYYY"),
+                                                isEditing,
+                                                {
+                                                    type: "text",
+                                                    name: "dateOfBirth",
+                                                    placeholder: "Date of Birth",
+                                                    className: "profile-form-control",
+                                                }
+                                            )}
+                                            <span className="error-message">{validationErrors.dateOfBirth}</span>
+                                            {renderProfileItem(
+                                                "Street Address",
+                                                profile.address_line_one,
+                                                isEditing,
+                                                {
+                                                    type: "text",
+                                                    name: "address_line_one",
+                                                    placeholder: "Street Address",
+                                                    className: "profile-form-control",
+                                                    maxLength: "30"
+                                                }
+                                            )}
+                                            <span className="error-message">{validationErrors.address_line_one}</span>
+                                            {renderProfileItem(
+                                                "City/State/Suburb",
+                                                profile.address_line_two,
+                                                isEditing,
+                                                {
+                                                    type: "text",
+                                                    name: "address_line_two",
+                                                    placeholder: "City/State/Suburb",
+                                                    className: "profile-form-control",
+                                                    maxLength: "30"
+                                                }
+                                            )}
+                                            <span className="error-message">{validationErrors.address_line_two}</span>
+                                            {renderProfileItem(
+                                                "Pincode",
+                                                profile.pincode,
+                                                isEditing,
+                                                {
+                                                    type: "text",
+                                                    name: "pincode",
+                                                    placeholder: "Pincode",
+                                                    className: "profile-form-control",
+                                                    maxLength: "6"
+                                                }
+                                            )}
+                                            <span className="error-message">{validationErrors.pincode}</span>
                                         </div>
                                         <div className="profile-actions">
                                             {isEditing ? (
