@@ -75,11 +75,14 @@ function LoginForm() {
     setEmailError("");
     setPasswordError("");
 
+    // Trim spaces and convert email to lowercase
+    const trimmedEmail = email.trim().toLowerCase();
+
     // Validate email
-    if (!email) {
+    if (!trimmedEmail) {
       errors.email = "Email is required";
       setEmailError("Email is required"); // Set email error message
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
+    } else if (!/\S+@\S+\.\S+/.test(trimmedEmail)) {
       errors.email = "Email address is invalid";
       setEmailError("Email address is invalid"); // Set email error message
     }
@@ -99,7 +102,7 @@ function LoginForm() {
     if (Object.keys(errors).length === 0) {
       try {
         const response = await signIn({
-          email: email,
+          email: trimmedEmail, // Use the trimmed and lowercased email
           password: password,
         });
         localStorage.setItem("token", response.data.token);
@@ -156,12 +159,12 @@ function LoginForm() {
                       name="email"
                       id="item02"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => setEmail(e.target.value.trim().toLowerCase())} // Trim and convert to lowercase
                       placeholder="Email"
                       required
                     />
                     {/* Render email error message */}
-                    {/* {emailError && <div className="error-message">{emailError}</div>} TODO LATER*/} 
+                    {emailError && <div className="error-message">{emailError}</div>}
                   </label>
                   <label htmlFor="item04">
                     <input
@@ -174,7 +177,7 @@ function LoginForm() {
                       required
                     />
                     {/* Render password error message */}
-                    {/* {passwordError && <div className="error-message">{passwordError}</div>} */}
+                    {passwordError && <div className="error-message">{passwordError}</div>}
                   </label>
                   <p className="signup-link">
                     Doesn't have an Account?{" "}

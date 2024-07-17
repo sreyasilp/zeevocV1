@@ -10,8 +10,12 @@ function ForgotPasswordForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Trim spaces and convert email to lowercase
+    const trimmedEmail = email.trim().toLowerCase();
+
     try {
-      await forgotPassword({ email });
+      await forgotPassword({ email: trimmedEmail });
       toast.success("Password reset link sent!", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 5000,
@@ -32,7 +36,7 @@ function ForgotPasswordForm() {
       console.error("Forgot password error:", error);
     }
   };
-  
+
   return (
     <div className="contact-form--1">
       <ToastContainer />
@@ -51,7 +55,7 @@ function ForgotPasswordForm() {
                     name="email"
                     id="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value.trim().toLowerCase())} // Trim and convert to lowercase
                     placeholder="Email"
                     required
                   />
