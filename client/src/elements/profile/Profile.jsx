@@ -155,13 +155,6 @@ const UserProfile = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
-                                <div className="section-title text-center mb--30">
-                                    <h2>User Profile</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-lg-12">
                                 {loading ? (
                                    <LoadingSpinner/>
                                 ) : (
