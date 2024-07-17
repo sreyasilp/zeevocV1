@@ -28,7 +28,7 @@ const UserProfile = () => {
 
     const fetchProfile = async () => {
         try {
-            const userDetails = getUserDetails();
+            const userDetails = await getUserDetails();
             const email = userDetails.email;
             const response = await getProfile(email);
             setProfile(response.data.user);
@@ -56,17 +56,26 @@ const UserProfile = () => {
 
     const handleImageChange = (e) => {
         if (e.target.files && e.target.files[0]) {
-            setProfileImage(URL.createObjectURL(e.target.files[0]));
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setProfileImage(reader.result);
+                setProfile((prevProfile) => ({
+                    ...prevProfile,
+                    profileImage: reader.result,
+                }));
+            };
+            reader.readAsDataURL(file);
         }
-    };
+    };    
 
     const validateForm = () => {
         const errors = {};
         if (!profile.firstName) errors.firstName = "First name is required";
-        else if (profile.firstName.length > 15) errors.firstName = "First name cannot exceed 15 characters";
+        else if (profile.firstName.length > 20) errors.firstName = "First name cannot exceed 20 characters";
 
         if (!profile.lastName) errors.lastName = "Last name is required";
-        else if (profile.lastName.length > 15) errors.lastName = "Last name cannot exceed 15 characters";
+        else if (profile.lastName.length > 20) errors.lastName = "Last name cannot exceed 20 characters";
 
         if (!profile.email) {
             errors.email = "Email is required";
@@ -83,18 +92,11 @@ const UserProfile = () => {
         if (!profile.sex) errors.sex = "Sex is required";
 
         if (!profile.address_line_one) errors.address_line_one = "Address line 1 is required";
-        else if (profile.address_line_one.length > 20) errors.address_line_one = "Address line 1 cannot exceed 20 characters";
+        else if (profile.address_line_one.length > 30) errors.address_line_one = "Address line 1 cannot exceed 30 characters";
 
-        if (profile.address_line_two && profile.address_line_two.length > 20) {
-            errors.address_line_two = "Address line 2 cannot exceed 20 characters";
+        if (profile.address_line_two && profile.address_line_two.length > 30) {
+            errors.address_line_two = "Address line 2 cannot exceed 30 characters";
         }
-
-        if (!profile.city) errors.city = "City is required";
-        else if (profile.city.length > 15) errors.city = "City cannot exceed 15 characters";
-
-        if (!profile.country) errors.country = "Country is required";
-        else if (profile.country.length > 10) errors.country = "Country cannot exceed 10 characters";
-
         if (!profile.pincode) {
             errors.pincode = "Pincode is required";
         } else if (!/^\d{6}$/.test(profile.pincode)) {
@@ -106,9 +108,26 @@ const UserProfile = () => {
 
     const handleSubmit = async () => {
         const errors = validateForm();
+        console.log(Object.keys(errors))
+
         if (Object.keys(errors).length === 0) {
             try {
-                await updateProfile(profile.email, profile);
+                console.log('fccg')
+                const formData = {
+                    email: profile.email,
+                    firstName: profile.firstName,
+                    lastName: profile.lastName,
+                    phoneNumber: profile.phoneNumber,
+                    sex: profile.sex,
+                    address_line_one: profile.address_line_one,
+                    address_line_two: profile.address_line_two,
+                    city: profile.city,
+                    country: profile.country,
+                    pincode: profile.pincode,
+                    profileImage: profile.profileImage, // Add the Base64 image here
+                };
+
+                await updateProfile(profile.email, formData);
                 setIsEditing(false);
                 setValidationErrors({});
                 fetchProfile();
@@ -149,7 +168,11 @@ const UserProfile = () => {
                                     <div className="profile-card">
                                         <div className="profile-header">
                                             <div className="profile-image">
-                                                <img src={profileImage || "https://picsum.photos/id/237/200/300"} alt="Profile" />
+                                                {profile.profileImage ? (
+                                                    <img src={profile.profileImage} alt="Profile" />
+                                                ) : (
+                                                    <img src="https://picsum.photos/id/237/200/300" alt="Profile" />
+                                                )}
                                                 {isEditing && (
                                                     <div className="image-upload">
                                                         <label htmlFor="file-upload" className="custom-file-upload">

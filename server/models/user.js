@@ -12,6 +12,7 @@ const userSchema = new mongoose.Schema({
   city: { type: String },
   country: { type: String }, 
   pincode: { type: String }, 
+  profileImage:  { type: String }
 });
 
 export default mongoose.model("User", userSchema);

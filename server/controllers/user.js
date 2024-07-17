@@ -3,6 +3,8 @@ import jwt from "jsonwebtoken";
 import { jwtDecode } from "jwt-decode";
 import userModel from "../models/user.js";
 import nodemailer from "nodemailer";
+import fs from 'fs';
+
 const secret = "code416";
 
 const validateEmail = (email) => {
@@ -109,6 +111,16 @@ export const getAllUsers = async (req, res) => {
 export const updateUser = async (req, res) => {
   const { email } = req.params;
   const updateData = req.body;
+
+  if (req.file) {
+    // Convert image to Base64
+    const fileBuffer = fs.readFileSync(req.file.path);
+    const base64Image = `data:${req.file.mimetype};base64,${fileBuffer.toString('base64')}`;
+    updateData.profileImage = base64Image;
+
+    // Optionally, delete the file after reading it
+    fs.unlinkSync(req.file.path);
+  }
 
   try {
     const updatedUser = await userModel.findOneAndUpdate({ email }, updateData, { new: true }).select("-password");
