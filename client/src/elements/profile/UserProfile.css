@@ -34,9 +34,19 @@
 
 .profile-image img {
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 120px;  /* Ensure width and height are the same */
+    height: 120px; /* Ensure width and height are the same */
     object-fit: cover;
+}
+
+@media (min-width: 768px) {
+    .profile-image {
+        margin-left: 20px; /* Add margin only on desktop view */
+    }
+
+    .profile-image img {
+        border-radius: 50%; /* Ensure the image is circular */
+    }
 }
 
 .image-upload {
@@ -98,7 +108,6 @@
 
 .rdtOpen {
     border-color: #f9004d;
-
 }
 
 .profile-actions {
