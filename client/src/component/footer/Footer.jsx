@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { FaTwitter, FaInstagram, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
 const SocialShare = [
-    // {Social: <FaFacebookF /> , link: 'https://www.facebook.com/'},
-    { Social: <FaLinkedinIn />, link: 'https://www.linkedin.com/' },
+    { Social: <FaLinkedinIn />, link: 'https://www.linkedin.com/in/zeevoc-digital' },
+    { Social: <FaYoutube />, link: 'https://www.youtube.com/zeevocdigital' },
     { Social: <FaInstagram />, link: 'https://www.instagram.com/zeevoc_digital' },
     // {Social: <FaTwitter /> , link: 'https://twitter.com/'},
 ]
