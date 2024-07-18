@@ -46,7 +46,7 @@ const TabStyleThree = ({ column }) => {
                                     <div className="thumbnail-inner">
                                         <div className="thumbnail">
                                             <a href={`/extension/${value.urlKey}`}>
-                                                <img src={`/assets/images/portfolio/dp-portfolio-03.jpg`} alt="Portfolio Images" />
+                                                <img src={`/assets/images/portfolio/extension1.png`} alt="Portfolio Images" />
                                             </a>
                                         </div>
                                     </div>
