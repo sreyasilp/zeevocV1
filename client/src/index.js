@@ -31,6 +31,7 @@ import dotenv from 'dotenv';
 import PrivacyPolicy from './elements/privacy-policy/PrivacyPolicy';
 import TermsAndConditions from './elements/terms-conditions/TermsConditions';
 import RefundsPolicy from './elements/refund-policy/RefundPolicy';
+import Gallery from './elements/gallery/Gallery';
 dotenv.config();
 
 const Root = () => {
@@ -57,7 +58,7 @@ const Root = () => {
               <Route exact path={`${process.env.PUBLIC_URL}/blogs`} element={<Blog />} />
               <Route exact path={`${process.env.PUBLIC_URL}/blog/:urlKey`} element={<BlogDetails />} />
               <Route exact path={`${process.env.PUBLIC_URL}/team`} element={<Team />} />
-              <Route exact path={`${process.env.PUBLIC_URL}/team`} element={<Team />} />
+              <Route exact path={`${process.env.PUBLIC_URL}/gallery`} element={<Gallery />} />
               <Route exact path={`${process.env.PUBLIC_URL}/privacy-policy`} element={<PrivacyPolicy />} />
               <Route exact path={`${process.env.PUBLIC_URL}/refund-policy`} element={<RefundsPolicy />} />
               <Route exact path={`${process.env.PUBLIC_URL}/terms-and-conditions`} element={<TermsAndConditions />} />
