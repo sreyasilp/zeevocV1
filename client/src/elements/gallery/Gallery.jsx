@@ -106,8 +106,8 @@ const Gallery = () => {
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="rn-page-title text-center pt--100">
-                                        <h2 className="title theme-gradient">Gallery</h2>
-                                        <p>Explore our collection of beautiful images.</p>
+                                        <h2 className="title theme-gradient">Gone but not Forgotten.</h2>
+                                        <p>Gone for good.</p>
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +116,7 @@ const Gallery = () => {
                     {/* End Gallery Area */}
 
                     {/* Start Gallery Wrapper */}
-                    <div className="rn-gallery-details ptb--30 bg_color--1">
+                    <div className="rn-gallery-details ptb--10 bg_color--1">
                         <div className="container">
                             <div className="row section-heading">
                                 <div className="col-12">

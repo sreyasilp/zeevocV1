@@ -28,7 +28,7 @@
         }
     }
     .section-heading {
-        margin-top: 0px;
+        margin-top: 20px;
         margin-bottom: 20px;
         text-align: center;
         .title {
@@ -40,6 +40,18 @@
             font-size: 18px;
             color: rgba(0, 0, 0, 0.7);
             margin-bottom: 0;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .rn-gallery-details {
+        .gallery-item {
+            .thumb {
+                img {
+                    margin-bottom: 20px;
+                }
+            }
         }
     }
 }
@@ -123,6 +135,9 @@
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
 }
 
 .password-modal-overlay {
@@ -148,6 +163,7 @@
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .password-modal-content button {
@@ -158,8 +174,29 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
 }
 
 .password-modal-content button:hover {
     background: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .password-modal {
+        padding: 20px;
+    }
+    .password-modal-content h2 {
+        font-size: 20px;
+    }
+    .password-modal-content input {
+        padding: 8px;
+        font-size: 14px;
+    }
+    .password-modal-content button {
+        padding: 8px 16px;
+        font-size: 14px;
+        max-width: 100%;
+    }
 }
