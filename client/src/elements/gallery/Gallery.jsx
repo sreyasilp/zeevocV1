@@ -20,7 +20,8 @@ const Gallery = () => {
     };
 
     const handlePasswordSubmit = () => {
-        if (password === 'iamsorry') { // Replace 'iamsorry' with the actual password
+        const galleryPassword = process.env.REACT_APP_GALLERY_PASSWORD;
+        if (password === galleryPassword) {
             setIsAuthenticated(true);
             setIsPasswordModalOpen(false);
         } else {
@@ -115,7 +116,7 @@ const Gallery = () => {
                     {/* End Gallery Area */}
 
                     {/* Start Gallery Wrapper */}
-                    <div className="rn-gallery-details ptb--20 bg_color--1">
+                    <div className="rn-gallery-details ptb--30 bg_color--1">
                         <div className="container">
                             <div className="row section-heading">
                                 <div className="col-12">
@@ -130,10 +131,10 @@ const Gallery = () => {
                                             <div className="thumb">
                                                 <img className="w-100" src={item.imgSrc} alt={item.title} />
                                             </div>
-                                            <div className="details mt_md--60 mt_sm--30">
+                                            {/* <div className="details mt_md--60 mt_sm--30">
                                                 <h4 className="title">{item.title}</h4>
                                                 <p>{item.description}</p>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 ))}
@@ -151,10 +152,10 @@ const Gallery = () => {
                                             <div className="thumb">
                                                 <img className="w-100" src={item.imgSrc} alt={item.title} />
                                             </div>
-                                            <div className="details mt_md--30 mt_sm--30">
+                                            {/* <div className="details mt_md--30 mt_sm--30">
                                                 <h4 className="title">{item.title}</h4>
                                                 <p>{item.description}</p>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 ))}
