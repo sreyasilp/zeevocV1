@@ -1,5 +1,8 @@
 server/*node_modules/*
 client/*node_modules/*
 strapi-server/*node_modules/*
+# .gitignore
+client/build/
 
 client/.env
+server/.env
